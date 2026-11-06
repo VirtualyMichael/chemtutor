@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChemTutor</title>
+<style>
+:root{
+  --bg:#f4f6f9;--surface:#fff;--surface2:#f0f3f8;--fg:#18202e;--mut:#667085;--bd:#e3e8ef;
+  --acc:#2563eb;--acc-fg:#fff;--acc-soft:#e8effd;--ok:#16794a;--ok-soft:#e5f6ec;--bad:#b42318;--bad-soft:#fdecea;
+  --warn-soft:#fff6e0;--shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);--r:12px}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1319;--surface:#171c24;--surface2:#1e2530;--fg:#e8ecf3;--mut:#9aa4b5;--bd:#2a3340;
+  --acc:#5b8cff;--acc-fg:#0b1020;--acc-soft:#1c2a4a;--ok:#4cc38a;--ok-soft:#14301f;--bad:#ff8a80;--bad-soft:#3a1a18;
+  --warn-soft:#33290f;--shadow:none}}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,"Segoe UI",Inter,system-ui,sans-serif}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;gap:16px;padding:0 20px;height:56px}
+.brand{font-weight:700;font-size:17px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.logo{width:26px;height:26px;border-radius:8px;background:var(--acc);color:var(--acc-fg);display:grid;place-items:center;font-size:14px;font-weight:800}
+.tabs{display:flex;gap:4px;margin-left:12px}
+.tab{background:none;border:0;color:var(--mut);padding:8px 14px;border-radius:8px;font-weight:600}
+.tab:hover{background:var(--surface2)}.tab.on{background:var(--acc-soft);color:var(--acc)}
+.spacer{flex:1}
+.badge{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--mut);background:var(--surface2);padding:5px 10px;border-radius:99px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mut)}.dot.up{background:var(--ok)}.dot.down{background:var(--bad)}
+
+/* layout */
+.app{display:grid;grid-template-columns:320px 1fr;gap:20px;max-width:1200px;margin:0 auto;padding:20px;align-items:start}
+@media(max-width:860px){.app{grid-template-columns:1fr;padding:12px}.side{position:static!important;max-height:none!important}}
+.card{background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);box-shadow:var(--shadow)}
+
+/* sidebar */
+.side{position:sticky;top:76px;max-height:calc(100vh - 96px);display:flex;flex-direction:column;overflow:hidden}
+.filters{padding:12px;border-bottom:1px solid var(--bd);display:grid;grid-template-columns:1fr auto;gap:8px}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;width:100%}
+.list{overflow:auto;padding:6px 8px 12px}
+.grp{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;color:var(--mut);
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 8px 6px;text-align:left}
+.item{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;color:var(--fg);
+  padding:8px;border-radius:8px;line-height:1.35}
+.item:hover{background:var(--surface2)}.item.on{background:var(--acc-soft)}
+.item .t{flex:1;font-size:13.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mark{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd);flex:none;margin-top:1px;display:grid;place-items:center;font-size:11px;color:#fff}
+.mark.ok{background:var(--ok);border-color:var(--ok)}.mark.try{border-color:#d9a21b}
+.empty{padding:24px;text-align:center;color:var(--mut)}
+
+.rev{padding:12px;border-bottom:1px solid var(--bd)}
+.rev .btn{width:100%}.rev .done{display:flex;align-items:center;gap:8px;color:var(--ok);font-weight:600;font-size:14px}
+.rev .sub{color:var(--mut);font-weight:400}
+.rev .qpos{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
+.srs{font-weight:500;font-size:13px;opacity:.85;margin-top:2px}
+.sched{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding:16px 22px}
+.sched div{background:var(--surface2);border-radius:10px;padding:12px}.sched b{display:block;font-size:22px}
+.sched span{color:var(--mut);font-size:13px}
+/* cheat sheet drawer */
+.sbtn{background:var(--surface);color:var(--fg);border:1px solid var(--bd);border-radius:9px;padding:7px 12px;font-weight:600;font-size:14px}
+.sbtn:hover{background:var(--surface2)}.sbtn:disabled{opacity:.45;cursor:not-allowed}
+.sheet{position:fixed;top:56px;right:0;bottom:0;width:min(580px,100vw);background:var(--surface);border-left:1px solid var(--bd);
+  box-shadow:-8px 0 24px rgba(16,24,40,.12);transform:translateX(105%);transition:transform .2s ease;z-index:6;display:flex;flex-direction:column}
+.sheet.open{transform:none}
+.sh-h{padding:12px 14px;border-bottom:1px solid var(--bd);display:grid;gap:8px}
+.sh-t{display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.sh-x{background:none;border:0;font-size:20px;color:var(--mut);padding:2px 8px;border-radius:6px}.sh-x:hover{background:var(--surface2)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:none;border:1px solid var(--bd);background:var(--surface);color:var(--fg);border-radius:99px;padding:3px 10px;font-size:12.5px}
+.chip:hover{background:var(--acc-soft);border-color:var(--acc)}
+.sh-b{overflow:auto;padding:6px 14px 40px;flex:1}
+.sh-b details{border-bottom:1px solid var(--bd)}
+.sh-b summary{cursor:pointer;font-weight:700;padding:11px 0;list-style:none;display:flex;justify-content:space-between}
+.sh-b summary::-webkit-details-marker{display:none}.sh-b summary span{color:var(--mut);font-weight:500;font-size:13px}
+.en{margin:0 0 14px}.enn{font-weight:600;font-size:14px}
+.eqn{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--surface2);border-radius:7px;padding:6px 9px;margin:4px 0;overflow-x:auto;white-space:pre-wrap}
+.ent{color:var(--mut);font-size:13px}
+.en ol,.en ul{margin:4px 0 0;padding-left:20px;font-size:14px}.en li{margin:3px 0}
+.en table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.en th{text-align:left;color:var(--mut);font-weight:600;border-bottom:1px solid var(--bd);padding:4px 6px}
+.en td{padding:4px 6px;border-bottom:1px solid var(--surface2);vertical-align:top}
+.ptw{overflow-x:auto;margin:6px 0 10px}.pt{display:grid;grid-template-columns:repeat(18,minmax(27px,1fr));gap:2px;min-width:500px}
+.el{height:44px;background:var(--surface2);border-radius:4px;padding:1px 0;font-size:8.5px;line-height:1.1;overflow:hidden;text-align:center;position:relative;border:1px solid transparent}
+.el b{display:block;font-size:13px;margin-top:10px}.el i{font-style:normal;color:var(--mut);position:absolute;left:2px;top:1px;font-size:7.5px}
+.el.hit{background:var(--acc);color:var(--acc-fg);border-color:var(--acc)}.el.hit i{color:var(--acc-fg)}
+.el.dim{opacity:.3}.heavy{font-size:12.5px;color:var(--mut)}
+.nomatch{padding:30px 6px;text-align:center;color:var(--mut)}
+/* free response */
+.stem{background:var(--surface2);border-radius:10px;padding:12px 14px;font-size:15px;white-space:pre-wrap}
+.stem .mono{font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre}
+.rub{display:flex;gap:8px;align-items:flex-start;padding:6px 0;font-size:14px;cursor:pointer}
+.rub input{width:auto;margin-top:4px}
+.fa{margin-top:2px}
+/* mock exam */
+.tab:disabled{opacity:.4;cursor:not-allowed}.tab:disabled:hover{background:none}
+.lock{background:var(--warn-soft);border-radius:10px;padding:10px 14px;font-size:14px}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 16px;margin:8px 0 16px}
+.topics label,.opt label{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.topics input,.opt input[type=checkbox]{width:auto}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:8px 0 18px}
+.opts label{display:block;font-size:13px;color:var(--mut);font-weight:600}.opts select,.opts input{margin-top:4px}
+.examhead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 22px}
+.timer{font:700 24px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}
+.timer.low{color:var(--bad)}
+.qnav{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.qn{width:38px;height:38px;border-radius:9px;border:1px solid var(--bd);background:var(--surface);color:var(--fg);font-weight:600;position:relative}
+.qn.ans{background:var(--acc-soft);border-color:var(--acc);color:var(--acc)}
+.qn.cur{background:var(--acc);color:var(--acc-fg);border-color:var(--acc)}
+.qn.flag::after{content:"";position:absolute;top:3px;right:3px;width:8px;height:8px;border-radius:50%;background:#e0a100}
+.navrow{display:flex;gap:8px;justify-content:space-between;margin-top:16px;flex-wrap:wrap}
+.score{font-size:48px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.hero{display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:24px 22px}
+.rq{padding:16px 22px;border-top:1px solid var(--bd)}.rq:first-child{border-top:0}
+.rq .top2{display:flex;gap:10px;align-items:flex-start}
+.rq .mk{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:13px;color:#fff;margin-top:2px}
+.rq .mk.y{background:var(--ok)}.rq .mk.n{background:var(--bad)}
+.rq .kv{margin:8px 0 0 32px;font-size:14px;color:var(--mut)}.rq .kv b{color:var(--fg)}
+.rq details{margin:6px 0 0 32px;font-size:14px}.rq details summary{cursor:pointer;color:var(--mut)}
+.rq .acts{margin:10px 0 0 32px;display:flex;gap:8px;flex-wrap:wrap}.rq .msg{margin:10px 0 0 32px}
+.hist{display:flex;gap:6px;align-items:flex-end;height:90px;padding:6px 22px 0}
+.hist i{flex:1;max-width:36px;background:var(--acc);border-radius:5px 5px 0 0;min-height:3px}
+.hrow{display:flex;justify-content:space-between;gap:12px;padding:12px 22px;border-top:1px solid var(--bd);width:100%;
+  background:none;border-left:0;border-right:0;border-bottom:0;color:var(--fg);text-align:left}
+.hrow:hover{background:var(--surface2)}.hrow span{color:var(--mut);font-size:13px}
+/* problem */
+.main{display:flex;flex-direction:column;gap:16px;min-width:0}
+.pad{padding:22px}
+.meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--surface2);color:var(--mut)}
+.pill.lvl{background:var(--acc-soft);color:var(--acc)}
+.q{font-size:18px;line-height:1.55;margin:0 0 18px;letter-spacing:-.005em}
+.answer{display:flex;gap:10px}
+.answer input{font-size:16px;padding:11px 14px}
+.btn{border:1px solid transparent;border-radius:9px;padding:10px 16px;font-weight:600;background:var(--acc);color:var(--acc-fg)}
+.btn:hover{filter:brightness(1.07)}.btn:disabled{opacity:.55;cursor:default}
+.btn.ghost{background:var(--surface);color:var(--fg);border-color:var(--bd)}
+.btn.ghost:hover{background:var(--surface2);filter:none}
+.btn.sm{padding:7px 12px;font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.banner{margin-top:14px;padding:11px 14px;border-radius:9px;font-weight:600}
+.banner.ok{background:var(--ok-soft);color:var(--ok)}.banner.bad{background:var(--bad-soft);color:var(--bad)}
+.banner .next{float:right}
+details.work{margin-top:14px;border-top:1px solid var(--bd);padding-top:12px}
+details.work summary{cursor:pointer;color:var(--mut);font-weight:600}
+details.work textarea{margin:10px 0;resize:vertical}
+.hint{font-size:13px;color:var(--mut);margin-top:10px}
+kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid var(--bd);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+
+/* tutor */
+.thread{display:flex;flex-direction:column;gap:12px}
+.thread-h{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--bd);font-weight:700}
+.thread-b{padding:16px 22px;display:flex;flex-direction:column;gap:12px}
+.msg{background:var(--surface2);border-radius:10px;padding:12px 14px;white-space:pre-wrap;word-wrap:break-word}
+.msg .who{display:block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.msg h4{margin:10px 0 4px;font-size:15px}
+.msg.err{background:var(--bad-soft);color:var(--bad)}
+.msg.load{color:var(--mut)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--acc);border-radius:50%;animation:s .8s linear infinite;vertical-align:-2px;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}
+.welcome{text-align:center;padding:56px 24px;color:var(--mut)}
+.welcome h2{color:var(--fg);margin:0 0 6px}
+
+/* progress */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.stat{padding:18px}.stat .n{font-size:30px;font-weight:700;letter-spacing:-.02em}.stat .l{color:var(--mut);font-size:13px}
+.row{padding:14px 22px;border-top:1px solid var(--bd)}.row:first-child{border-top:0}
+.row .h{display:flex;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.row .h span{color:var(--mut);font-weight:500}
+.bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}.bar i{display:block;height:100%;background:var(--ok);border-radius:99px;transition:width .4s}
+.bar.attempted i{background:var(--acc)}
+[hidden]{display:none!important}
+</style></head><body>
+
+<header class="top">
+  <div class="brand"><div class="logo">⚗</div>ChemTutor</div>
+  <nav class="tabs" role="tablist">
+    <button class="tab on" id="tab-study" role="tab" onclick="show('study')">Study</button>
+    <button class="tab" id="tab-exam" role="tab" onclick="show('exam')">Mock Exam</button>
+    <button class="tab" id="tab-frq" role="tab" onclick="show('frq')">Free Response</button>
+    <button class="tab" id="tab-dash" role="tab" onclick="show('dash')">Progress</button>
+  </nav>
+  <div class="spacer"></div>
+  <button class="sbtn" id="sbtn" onclick="toggleSheet()" title="Formulas, constants, periodic table (press ?)">📋 Cheat sheet</button>
+  <div class="badge" title="Local model"><span class="dot" id="dot"></span><span id="model">connecting…</span></div>
+</header>
+
+<div class="app" id="study">
+  <aside class="card side">
+    <div class="rev" id="rev"></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search problems…" aria-label="Search problems" oninput="renderList()">
+      <select id="lvl" aria-label="Filter by level" onchange="renderList()">
+        <option value="">All levels</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+
+  <section class="main" id="work">
+    <div class="card welcome">
+      <h2>Welcome 👋</h2>
+      <p>Choose a problem on the left to start.<br>Try it first — the tutor's hints are there when you need them.</p>
+    </div>
+  </section>
+</div>
+
+<div class="app" id="exam" hidden style="grid-template-columns:1fr">
+  <section class="main" id="ex"></section>
+</div>
+
+<div class="app" id="frq" hidden style="grid-template-columns:1fr">
+  <section class="main" id="fq"></section>
+</div>
+
+<div class="app" id="dash" hidden style="grid-template-columns:1fr">
+  <section class="main" id="prog"></section>
+</div>
+
+<aside class="sheet" id="sheet" aria-label="Chemistry cheat sheet" aria-hidden="true">
+  <div class="sh-h">
+    <div class="sh-t"><span>📋 Cheat sheet</span><button class="sh-x" onclick="toggleSheet(false)" aria-label="Close">✕</button></div>
+    <input id="sq" type="search" placeholder="Search formulas, notation, elements…  (e.g. molarity, pH, Fe, 26)" aria-label="Search cheat sheet" oninput="renderSheet()">
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="sh-b" id="shb"></div>
+</aside>
+
+<script>
+let problems=[],status={},cur=null,hints=0,open=new Set(),busy=false,queue=[],ov={due:[]};
+const $=id=>document.getElementById(id);
+const api=(u,b)=>fetch(u,b?{method:'POST',body:JSON.stringify(b)}:{}).then(r=>r.json());
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---- turn model output into clean readable text (no LaTeX, light markdown) ---- */
+const SUB={'0':'₀','1':'₁','2':'₂','3':'₃','4':'₄','5':'₅','6':'₆','7':'₇','8':'₈','9':'₉','+':'₊','-':'₋'};
+const SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','+':'⁺','-':'⁻','−':'⁻'};
+const map=(s,m)=>[...s].map(c=>m[c]??c).join('');
+function clean(t){
+  for(let i=0;i<3;i++){t=t.replace(/\\(?:text|mathrm|textbf|mathbf|mathit)\{([^{}]*)\}/g,'$1')
+    .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g,'($1)/($2)').replace(/\\sqrt\{([^{}]*)\}/g,'√($1)')}
+  t=t.replace(/\\\[|\\\]|\\\(|\\\)/g,'').replace(/\$\$?/g,'')
+    .replace(/\\times/g,'×').replace(/\\cdot/g,'·').replace(/\\rightarrow|\\to\b/g,'→').replace(/\\rightleftharpoons/g,'⇌')
+    .replace(/\\approx/g,'≈').replace(/\\Delta/g,'Δ').replace(/\\pm/g,'±').replace(/\\leq?/g,'≤').replace(/\\geq?/g,'≥')
+    .replace(/\\[,;: ]/g,' ').replace(/\\left|\\right/g,'').replace(/\\%/g,'%')
+    .replace(/([A-Za-z)\]])_(\d+)/g,(_,x,a)=>x+map(a,SUB)).replace(/_\{([^{}]*)\}/g,(_,a)=>map(a,SUB)).replace(/\^\{([^{}]*)\}/g,(_,a)=>map(a,SUP));
+  return t}
+function fmt(t){
+  return esc(clean(t)).replace(/^#{1,4}\s*(.+)$/gm,'<h4>$1</h4>').replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>')
+    .replace(/`([^`\n]+)`/g,'<code>$1</code>')}
+
+/* ---- sidebar ---- */
+async function init(){
+  try{const c=await api('/api/config');const b=$('model').closest('.badge');
+    if(c.llm_ok){$('model').textContent=c.model;$('dot').className='dot up';b.title='Local AI model ready'}
+    else if(c.llm_reachable){$('model').textContent=c.model+' not installed';$('dot').className='dot down';b.title='Run: ollama pull '+c.model}
+    else{$('model').textContent='AI offline';$('dot').className='dot down';b.title='Start Ollama (see README). Practice, exams and the cheat sheet still work.'}}
+  catch{$('model').textContent='server offline';$('dot').className='dot down'}
+  problems=await api('/api/problems');status=await api('/api/status');renderList();await refreshReview();
+  const a=await api('/api/exam/active');if(a.exam)beginRun(a.exam)}  // resume an exam in progress
+
+/* ---- spaced repetition ---- */
+async function refreshReview(){
+  ov=await api('/api/review');const n=ov.due.length;
+  const pos=queue.length&&cur?`<div class="qpos">Review ${Math.max(1,queue.indexOf(cur.id)+1)} of ${queue.length}</div>`:'';
+  $('rev').innerHTML=n&&!queue.length
+    ?`<button class="btn" onclick="startReview()">🔁 Review ${n} due problem${n>1?'s':''}</button>`
+    :queue.length?pos
+    :ov.total?`<div class="done">✓ All caught up <span class="sub">${ov.next_in?'· next in '+esc(ov.next_in):''}</span></div>`
+    :`<div class="sub" style="color:var(--mut);font-size:13px">Solve problems and they'll come back here for review at the right time.</div>`}
+function startReview(){queue=[...ov.due];pick(queue[0])}
+function pickFree(id){queue=[];pick(id)}
+function renderList(){
+  const q=$('q').value.toLowerCase(),L=$('lvl').value;
+  const f=problems.filter(p=>(!L||String(p.level)===L)&&(!q||(p.question+p.topic).toLowerCase().includes(q)));
+  const groups={};f.forEach(p=>(groups[p.topic]??=[]).push(p));
+  let h='';
+  const avg=ps=>ps.reduce((a,p)=>a+p.level,0)/ps.length;
+  for(const [t,ps] of Object.entries(groups).sort((a,b)=>avg(a[1])-avg(b[1])||a[0].localeCompare(b[0]))){
+    const done=ps.filter(p=>status[p.id]?.solved).length, isOpen=open.has(t)||q||L||!Object.keys(groups).length;
+    h+=`<button class="grp" onclick="toggle('${esc(t).replace(/'/g,"\\'")}')"><span>${isOpen?'▾':'▸'} ${esc(t)}</span><span>${done}/${ps.length}</span></button>`;
+    if(isOpen)h+=ps.map(p=>{const s=status[p.id];
+      return `<button class="item ${cur?.id===p.id?'on':''}" onclick="pickFree('${p.id}')">
+      <span class="mark ${s?.solved?'ok':s?'try':''}">${s?.solved?'✓':''}</span>
+      <span class="t">${esc(p.question)}</span></button>`}).join('')}
+  $('list').innerHTML=h||'<div class="empty">No problems match.</div>'}
+function toggle(t){open.has(t)?open.delete(t):open.add(t);renderList()}
+
+/* ---- problem view ---- */
+function pick(id){
+  cur=problems.find(p=>p.id===id);hints=0;open.add(cur.topic);renderList();
+  $('work').innerHTML=`
+  <div class="card pad">
+    <div class="meta"><span class="pill">${esc(cur.topic)}</span><span class="pill lvl">Level ${cur.level}</span>
+      <span class="pill" title="${esc(cur.source)}">${esc(cur.source.split(',')[0].replace(/\s*\(.*/,''))}</span></div>
+    <p class="q">${esc(cur.question)}</p>
+    <div class="answer"><input id="ans" autocomplete="off" placeholder="Your answer, e.g. 12.5 mL" aria-label="Your answer">
+      <button class="btn" id="chk" onclick="check()">Check</button></div>
+    <div id="res"></div>
+    <div class="actions">
+      <button class="btn ghost sm" onclick="tutor('hint')">💡 Hint</button>
+      <button class="btn ghost sm" onclick="tutor('explain')">📖 Explain the concept</button>
+      <button class="btn ghost sm" onclick="tutor('solution')">✅ Show solution</button>
+    </div>
+    <details class="work"><summary>Show your work for feedback</summary>
+      <textarea id="wk" rows="4" placeholder="Write your steps here and the tutor will point out where it went wrong."></textarea>
+      <button class="btn ghost sm" onclick="tutor('check')">Check my work</button></details>
+    <p class="hint"><kbd>Enter</kbd> to check · try before asking for a hint</p>
+  </div>
+  <div class="card thread" id="thread" hidden><div class="thread-h">Tutor</div><div class="thread-b" id="out"></div></div>`;
+  $('ans').addEventListener('keydown',e=>{if(e.key==='Enter')check()});$('ans').focus()}
+
+async function check(){
+  const v=$('ans').value.trim();if(!v)return;
+  $('chk').disabled=true;
+  const r=await api('/api/check',{id:cur.id,answer:v,hints_used:hints});
+  $('chk').disabled=false;
+  let btn='',end='';
+  if(queue.length){
+    const n=queue[queue.indexOf(cur.id)+1];
+    if(n)btn=`<button class="btn sm next" onclick="pick('${n}')">${r.correct?'Next review':'Skip'} →</button>`;
+    else if(r.correct){end=' Review session complete 🎉';queue=[]}
+  }else{
+    const i=problems.findIndex(p=>p.id===cur.id), nxt=problems[i+1];
+    if(r.correct&&nxt)btn=`<button class="btn sm next" onclick="pick('${nxt.id}')">Next problem →</button>`;
+  }
+  const when=r.srs?.rescheduled?(r.correct?`Next review in ${esc(r.srs.next_in)}`:`Back for review in ${esc(r.srs.next_in)}`):'';
+  $('res').innerHTML=`<div class="banner ${r.correct?'ok':'bad'}">${btn}${r.correct?'✓ ':''}${esc(r.message)}${end}
+    ${when?`<div class="srs">${when}</div>`:''}</div>`;
+  status=await api('/api/status');renderList();await refreshReview()}
+
+async function tutor(mode){
+  if(busy)return;busy=true;if(mode==='hint')hints++;
+  const label={hint:hints>4?`Hint ${hints} · most detail — try “Show solution”`:`Hint ${hints}`,explain:'Concept',solution:'Worked solution',check:'Feedback on your work'}[mode];
+  $('thread').hidden=false;
+  const el=document.createElement('div');el.className='msg load';
+  el.innerHTML=`<span class="spin"></span>Thinking…`;$('out').prepend(el);
+  try{
+    const r=await api('/api/tutor',{id:cur.id,mode,level:hints,text:$('wk')?.value||''});
+    if(r.reply){el.className='msg';el.innerHTML=`<span class="who">${label}</span>${fmt(r.reply)}`}
+    else{el.className='msg err';el.textContent=r.error||'Something went wrong.'}
+  }catch(e){el.className='msg err';el.textContent='Could not reach the server.'}
+  busy=false}
+
+/* ---- cheat sheet ---- */
+let ref=null,sheetOpen=false,openSet=new Set();
+const sheetAllowed=()=>!exam||exam.sheet!==false;
+function updateSheetBtn(){
+  const b=$('sbtn'),ok=sheetAllowed();b.disabled=!ok;
+  b.title=ok?'Formulas, constants, periodic table (press ?)':'The formula sheet is turned off for this exam';
+  if(!ok)toggleSheet(false)}
+async function toggleSheet(force){
+  const want=typeof force==='boolean'?force:!sheetOpen;
+  if(want&&!sheetAllowed())return;
+  sheetOpen=want;$('sheet').classList.toggle('open',want);$('sheet').setAttribute('aria-hidden',String(!want));
+  if(want){if(!ref){ref=await api('/api/reference');buildChips()}renderSheet();setTimeout(()=>$('sq').focus(),60)}}
+function sections(){  // the periodic table sits right after Constants
+  const s=[...ref.sections],i=s.findIndex(x=>x.id==='constants');
+  s.splice(i+1,0,{id:'periodic',title:'Periodic table & atomic masses',pt:true,entries:[]});return s}
+function buildChips(){$('chips').innerHTML=sections().map(s=>`<button class="chip" onclick="jump('${s.id}')">${esc(s.title.split(' & ')[0].split(',')[0])}</button>`).join('')}
+function jump(id){$('sq').value='';openSet.add(id);renderSheet();$('sec-'+id)?.scrollIntoView({block:'start',behavior:'smooth'})}
+function sheetToggle(id,o){if(!$('sq').value.trim())o?openSet.add(id):openSet.delete(id)}
+const entryText=e=>[e.name,e.eq,e.note,...(e.steps||[]),...(e.items||[]),...(e.head||[]),...(e.rows||[]).map(r=>r.join(' '))].join(' ').toLowerCase();
+function entryHTML(e){
+  const h=`<div class="en"><div class="enn">${esc(e.name)}</div>`;
+  if(e.t==='eq')return `${h}<div class="eqn">${esc(e.eq)}</div>${e.note?`<div class="ent">${esc(e.note)}</div>`:''}</div>`;
+  if(e.t==='steps')return `${h}<ol>${e.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`;
+  if(e.t==='list')return `${h}<ul>${e.items.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`;
+  return `${h}<table><tr>${e.head.map(x=>`<th>${esc(x)}</th>`).join('')}</tr>${e.rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`}
+function elementHit(el,terms){
+  if(terms.length!==1)return false;const t=terms[0];
+  return el.sym.toLowerCase()===t||String(el.z)===t||(t.length>=3&&el.name.toLowerCase().includes(t))}
+function periodicHTML(terms){
+  const hits=new Set(ref.elements.filter(e=>elementHit(e,terms)).map(e=>e.z)),q=terms.length>0;
+  const m=x=>x.mass>=100?x.mass.toFixed(1):x.mass.toFixed(2);
+  const grid=ref.elements.filter(e=>e.col).map(e=>`<div class="el ${q?(hits.has(e.z)?'hit':'dim'):''}" style="grid-column:${e.col};grid-row:${e.row}" title="${esc(e.name)} · Z=${e.z} · ${e.mass} g/mol"><i>${e.z}</i><b>${e.sym}</b>${m(e)}</div>`).join('');
+  const heavy=ref.elements.filter(e=>!e.col).map(e=>`<span style="${hits.has(e.z)?'background:var(--acc);color:var(--acc-fg);border-radius:4px;padding:0 4px':''}">${e.sym} (${e.z}) ${e.mass}</span>`).join(' · ');
+  return {html:`<div class="en"><div class="ent">Atomic mass in g/mol (hover for the name). Same values the problems use.</div><div class="ptw"><div class="pt">${grid}</div></div>
+    <div class="heavy"><b>Other common elements:</b> ${heavy}</div></div>`,hits:hits.size+(ref.elements.some(e=>!e.col&&hits.has(e.z))?0:0)}}
+// Short terms ("fe", "ph") must match whole words, otherwise "fe" hits "different"; longer terms match anywhere.
+const termMatch=(w,t)=>w.length>2?t.includes(w):new RegExp('(^|[^a-z0-9])'+w.replace(/[^a-z0-9]/g,'')+'($|[^a-z0-9])').test(t);
+function renderSheet(){
+  if(!ref)return;
+  const terms=$('sq').value.toLowerCase().split(/\s+/).filter(Boolean),q=terms.length>0;let out='',shown=0;
+  const best=new Set();  // entries whose TITLE matches come first, so "molarity" shows the Molarity formula on top
+  if(q){let list='';for(const s of sections()){if(s.pt)continue;for(const e of s.entries){
+    if(terms.every(w=>termMatch(w,e.name.toLowerCase()))){best.add(e);list+=entryHTML(e)}}}
+    if(best.size){shown+=best.size;out+=`<details open><summary>Best matches<span>${best.size}</span></summary>${list}</details>`}}
+  for(const s of sections()){
+    if(s.pt){const p=periodicHTML(terms);if(q&&!p.hits)continue;shown+=q?p.hits:1;
+      out+=`<details id="sec-${s.id}" ${q||openSet.has(s.id)?'open':''} ontoggle="sheetToggle('${s.id}',this.open)"><summary>${esc(s.title)}<span></span></summary>${p.html}</details>`;continue}
+    const es=q?s.entries.filter(e=>{const t=entryText(e);return !best.has(e)&&terms.every(w=>termMatch(w,t))}):s.entries;
+    if(!es.length)continue;shown+=es.length;
+    out+=`<details id="sec-${s.id}" ${q||openSet.has(s.id)?'open':''} ontoggle="sheetToggle('${s.id}',this.open)"><summary>${esc(s.title)}<span>${es.length}</span></summary>${es.map(entryHTML).join('')}</details>`}
+  $('shb').innerHTML=shown?out:`<div class="nomatch">Nothing matches “${esc($('sq').value)}”.<br>Try a shorter word, e.g. “gas”, “pH”, “rate”.</div>`}
+document.addEventListener('keydown',e=>{
+  if(e.key==='?'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();toggleSheet()}
+  if(e.key==='Escape'&&sheetOpen)toggleSheet(false)});
+
+/* ---- mock exam ---- */
+let exam=null,exAns={},exIdx=0,exFlag=new Set(),deadline=0,tick=null,saveT=null,minEdited=false;
+const mmss=s=>{s=Math.max(0,Math.round(s));return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`};
+const pct=(a,b)=>b?Math.round(100*a/b):0;
+function lockTabs(on){$('tab-study').disabled=on;$('tab-dash').disabled=on;$('tab-frq').disabled=on}
+
+async function showExam(){
+  if(exam)return renderRun();
+  const r=await api('/api/exam/active');
+  if(r.exam)return beginRun(r.exam);
+  renderSetup()}
+
+async function renderSetup(){
+  const topics={};problems.forEach(p=>topics[p.topic]=(topics[p.topic]||0)+1);
+  const hist=await api('/api/exams');
+  $('ex').innerHTML=`
+  <div class="card pad"><h2 style="margin:0 0 4px">Mock exam</h2>
+    <p style="margin:0 0 14px;color:var(--mut)">Closed book and timed. Hints and the tutor are locked until you submit, then every question is reviewed.</p>
+    <b style="font-size:13px">Topics</b>
+    <div class="topics">${Object.entries(topics).sort().map(([t,n])=>
+      `<label><input type="checkbox" class="tp" value="${esc(t)}" checked> ${esc(t)} <span class="mut" style="color:var(--mut)">(${n})</span></label>`).join('')}</div>
+    <div class="opts">
+      <div><label>Questions<select id="xn" onchange="autoMin()"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label></div>
+      <div><label>Time limit (min)<input id="xm" type="number" min="1" max="180" value="30" oninput="minEdited=true"></label></div>
+      <div><label>Question pool<select id="xp"><option value="all">All problems</option><option value="unsolved">Not solved yet</option><option value="missed">Ones I've missed</option></select></label></div>
+    </div>
+    <label style="display:flex;gap:8px;align-items:center;margin:0 0 16px;font-size:14px;cursor:pointer"><input id="xs" type="checkbox" checked style="width:auto">
+      Allow the formula sheet (cheat sheet &amp; periodic table, as AP and ACS exams provide)</label>
+    <div id="xerr"></div>
+    <button class="btn" onclick="startExam()">Start exam</button></div>
+  ${hist.length?`<div class="card"><div class="thread-h">Past exams</div>${hist.map(h=>
+    `<button class="hrow" onclick="openResult(${h.id})"><b>${h.score}/${h.total} · ${pct(h.score,h.total)}%</b>
+     <span>${new Date(h.date).toLocaleDateString()} · ${mmss(h.elapsed_s)} of ${mmss(h.limit_s)}${h.status==='expired'?' · timed out':''}</span></button>`).join('')}</div>`:''}`}
+function autoMin(){if(!minEdited)$('xm').value=$('xn').value*3}
+
+async function startExam(){
+  const tp=[...document.querySelectorAll('.tp:checked')].map(e=>e.value);
+  if(!tp.length){$('xerr').innerHTML='<div class="banner bad">Pick at least one topic.</div>';return}
+  const r=await api('/api/exam/start',{topics:tp,n:+$('xn').value,minutes:+$('xm').value,pool:$('xp').value,sheet:$('xs').checked});
+  if(r.exam)return beginRun(r.exam);
+  $('xerr').innerHTML=`<div class="banner bad">${esc(r.error||'Could not start the exam.')}</div>`}
+
+function beginRun(e){
+  exam=e;exAns={...e.answers};exIdx=0;exFlag=new Set();deadline=Date.now()+e.remaining_s*1000;
+  lockTabs(true);updateSheetBtn();show('exam',true);renderRun();
+  clearInterval(tick);tick=setInterval(onTick,250);onTick()}
+function onTick(){
+  if(!exam)return;const s=Math.ceil((deadline-Date.now())/1000),t=$('timer');
+  if(t){t.textContent=mmss(s);t.classList.toggle('low',s<=60)}
+  if(s<=0)submitExam(true)}
+
+function renderRun(){
+  const p=exam.problems[exIdx],n=exam.problems.length,id=p.id;
+  $('ex').innerHTML=`
+  <div class="card examhead"><div><div class="mut" style="color:var(--mut);font-size:13px">Time left</div><div class="timer" id="timer">${mmss((deadline-Date.now())/1000)}</div></div>
+    <div><div class="mut" style="color:var(--mut);font-size:13px">Answered</div><b id="cnt"></b></div>
+    <div class="spacer"></div>
+    <button class="btn ghost sm" onclick="abandonExam()">Abandon</button>
+    <button class="btn sm" onclick="submitExam(false)">Submit exam</button></div>
+  <div class="card pad">
+    <div class="meta"><span class="pill lvl">Question ${exIdx+1} of ${n}</span>${exFlag.has(id)?'<span class="pill">⚑ flagged</span>':''}</div>
+    <p class="q">${esc(p.question)}</p>
+    <input id="xa" autocomplete="off" placeholder="Your answer, with units" value="${esc(exAns[id]||'')}" aria-label="Your answer">
+    <div class="navrow"><div class="actions" style="margin:0">
+      <button class="btn ghost sm" ${exIdx?'':'disabled'} onclick="go(${exIdx-1})">← Previous</button>
+      <button class="btn ghost sm" ${exIdx<n-1?'':'disabled'} onclick="go(${exIdx+1})">Next →</button></div>
+      <button class="btn ghost sm" onclick="flag()">${exFlag.has(id)?'Unflag':'⚑ Flag for review'}</button></div>
+    <div class="qnav" id="qnav"></div>
+    <p class="hint"><kbd>Enter</kbd> next question · answers autosave</p></div>`;
+  const inp=$('xa');
+  inp.addEventListener('input',()=>{exAns[id]=inp.value;updNav();queueSave()});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&exIdx<n-1)go(exIdx+1)});
+  inp.focus();updNav()}
+function updNav(){
+  const ps=exam.problems;$('cnt').textContent=`${ps.filter(p=>(exAns[p.id]||'').trim()).length} / ${ps.length}`;
+  $('qnav').innerHTML=ps.map((p,i)=>`<button class="qn ${(exAns[p.id]||'').trim()?'ans':''} ${i===exIdx?'cur':''} ${exFlag.has(p.id)?'flag':''}"
+    onclick="go(${i})" aria-label="Question ${i+1}">${i+1}</button>`).join('')}
+function go(i){exIdx=Math.max(0,Math.min(i,exam.problems.length-1));saveNow();renderRun()}
+function flag(){const id=exam.problems[exIdx].id;exFlag.has(id)?exFlag.delete(id):exFlag.add(id);renderRun()}
+function queueSave(){clearTimeout(saveT);saveT=setTimeout(saveNow,1000)}
+function saveNow(){clearTimeout(saveT);if(exam)api('/api/exam/save',{id:exam.id,answers:exAns}).catch(()=>{})}
+
+async function submitExam(auto){
+  if(!exam)return;
+  const blank=exam.problems.filter(p=>!(exAns[p.id]||'').trim()).length;
+  if(!auto&&!confirm(blank?`${blank} question${blank>1?'s are':' is'} unanswered. Submit anyway?`:'Submit your exam?'))return;
+  const id=exam.id;clearInterval(tick);const a={...exAns};exam=null;
+  const r=await api('/api/exam/submit',{id,answers:a});lockTabs(false);updateSheetBtn();
+  if(r.result){renderResults(r.result,auto);refreshAll()}else{$('ex').innerHTML=`<div class="card pad bad">${esc(r.error||'Submit failed')}</div>`}}
+async function abandonExam(){
+  if(!confirm('Abandon this exam? Nothing will be graded.'))return;
+  clearInterval(tick);const id=exam.id;exam=null;await api('/api/exam/abandon',{id});lockTabs(false);updateSheetBtn();renderSetup()}
+async function refreshAll(){status=await api('/api/status');renderList();await refreshReview()}
+
+async function openResult(id){const r=await api('/api/exam/result?id='+id);if(r.items)renderResults(r)}
+let resItems=[];
+function renderResults(r,auto){
+  resItems=r.items;const p=pct(r.score,r.total);
+  const msg=p>=85?'Excellent work.':p>=70?'Solid. Review the misses below.':p>=50?'Getting there. Drill the weak topics.':'Keep going. Misses are scheduled for review.';
+  $('ex').innerHTML=`
+  <div class="card hero"><div class="score">${r.score}/${r.total}</div>
+    <div><div style="font-size:22px;font-weight:700">${p}% · ${msg}</div>
+    <div style="color:var(--mut)">${mmss(r.elapsed_s)} of ${mmss(r.limit_s)}${r.status==='expired'?' · timed out, graded from your saved answers':''}${auto?' · time ran out':''}</div>
+    <div style="color:var(--mut);font-size:13px;margin-top:2px">Missed problems are now in your review queue.</div></div>
+    <div class="spacer"></div><button class="btn" onclick="renderSetup()">New exam</button></div>
+  <div class="card"><div class="thread-h">By topic</div>${Object.entries(r.by_topic).map(([t,[a,b]])=>
+    `<div class="row"><div class="h"><div>${esc(t)}</div><span>${a} of ${b}</span></div><div class="bar"><i style="width:${pct(a,b)}%"></i></div></div>`).join('')}</div>
+  <div class="card"><div class="thread-h">Question review</div>${r.items.map((it,i)=>`
+    <div class="rq"><div class="top2"><span class="mk ${it.correct?'y':'n'}">${it.correct?'✓':'✕'}</span><div>${esc(it.question)}</div></div>
+      <div class="kv">Your answer: <b>${it.answer?esc(it.answer):'<i>no answer</i>'}</b> · Correct: <b>${esc(it.key)}</b></div>
+      ${it.steps.length?`<details><summary>Worked steps</summary><ol>${it.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></details>`:''}
+      <div class="acts">${it.correct?'':`<button class="btn ghost sm" onclick="explainMiss(${i},this)">🧠 Explain my mistake</button>`}
+        <button class="btn ghost sm" onclick="practice('${it.id}')">Practice this</button></div><div id="ex-${i}"></div></div>`).join('')}</div>`}
+async function explainMiss(i,btn){
+  const it=resItems[i],box=$('ex-'+i);btn.disabled=true;
+  box.innerHTML='<div class="msg load"><span class="spin"></span>Thinking…</div>';
+  const mode=it.answer?'check':'solution';
+  const r=await api('/api/tutor',{id:it.id,mode,level:1,text:it.answer?`My final answer was: ${it.answer} (no working shown)`:''});
+  box.innerHTML=`<div class="msg ${r.reply?'':'err'}">${r.reply?`<span class="who">${it.answer?'Where it went wrong':'Worked solution'}</span>${fmt(r.reply)}`:esc(r.error||'Error')}</div>`;btn.disabled=false}
+function practice(id){show('study');pickFree(id)}
+
+/* ---- AP free response ---- */
+let fq=null,fqAns={},fqRev=null,fqMarks=[],fqTitles={};
+const stemHTML=t=>t.split('\n').map(l=>/ {3,}/.test(l)?`<div class="mono">${esc(l)}</div>`:`<div>${esc(l)}</div>`).join('');
+async function showFrq(){fq=null;fqRev=null;renderFrqList(await api('/api/frq'))}
+function renderFrqList(list){
+  list.forEach(q=>fqTitles[q.id]=q.title);
+  const card=q=>`<button class="hrow" onclick="openFrq('${q.id}')"><div><b>${esc(q.title)}</b>
+    <div style="color:var(--mut);font-size:13px;margin-top:2px">${q.topics.map(esc).join(' · ')}</div></div>
+    <span>${q.points} pts · ~${q.minutes} min · ${q.parts} parts${q.best?` · best ${q.best.score}/${q.best.max}`:''}</span></button>`;
+  const grp=(k,t)=>{const l=list.filter(q=>q.kind===k);return l.length?`<div class="card"><div class="thread-h">${t}</div>${l.map(card).join('')}</div>`:''};
+  $('fq').innerHTML=`<div class="card pad"><h2 style="margin:0 0 4px">AP Chemistry free response</h2>
+    <p style="margin:0;color:var(--mut)">Original AP-style questions with lettered parts. Write your answers, then reveal the rubric and score yourself part by part
+    (numeric answers are checked for you). The formula sheet is available: press <kbd>?</kbd> or use the Cheat sheet button.</p></div>${grp('long','Long questions')}${grp('short','Short questions')}`}
+async function openFrq(id){fq=await api('/api/frq/item?id='+id);fqAns={};fqRev=null;renderFrq()}
+function renderFrq(){
+  const parts=fq.parts.map(p=>`<div class="card pad"><div class="meta"><span class="pill lvl">${esc(p.label)}</span><span class="pill">${p.points} pt${p.points>1?'s':''}</span></div>
+    <p class="q" style="font-size:16px">${esc(p.prompt)}</p>
+    ${p.type==='numeric'?`<input class="fa" data-l="${esc(p.label)}" autocomplete="off" placeholder="Your answer, with units" value="${esc(fqAns[p.label]||'')}">`
+      :`<textarea class="fa" data-l="${esc(p.label)}" rows="4" placeholder="Write your response: full sentences, show your reasoning">${esc(fqAns[p.label]||'')}</textarea>`}</div>`).join('');
+  $('fq').innerHTML=`<div class="card pad"><div class="meta"><button class="btn ghost sm" onclick="showFrq()">← All questions</button>
+    <span class="pill">${fq.points} points</span><span class="pill">~${fq.minutes} min</span></div>
+    <h2 style="margin:6px 0 8px">${esc(fq.title)}</h2><div class="stem">${stemHTML(fq.stem)}</div></div>${parts}
+    <div class="card pad"><button class="btn" onclick="revealFrq()">Check my answers &amp; show rubric</button>
+    <span class="hint" style="margin-left:10px">Answer every part first. You cannot edit after revealing.</span></div>`;
+  document.querySelectorAll('.fa').forEach(e=>e.addEventListener('input',()=>fqAns[e.dataset.l]=e.value))}
+async function revealFrq(){
+  document.querySelectorAll('.fa').forEach(e=>fqAns[e.dataset.l]=e.value);
+  const r=await api('/api/frq/reveal',{id:fq.id,answers:fqAns});
+  if(r.error){alert(r.error);return}
+  fqRev=r;fqMarks=r.parts.map(p=>p.rubric.map(x=>!!x.preset));renderReveal();window.scrollTo(0,0)}
+function renderReveal(){
+  const parts=fqRev.parts.map((p,pi)=>`<div class="card pad">
+    <div class="meta"><span class="pill lvl">${esc(p.label)}</span><span class="pill" id="ps-${pi}"></span></div>
+    <div style="margin:0 0 8px;color:var(--mut)">Your answer: <b style="color:var(--fg);white-space:pre-wrap">${p.your_answer?esc(p.your_answer):'<i>blank</i>'}</b></div>
+    ${p.type==='numeric'?`<div class="banner ${p.auto_correct?'ok':'bad'}" style="margin:8px 0">${p.auto_correct?'✓ Your number matches.':'✕ Not matching.'} Answer: ${esc(p.answer_text)}</div>
+      <details open><summary style="cursor:pointer;color:var(--mut)">Worked solution</summary><ol>${p.solution.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></details>`
+      :`<div class="msg"><span class="who">Model answer</span>${esc(p.model_answer)}</div>`}
+    <div class="t" style="margin-top:12px">Score yourself</div>
+    ${p.rubric.map((x,ri)=>`<label class="rub"><input type="checkbox" ${fqMarks[pi][ri]?'checked':''} onchange="mark(${pi},${ri},this.checked)">
+      <span><b>${x.pts} pt</b> · ${esc(x.text)}${x.preset?' <span class="pill">auto-checked</span>':''}</span></label>`).join('')}
+    <div class="actions"><button class="btn ghost sm" onclick="frqFeedback(${pi},this)">🧠 AI feedback on my answer</button></div><div id="fb-${pi}"></div></div>`).join('');
+  $('fq').innerHTML=`<div class="card hero"><div><div class="score" id="tot"></div><div style="color:var(--mut)" id="totp"></div></div>
+    <div class="spacer"></div><button class="btn ghost" onclick="showFrq()">Back</button><button class="btn" onclick="saveFrq()">Save score</button></div>
+    <div class="card pad"><b>${esc(fqRev.title)}</b> <span class="hint">Tick each rubric point you earned. Be strict, like an AP reader.</span></div>${parts}<div id="saved"></div>`;
+  updScores()}
+function updScores(){
+  let tot=0;fqRev.parts.forEach((p,pi)=>{const e=p.rubric.reduce((a,x,ri)=>a+(fqMarks[pi][ri]?x.pts:0),0);tot+=e;$('ps-'+pi).textContent=`${e} / ${p.points} pts`});
+  $('tot').textContent=`${tot} / ${fqRev.points}`;$('totp').textContent=`${pct(tot,fqRev.points)}%`}
+function mark(pi,ri,v){fqMarks[pi][ri]=v;updScores()}
+async function frqFeedback(pi,btn){
+  const p=fqRev.parts[pi],box=$('fb-'+pi);btn.disabled=true;
+  box.innerHTML='<div class="msg load"><span class="spin"></span>Reading your answer…</div>';
+  const r=await api('/api/frq/feedback',{id:fq.id,label:p.label,answers:fqAns});
+  box.innerHTML=`<div class="msg ${r.reply?'':'err'}">${r.reply?`<span class="who">AI suggestion · may be wrong, you decide the score</span>${fmt(r.reply)}`:esc(r.error||'Error')}</div>`;btn.disabled=false}
+async function saveFrq(){
+  const scores={};fqRev.parts.forEach((p,pi)=>scores[p.label]=fqMarks[pi].map(Number));
+  const r=await api('/api/frq/save',{id:fq.id,scores,answers:fqAns});
+  $('saved').innerHTML=`<div class="banner ok">Saved: ${r.score} / ${r.max} (${pct(r.score,r.max)}%). <button class="btn sm next" onclick="showFrq()">More questions →</button></div>`;
+  $('saved').scrollIntoView({behavior:'smooth'})}
+
+/* ---- progress ---- */
+async function renderProg(){
+  const rows=await api('/api/progress');status=await api('/api/status');ov=await api('/api/review');const exh=await api('/api/exams');const fh=await api('/api/frq/history');if(!Object.keys(fqTitles).length)(await api('/api/frq')).forEach(q=>fqTitles[q.id]=q.title);
+  const solved=Object.values(status).filter(s=>s.solved).length;
+  const att=rows.reduce((a,r)=>a+r.attempts,0),cor=rows.reduce((a,r)=>a+r.correct,0);
+  const tot={};problems.forEach(p=>{tot[p.topic]??={n:0,s:0};tot[p.topic].n++;if(status[p.id]?.solved)tot[p.topic].s++});
+  const stat=(n,l)=>`<div class="card stat"><div class="n">${n}</div><div class="l">${l}</div></div>`;
+  $('prog').innerHTML=`<div class="stats">${stat(`${solved}/${problems.length}`,'Problems solved')}
+    ${stat(att?Math.round(100*cor/att)+'%':'—','Answer accuracy')}${stat(att,'Total attempts')}</div>
+    <div class="card"><div class="thread-h">Review schedule</div><div class="sched">
+      <div><b>${ov.due.length}</b><span>due now</span></div><div><b>${ov.today||0}</b><span>next 24 hours</span></div>
+      <div><b>${ov.week||0}</b><span>next 7 days</span></div><div><b>${ov.mature||0}</b><span>mastered (21d+)</span></div>
+      <div><b>${ov.lapsed||0}</b><span>ever forgotten</span></div></div></div>
+    ${exh.length?`<div class="card"><div class="thread-h">Mock exam scores</div>
+      <div class="hist">${[...exh].reverse().slice(-12).map(h=>`<i style="height:${Math.max(3,pct(h.score,h.total))}%" title="${h.score}/${h.total} · ${new Date(h.date).toLocaleDateString()}"></i>`).join('')}</div>
+      ${exh.slice(0,5).map(h=>`<button class="hrow" onclick="show('exam');openResult(${h.id})"><b>${h.score}/${h.total} · ${pct(h.score,h.total)}%</b>
+      <span>${new Date(h.date).toLocaleDateString()} · ${mmss(h.elapsed_s)} of ${mmss(h.limit_s)}</span></button>`).join('')}</div>`:''}
+    ${fh.length?`<div class="card"><div class="thread-h">Free-response scores</div>${fh.slice(0,6).map(h=>`<div class="hrow" style="cursor:default"><b>${esc(fqTitles[h.frq_id]||h.frq_id)} · ${h.score}/${h.max} (${pct(h.score,h.max)}%)</b>
+      <span>${new Date(h.ts+'Z').toLocaleDateString()}</span></div>`).join('')}</div>`:''}
+    <div class="card"><div class="thread-h">Topics</div>${Object.entries(tot).map(([t,v])=>{const pct=Math.round(100*v.s/v.n);
+      return `<div class="row"><div class="h"><div>${esc(t)}</div><span>${v.s} of ${v.n} solved</span></div>
+      <div class="bar"><i style="width:${pct}%"></i></div></div>`}).join('')}</div>`}
+
+function show(v,keep){
+  if(exam&&v!=='exam')return;  // closed-book: stay on the exam until submitted or abandoned
+  $('study').hidden=v!=='study';$('dash').hidden=v!=='dash';$('exam').hidden=v!=='exam';$('frq').hidden=v!=='frq';
+  ['study','exam','frq','dash'].forEach(t=>$('tab-'+t).classList.toggle('on',v===t));
+  if(v==='dash')renderProg();if(v==='exam'&&!keep)showExam();if(v==='frq')showFrq()}
+init();
+</script></body></html>

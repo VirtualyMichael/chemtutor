@@ -1,0 +1,11 @@
+# your progress database and any indexed textbook live here; never publish them
+library/
+*.sqlite3
+__pycache__/
+*.pyc
+dist/
+.venv/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

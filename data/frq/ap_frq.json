@@ -1,0 +1,1091 @@
+[
+ {
+  "id": "frq-01",
+  "title": "Aluminum and chlorine",
+  "kind": "long",
+  "minutes": 18,
+  "topics": [
+   "Moles & Stoichiometry",
+   "Gases"
+  ],
+  "stem": "2 Al(s) + 3 Cl₂(g) → 2 AlCl₃(s)\nA student places 5.40 g of Al(s) in a rigid vessel and adds 9.00 L of Cl₂(g) measured at 1.00 atm and 25 °C. The reaction goes to completion. (Use R = 0.08206 L·atm/(mol·K) and the periodic table on the cheat sheet.)",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Calculate the number of moles of Al in the 5.40 g sample.",
+    "points": 1,
+    "answer": 0.200133,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.200 mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Correct number of moles of Al, with units",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "moles Al = 5.40 g / 26.982 g/mol = 0.2001 mol."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Calculate the number of moles of Cl₂(g) in the 9.00 L sample.",
+    "points": 2,
+    "answer": 0.367855,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.368 mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses PV = nRT with temperature converted to kelvin (298 K)"
+     },
+     {
+      "pts": 1,
+      "text": "Correct number of moles of Cl₂",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "n = PV/RT, with T = 25 + 273.15 = 298.15 K.",
+     "n = (1.00)(9.00) / ((0.08206)(298.15)) = 0.3679 mol."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "written",
+    "prompt": "Identify the limiting reactant. Support your answer with a calculation.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Calculates the moles of Cl₂ needed for the Al (about 0.300 mol) or the moles of Al needed for the Cl₂ (about 0.245 mol)"
+     },
+     {
+      "pts": 1,
+      "text": "Compares to the amount available and identifies Al as the limiting reactant"
+     }
+    ],
+    "model_answer": "Al needs 0.200 × 3/2 = 0.300 mol Cl₂, but 0.368 mol Cl₂ is available, so Cl₂ is in excess and Al is the limiting reactant."
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Calculate the maximum mass, in grams, of AlCl₃(s) that can form.",
+    "points": 2,
+    "answer": 26.6842,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "26.7 g",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses the limiting reactant (Al) and the 2:2 (1:1) mole ratio"
+     },
+     {
+      "pts": 1,
+      "text": "Correct mass of AlCl₃ with units",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "moles AlCl₃ = 0.2001 mol Al x (2 AlCl₃ / 2 Al) = 0.2001 mol.",
+     "molar mass AlCl₃ = 133.3 g/mol.",
+     "mass = 0.2001 x 133.3 = 26.7 g."
+    ]
+   },
+   {
+    "label": "(e)",
+    "type": "numeric",
+    "prompt": "The student collects 22.1 g of AlCl₃. Calculate the percent yield.",
+    "points": 1,
+    "answer": 82.8206,
+    "tolerance_rel": 0.015,
+    "tolerance_abs": 0.0,
+    "answer_text": "82.8 %",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Correct percent yield (actual / theoretical x 100)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "% yield = 22.1 / 26.7 x 100 = 82.8%."
+    ]
+   }
+  ],
+  "points": 8
+ },
+ {
+  "id": "frq-02",
+  "title": "Rate of NO oxidation",
+  "kind": "short",
+  "minutes": 14,
+  "topics": [
+   "Kinetics"
+  ],
+  "stem": "2 NO(g) + O₂(g) → 2 NO₂(g)\nThe initial rate of the reaction was measured at constant temperature:\nExperiment   [NO] (M)   [O₂] (M)   Initial rate (M/s)\n     1        0.010      0.010      7.10e-03\n     2        0.020      0.010      2.84e-02\n     3        0.020      0.020      5.68e-02",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Determine the order of the reaction with respect to NO.",
+    "points": 1,
+    "answer": 2.0,
+    "tolerance_rel": 0,
+    "tolerance_abs": 0.0,
+    "answer_text": "2",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Order with respect to NO is 2 (doubling [NO] quadruples the rate: experiments 1 and 2)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Exps 1 and 2: [NO] doubles, rate increases by 4x = 2² → second order in NO."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Determine the order of the reaction with respect to O₂.",
+    "points": 1,
+    "answer": 1.0,
+    "tolerance_rel": 0,
+    "tolerance_abs": 0.0,
+    "answer_text": "1",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Order with respect to O₂ is 1 (doubling [O₂] doubles the rate: experiments 2 and 3)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Exps 2 and 3: [O₂] doubles, rate increases by 2x → first order in O₂."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Write the rate law and calculate the value of the rate constant, k, including units.",
+    "points": 2,
+    "answer": 7100.0,
+    "tolerance_rel": 0.02,
+    "tolerance_abs": 0.0,
+    "answer_text": "7100 M⁻²·s⁻¹",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Rate law: rate = k[NO]²[O₂]"
+     },
+     {
+      "pts": 1,
+      "text": "Correct value of k with correct units (M⁻²·s⁻¹)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "rate = k[NO]²[O₂].",
+     "k = rate / ([NO]²[O₂]) = 7.10e-03 / ((0.010)²(0.010)) = 7100 M⁻²·s⁻¹."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Calculate the initial rate when [NO] = 0.015 M and [O₂] = 0.0050 M.",
+    "points": 1,
+    "answer": 0.0079875,
+    "tolerance_rel": 0.03,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.00799 M/s",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Correct rate using the rate law and k",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "rate = (7100)(0.015)²(0.0050) = 0.00799 M/s."
+    ]
+   },
+   {
+    "label": "(e)",
+    "type": "written",
+    "prompt": "A proposed mechanism is: step 1 (fast, equilibrium) 2 NO ⇌ N₂O₂; step 2 (slow) N₂O₂ + O₂ → 2 NO₂. Show that this mechanism is consistent with the experimental rate law.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "States that the slow step determines the rate: rate = k₂[N₂O₂][O₂]"
+     },
+     {
+      "pts": 1,
+      "text": "Uses the fast equilibrium ([N₂O₂] = K[NO]²) to eliminate the intermediate and obtain rate = k₂K[NO]²[O₂], matching the data"
+     }
+    ],
+    "model_answer": "The slow step is rate-determining: rate = k₂[N₂O₂][O₂]. N₂O₂ is an intermediate, so use the fast equilibrium: K = [N₂O₂]/[NO]², giving [N₂O₂] = K[NO]². Substituting: rate = k₂K[NO]²[O₂] = k[NO]²[O₂], which matches the experimental rate law."
+   }
+  ],
+  "points": 7
+ },
+ {
+  "id": "frq-03",
+  "title": "Dinitrogen tetroxide equilibrium",
+  "kind": "long",
+  "minutes": 18,
+  "topics": [
+   "Equilibrium"
+  ],
+  "stem": "N₂O₄(g) ⇌ 2 NO₂(g)   ΔH° > 0\nAt equilibrium at 298 K in a rigid container, [N₂O₄] = 0.0420 M and [NO₂] = 0.0140 M.",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "written",
+    "prompt": "Write the equilibrium-constant expression for Kc.",
+    "points": 1,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Kc = [NO₂]² / [N₂O₄] (products over reactants, coefficient as exponent)"
+     }
+    ],
+    "model_answer": "Kc = [NO₂]² / [N₂O₄]"
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Calculate the value of Kc at 298 K.",
+    "points": 2,
+    "answer": 0.00466667,
+    "tolerance_rel": 0.02,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.00467",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Substitutes the equilibrium concentrations correctly: (0.0140)² / 0.0420"
+     },
+     {
+      "pts": 1,
+      "text": "Correct value of Kc",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Kc = (0.0140)² / 0.0420 = 0.00467."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Calculate Kp for the reaction at 298 K.",
+    "points": 2,
+    "answer": 0.114176,
+    "tolerance_rel": 0.03,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.114",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses Kp = Kc(RT)^Δn with Δn = +1 and T = 298 K"
+     },
+     {
+      "pts": 1,
+      "text": "Correct value of Kp",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Δn = 2 − 1 = +1.",
+     "Kp = Kc(RT) = 0.00467 x (0.08206 x 298.15) = 0.114."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "A new rigid container starts with 0.200 M N₂O₄ and no NO₂ at 298 K. Using the Kc value from part (b), calculate [NO₂] at equilibrium.",
+    "points": 2,
+    "answer": 0.0294061,
+    "tolerance_rel": 0.03,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.0294 M",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Sets up an ICE table / expression 4x² / (0.200 − x) = Kc"
+     },
+     {
+      "pts": 1,
+      "text": "Correct equilibrium [NO₂] (solves the quadratic)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "ICE: [N₂O₄] = 0.200 − x, [NO₂] = 2x.",
+     "Kc = (2x)² / (0.200 − x) → 4x² + 0.00467x − 9.33 x 10^-4 = 0.",
+     "x = 0.0147 M, so [NO₂] = 2x = 0.0294 M."
+    ]
+   },
+   {
+    "label": "(e)",
+    "type": "written",
+    "prompt": "The volume of the container is suddenly decreased at constant temperature. Predict how the equilibrium position shifts and what happens to the value of Kc. Justify both.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Shifts toward the reactant side (toward N₂O₄), because that side has fewer moles of gas and reduces the pressure increase"
+     },
+     {
+      "pts": 1,
+      "text": "Kc does not change, because K depends only on temperature"
+     }
+    ],
+    "model_answer": "Decreasing the volume raises the total pressure, so the system shifts toward the side with fewer moles of gas, i.e. toward N₂O₄ (1 mol vs 2 mol). Kc is unchanged because it depends only on temperature."
+   }
+  ],
+  "points": 9
+ },
+ {
+  "id": "frq-04",
+  "title": "A weak acid and its titration",
+  "kind": "long",
+  "minutes": 18,
+  "topics": [
+   "Acids & Bases"
+  ],
+  "stem": "A 0.100 M solution of a weak monoprotic acid, HA, has a pH of 2.88 at 25 °C. A 25.0 mL sample of this solution is titrated with 0.100 M NaOH.",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Calculate Ka for HA.",
+    "points": 2,
+    "answer": 1.76102e-05,
+    "tolerance_rel": 0.04,
+    "tolerance_abs": 0.0,
+    "answer_text": "1.76 x 10^-5",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses [H⁺] = 10^(−pH) and Ka = [H⁺][A⁻]/[HA] with [HA] ≈ 0.100 − [H⁺]"
+     },
+     {
+      "pts": 1,
+      "text": "Correct Ka",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "[H⁺] = 10^(−2.88) = 0.00132 M = [A⁻].",
+     "Ka = (0.00132)² / (0.100 − 0.00132) = 1.76 x 10^-5."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Calculate the percent ionization of HA in the 0.100 M solution.",
+    "points": 1,
+    "answer": 1.31826,
+    "tolerance_rel": 0.03,
+    "tolerance_abs": 0.0,
+    "answer_text": "1.32 %",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Correct percent ionization ([H⁺]/0.100 x 100)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "% ionization = 0.00132 / 0.100 x 100 = 1.32%."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Calculate the pH of the solution after 15.0 mL of 0.100 M NaOH has been added to the 25.0 mL sample.",
+    "points": 2,
+    "answer": 4.93033,
+    "tolerance_rel": 0,
+    "tolerance_abs": 0.05,
+    "answer_text": "4.93",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Finds the moles of HA and A⁻ after the neutralization (1.00 mmol HA, 1.50 mmol A⁻)"
+     },
+     {
+      "pts": 1,
+      "text": "Uses pH = pKa + log([A⁻]/[HA]) to get the correct pH",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "mmol HA = 2.50, mmol OH⁻ = 1.50; after reaction HA = 1.00 mmol, A⁻ = 1.50 mmol.",
+     "pKa = −log(1.76 x 10^-5) = 4.75.",
+     "pH = 4.75 + log(1.50/1.00) = 4.93."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Calculate the volume of 0.100 M NaOH required to reach the equivalence point.",
+    "points": 1,
+    "answer": 25.0,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "25.0 mL",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "25.0 mL (moles of base = moles of acid, equal concentrations)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "At equivalence mol OH⁻ = mol HA = 0.0250 L x 0.100 M = 2.50 x 10⁻³ mol → V = 2.50e-3 / 0.100 = 0.0250 L = 25.0 mL."
+    ]
+   },
+   {
+    "label": "(e)",
+    "type": "written",
+    "prompt": "Predict whether the pH at the equivalence point is less than 7, equal to 7, or greater than 7. Justify your answer.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Greater than 7"
+     },
+     {
+      "pts": 1,
+      "text": "At equivalence the solution contains A⁻, the conjugate base of a weak acid, which reacts with water: A⁻ + H₂O ⇌ HA + OH⁻, producing OH⁻"
+     }
+    ],
+    "model_answer": "Greater than 7. At the equivalence point all HA has become A⁻, the conjugate base of a weak acid. A⁻ hydrolyzes: A⁻ + H₂O ⇌ HA + OH⁻, producing hydroxide and making the solution basic."
+   },
+   {
+    "label": "(f)",
+    "type": "numeric",
+    "prompt": "Calculate Kb for A⁻.",
+    "points": 1,
+    "answer": 5.67854e-10,
+    "tolerance_rel": 0.05,
+    "tolerance_abs": 0.0,
+    "answer_text": "5.68 x 10^-10",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Kb = Kw / Ka = 1.0 x 10⁻¹⁴ / Ka",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Kb = 1.0e-14 / 1.76 x 10^-5 = 5.68 x 10^-10."
+    ]
+   }
+  ],
+  "points": 9
+ },
+ {
+  "id": "frq-05",
+  "title": "Thermodynamics of ammonia synthesis",
+  "kind": "long",
+  "minutes": 18,
+  "topics": [
+   "Thermodynamics",
+   "Equilibrium"
+  ],
+  "stem": "N₂(g) + 3 H₂(g) → 2 NH₃(g)   ΔH° = -92.2 kJ/mol(rxn),  ΔS° = -198.7 J/(mol·K)(rxn)\n(Use R = 8.314 J/(mol·K).)",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Calculate ΔG° for the reaction at 298 K, in kJ/mol.",
+    "points": 2,
+    "answer": -32.9874,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.3,
+    "answer_text": "-33.0 kJ/mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses ΔG° = ΔH° − TΔS° with consistent units (J converted to kJ)"
+     },
+     {
+      "pts": 1,
+      "text": "Correct ΔG° with units",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "TΔS° = 298 x (-198.7) / 1000 = -59.2 kJ.",
+     "ΔG° = -92.2 − (-59.2) = -33.0 kJ/mol."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "written",
+    "prompt": "Explain, in terms of the particles, why ΔS° for the reaction is negative.",
+    "points": 1,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "4 mol of gas react to form 2 mol of gas; fewer gas particles/less disorder (fewer microstates), so entropy decreases"
+     }
+    ],
+    "model_answer": "The reaction converts 4 moles of gas (1 N₂ + 3 H₂) into 2 moles of gas (2 NH₃). Fewer gas particles means less dispersal of matter and energy, so the entropy of the system decreases."
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Calculate the temperature, in kelvin, at which ΔG° = 0 for this reaction.",
+    "points": 2,
+    "answer": 464.016,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "464 K",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Sets ΔG° = 0 so T = ΔH°/ΔS° (with ΔH° converted to J)"
+     },
+     {
+      "pts": 1,
+      "text": "Correct temperature",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "0 = ΔH° − TΔS° → T = ΔH°/ΔS° = (-92.2 x 1000) / (-198.7) = 464 K."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Calculate the equilibrium constant K for the reaction at 298 K.",
+    "points": 2,
+    "answer": 605861.0,
+    "tolerance_rel": 0.05,
+    "tolerance_abs": 0.0,
+    "answer_text": "6.06 x 10^5",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses ΔG° = −RT ln K with ΔG° in joules"
+     },
+     {
+      "pts": 1,
+      "text": "Correct K",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "ln K = −ΔG°/RT = −(-33000 J) / ((8.314)(298)) = 13.31.",
+     "K = e^(13.31) = 6.06 x 10^5."
+    ]
+   },
+   {
+    "label": "(e)",
+    "type": "written",
+    "prompt": "As the temperature is increased, does K increase, decrease, or stay the same? Justify your answer.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "K decreases"
+     },
+     {
+      "pts": 1,
+      "text": "The reaction is exothermic (ΔH° < 0); raising the temperature favors the endothermic reverse reaction (Le Chatelier), or ΔG° becomes less negative so K decreases"
+     }
+    ],
+    "model_answer": "K decreases. The forward reaction is exothermic (ΔH° < 0), so increasing the temperature shifts the equilibrium toward the reactants. Equivalently, −TΔS° becomes more positive, making ΔG° less negative and lowering K."
+   }
+  ],
+  "points": 9
+ },
+ {
+  "id": "frq-06",
+  "title": "A zinc–copper cell",
+  "kind": "long",
+  "minutes": 18,
+  "topics": [
+   "Electrochemistry"
+  ],
+  "stem": "A galvanic cell is built from a Zn(s) electrode in 1.0 M Zn(NO₃)₂ and a Cu(s) electrode in 1.0 M Cu(NO₃)₂, joined by a salt bridge. E°(Zn²⁺/Zn) = −0.76 V and E°(Cu²⁺/Cu) = +0.34 V. (F = 96,485 C/mol e⁻)",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "written",
+    "prompt": "Identify the anode, write the half-reaction that occurs there, and state the direction of electron flow in the external wire.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Zn is the anode; Zn(s) → Zn²⁺ + 2e⁻ (oxidation)"
+     },
+     {
+      "pts": 1,
+      "text": "Electrons flow from the Zn electrode (anode) to the Cu electrode (cathode)"
+     }
+    ],
+    "model_answer": "The zinc electrode is the anode (oxidation): Zn(s) → Zn²⁺(aq) + 2 e⁻. Electrons flow through the wire from the Zn electrode to the Cu electrode."
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Calculate ΔG° for the cell reaction, in kJ per mole of reaction.",
+    "points": 2,
+    "answer": -212.267,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "-212 kJ/mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Uses ΔG° = −nFE° with n = 2 and E°cell = 1.10 V"
+     },
+     {
+      "pts": 1,
+      "text": "Correct ΔG° in kJ with the negative sign",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "E°cell = 0.34 − (−0.76) = 1.10 V; n = 2.",
+     "ΔG° = −(2)(96485)(1.10) = -2.12 x 10^5 J = -212 kJ/mol."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Calculate the cell potential at 25 °C when [Zn²⁺] = 0.010 M and [Cu²⁺] = 1.0 M.",
+    "points": 2,
+    "answer": 1.1592,
+    "tolerance_rel": 0,
+    "tolerance_abs": 0.01,
+    "answer_text": "1.16 V",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Q = [Zn²⁺]/[Cu²⁺] = 0.010 and the Nernst equation E = E° − (0.0592/n) log Q"
+     },
+     {
+      "pts": 1,
+      "text": "Correct E",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Q = [Zn²⁺]/[Cu²⁺] = 0.010/1.0 = 0.010.",
+     "E = 1.10 − (0.0592/2) log(0.010) = 1.10 + 0.0592 = 1.16 V."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "A current of 2.50 A is passed through a solution of Cu²⁺ for 30.0 minutes in an electrolytic cell. Calculate the mass of copper deposited.",
+    "points": 2,
+    "answer": 1.48187,
+    "tolerance_rel": 0.015,
+    "tolerance_abs": 0.0,
+    "answer_text": "1.48 g",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Charge Q = It = (2.50 A)(1800 s) and moles of e⁻ = Q/F, with 2 e⁻ per Cu"
+     },
+     {
+      "pts": 1,
+      "text": "Correct mass of Cu in grams",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Q = It = 2.50 x 1800 = 4500 C.",
+     "mol e⁻ = 4500 / 96485 = 0.0466 mol; mol Cu = 0.0233 mol.",
+     "mass = 0.0233 x 63.546 = 1.48 g."
+    ]
+   }
+  ],
+  "points": 8
+ },
+ {
+  "id": "frq-07",
+  "title": "Structure, forces and bond energies",
+  "kind": "short",
+  "minutes": 14,
+  "topics": [
+   "Bonding & Geometry"
+  ],
+  "stem": "Ethanol (CH₃CH₂OH, boiling point 78 °C) and dimethyl ether (CH₃OCH₃, boiling point −24 °C) are isomers with the formula C₂H₆O. Average bond enthalpies (kJ/mol): C–H 413, O=O 498, C=O 799, O–H 463.",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "written",
+    "prompt": "Draw the Lewis structure of dimethyl ether and describe it in words (central atom, bonds, and lone pairs).",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Oxygen is bonded to two CH₃ groups (C–O–C); each C has three C–H bonds"
+     },
+     {
+      "pts": 1,
+      "text": "Oxygen has two lone pairs (all atoms satisfy octet/duet)"
+     }
+    ],
+    "model_answer": "H₃C–O–CH₃: oxygen is the central atom bonded to two carbon atoms by single bonds, each carbon is bonded to three hydrogens, and oxygen carries two lone pairs."
+   },
+   {
+    "label": "(b)",
+    "type": "written",
+    "prompt": "Predict the molecular geometry around the oxygen atom in dimethyl ether, and explain why the C–O–C arrangement is bent rather than linear.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Bent (V-shaped) molecular geometry around oxygen"
+     },
+     {
+      "pts": 1,
+      "text": "Oxygen has four electron groups (two bonding pairs and two lone pairs) arranged tetrahedrally; the lone pairs occupy space and repel, so the two C–O bonds are not opposite each other"
+     }
+    ],
+    "model_answer": "Oxygen has four electron groups (two C–O bonds and two lone pairs), so the electron arrangement is tetrahedral and the molecular geometry is bent. The lone pairs take up space and repel the bonding pairs, so the C–O–C angle is roughly tetrahedral (about 110°), not 180°."
+   },
+   {
+    "label": "(c)",
+    "type": "written",
+    "prompt": "Explain, in terms of intermolecular forces, why ethanol has a much higher boiling point than dimethyl ether.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Ethanol molecules form hydrogen bonds (O–H···O); dimethyl ether has no O–H bond so cannot hydrogen bond with itself"
+     },
+     {
+      "pts": 1,
+      "text": "Hydrogen bonding is stronger than the dipole–dipole/dispersion forces in the ether, so more energy is needed to separate ethanol molecules (similar molar masses so dispersion forces are comparable)"
+     }
+    ],
+    "model_answer": "Ethanol has an O–H bond, so its molecules hydrogen-bond to each other. Dimethyl ether has no H bonded to O, so it has only dipole–dipole and dispersion forces. The two have the same molar mass (similar dispersion forces), so the stronger hydrogen bonding in ethanol gives it the higher boiling point."
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Use the average bond enthalpies to estimate ΔH for the combustion CH₄ + 2 O₂ → CO₂ + 2 H₂O(g), in kJ/mol.",
+    "points": 2,
+    "answer": -802.0,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "-802 kJ/mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Bonds broken (4 C–H + 2 O=O = 2648 kJ) and bonds formed (2 C=O + 4 O–H = 3450 kJ) identified correctly"
+     },
+     {
+      "pts": 1,
+      "text": "Correct ΔH = broken − formed, with the negative sign",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "Broken: 4(413) + 2(498) = 2648 kJ.",
+     "Formed: 2(799) + 4(463) = 3450 kJ.",
+     "ΔH = 2648 − 3450 = -802 kJ/mol."
+    ]
+   }
+  ],
+  "points": 8
+ },
+ {
+  "id": "frq-08",
+  "title": "Oxygen from potassium chlorate",
+  "kind": "short",
+  "minutes": 14,
+  "topics": [
+   "Gases",
+   "Moles & Stoichiometry"
+  ],
+  "stem": "2 KClO₃(s) → 2 KCl(s) + 3 O₂(g)\nA 4.00 g sample of KClO₃ is completely decomposed by heating. The O₂ is collected over water at 25 °C. The total pressure in the collection vessel is 745 torr, and the vapor pressure of water at 25 °C is 23.8 torr. (1 atm = 760 torr)",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Calculate the number of moles of O₂(g) produced.",
+    "points": 2,
+    "answer": 0.0489616,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.0490 mol",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Converts grams of KClO₃ to moles using its molar mass"
+     },
+     {
+      "pts": 1,
+      "text": "Uses the 3 O₂ : 2 KClO₃ mole ratio for the correct moles of O₂",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "molar mass KClO₃ = 122.5 g/mol; moles = 4.00/122.5 = 0.03264 mol.",
+     "moles O₂ = 0.03264 x 3/2 = 0.04896 mol."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "numeric",
+    "prompt": "Calculate the partial pressure of the O₂(g), in torr.",
+    "points": 1,
+    "answer": 721.2,
+    "tolerance_rel": 0.005,
+    "tolerance_abs": 0.0,
+    "answer_text": "721 torr",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Subtracts the water vapor pressure from the total pressure (Dalton's law)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "P(O₂) = 745 − 23.8 = 721.2 torr."
+    ]
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "Calculate the volume, in liters, that the O₂(g) occupies at 25 °C and the partial pressure from part (b).",
+    "points": 2,
+    "answer": 1.26235,
+    "tolerance_rel": 0.02,
+    "tolerance_abs": 0.0,
+    "answer_text": "1.26 L",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Converts pressure to atm and temperature to kelvin and uses PV = nRT"
+     },
+     {
+      "pts": 1,
+      "text": "Correct volume with units",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "P = 721.2 torr / 760 = 0.9489 atm; T = 298.15 K.",
+     "V = nRT/P = (0.04896)(0.08206)(298.15) / 0.9489 = 1.26 L."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "written",
+    "prompt": "At 25 °C, would helium atoms or oxygen molecules have the greater root-mean-square speed? Justify your answer.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Helium atoms have the greater rms speed"
+     },
+     {
+      "pts": 1,
+      "text": "At the same temperature the average kinetic energy is the same, so the lighter particles (smaller molar mass) must move faster (u_rms = √(3RT/M))"
+     }
+    ],
+    "model_answer": "Helium. At the same temperature all gases have the same average kinetic energy (½mv²). He has a much smaller molar mass than O₂, so its speed must be greater: u_rms = √(3RT/M)."
+   }
+  ],
+  "points": 7
+ },
+ {
+  "id": "frq-09",
+  "title": "Preparing and analyzing a copper(II) solution",
+  "kind": "short",
+  "minutes": 14,
+  "topics": [
+   "Solutions"
+  ],
+  "stem": "A student prepares a standard copper(II) sulfate solution from the hydrate CuSO₄·5H₂O and uses a spectrophotometer to find the concentration of an unknown Cu²⁺ solution.",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "numeric",
+    "prompt": "Calculate the mass of CuSO₄·5H₂O needed to prepare 100.0 mL of 0.250 M CuSO₄(aq).",
+    "points": 2,
+    "answer": 6.24193,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "6.24 g",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Moles needed = (0.1000 L)(0.250 M) = 0.0250 mol"
+     },
+     {
+      "pts": 1,
+      "text": "Molar mass of the hydrate (249.7 g/mol, including 5 H₂O) used for the correct mass",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "moles = 0.1000 L x 0.250 mol/L = 0.0250 mol.",
+     "molar mass CuSO₄·5H₂O = 159.60 + 5(18.02) = 249.7 g/mol.",
+     "mass = 0.0250 x 249.7 = 6.24 g."
+    ]
+   },
+   {
+    "label": "(b)",
+    "type": "written",
+    "prompt": "Describe how to prepare the 100.0 mL solution accurately after the solid has been weighed. Name the glassware used.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Dissolve the solid in a portion (less than 100 mL) of distilled water in a beaker, then transfer quantitatively (rinsing) into a 100.0 mL volumetric flask"
+     },
+     {
+      "pts": 1,
+      "text": "Add distilled water to the calibration mark (bottom of the meniscus at the line) and mix thoroughly by inverting"
+     }
+    ],
+    "model_answer": "Dissolve the weighed solid in less than 100 mL of distilled water in a beaker, transfer it (rinsing the beaker into the flask) to a 100.0 mL volumetric flask, add water until the bottom of the meniscus is at the mark, then stopper and invert several times to mix."
+   },
+   {
+    "label": "(c)",
+    "type": "numeric",
+    "prompt": "A 0.0400 M standard has an absorbance of 0.280 at the analysis wavelength. The unknown has an absorbance of 0.455. Assuming Beer's law (A = εbc) holds, calculate the concentration of the unknown.",
+    "points": 2,
+    "answer": 0.065,
+    "tolerance_rel": 0.01,
+    "tolerance_abs": 0.0,
+    "answer_text": "0.0650 M",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Recognizes A is proportional to c for the same cell: c_unk = c_std x (A_unk / A_std)"
+     },
+     {
+      "pts": 1,
+      "text": "Correct concentration",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "c_unk = 0.0400 x (0.455 / 0.280) = 0.0650 M."
+    ]
+   },
+   {
+    "label": "(d)",
+    "type": "written",
+    "prompt": "Explain why the absorbance measurements are made at the wavelength of maximum absorbance (λmax).",
+    "points": 1,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "At λmax the absorbance changes the most per unit concentration (greatest sensitivity), and small wavelength errors have the smallest effect, so Beer's law is followed most closely"
+     }
+    ],
+    "model_answer": "At λmax the solution absorbs most strongly, so the absorbance is most sensitive to concentration (largest slope in the Beer's-law plot) and small errors in the wavelength setting change the reading the least."
+   }
+  ],
+  "points": 7
+ },
+ {
+  "id": "frq-10",
+  "title": "Atomic structure and periodic trends",
+  "kind": "short",
+  "minutes": 14,
+  "topics": [
+   "Electronic Structure & Periodicity"
+  ],
+  "stem": "Answer the following about atomic structure and periodic trends. (Use h = 6.626 x 10⁻³⁴ J·s, c = 3.00 x 10⁸ m/s, and Eₙ = −2.178 x 10⁻¹⁸ J / n² for hydrogen.)",
+  "parts": [
+   {
+    "label": "(a)",
+    "type": "written",
+    "prompt": "Write the ground-state electron configuration of the Fe²⁺ ion and state the number of unpaired electrons in it.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ ([Ar] 3d⁶): the 4s electrons are removed first"
+     },
+     {
+      "pts": 1,
+      "text": "Four unpaired electrons (3d⁶: one paired set, four singly occupied orbitals)"
+     }
+    ],
+    "model_answer": "Fe is [Ar] 4s² 3d⁶. Fe²⁺ loses the two 4s electrons: [Ar] 3d⁶. In the five 3d orbitals, six electrons give one pair and four unpaired electrons."
+   },
+   {
+    "label": "(b)",
+    "type": "written",
+    "prompt": "Explain why the first ionization energy of oxygen is lower than that of nitrogen.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Nitrogen's 2p subshell is half-filled (three electrons in separate orbitals); oxygen has one 2p orbital with a paired set of electrons"
+     },
+     {
+      "pts": 1,
+      "text": "Electron–electron repulsion between the paired electrons in oxygen makes that electron easier to remove"
+     }
+    ],
+    "model_answer": "N has the configuration 2p³ with one electron in each p orbital. O is 2p⁴, so one orbital holds a pair. The repulsion between the two paired electrons raises their energy, so the electron is removed more easily from O than from N."
+   },
+   {
+    "label": "(c)",
+    "type": "written",
+    "prompt": "Explain why a magnesium atom has a smaller atomic radius than a sodium atom.",
+    "points": 2,
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Mg has more protons (greater nuclear charge) and the outer electrons are in the same shell (n = 3) with similar shielding"
+     },
+     {
+      "pts": 1,
+      "text": "The greater effective nuclear charge pulls the outer electrons closer to the nucleus"
+     }
+    ],
+    "model_answer": "Na and Mg have valence electrons in the same shell (n = 3) with similar shielding from the core, but Mg has one more proton. The greater effective nuclear charge pulls the outer electrons closer, giving a smaller radius."
+   },
+   {
+    "label": "(d)",
+    "type": "numeric",
+    "prompt": "Calculate the wavelength, in nm, of the photon emitted when an electron in a hydrogen atom falls from n = 4 to n = 2.",
+    "points": 1,
+    "answer": 486.758,
+    "tolerance_rel": 0.015,
+    "tolerance_abs": 0.0,
+    "answer_text": "487 nm",
+    "rubric": [
+     {
+      "pts": 1,
+      "text": "Correct wavelength (ΔE = 2.178e-18(1/4 − 1/16), λ = hc/ΔE)",
+      "auto": true
+     }
+    ],
+    "solution": [
+     "ΔE = 2.178e-18 (1/2² − 1/4²) = 4.08 x 10^-19 J.",
+     "λ = hc/ΔE = (6.626e-34)(3.00e8) / 4.08 x 10^-19 = 4.87 x 10^-7 m = 487 nm."
+    ]
+   }
+  ],
+  "points": 7
+ }
+]

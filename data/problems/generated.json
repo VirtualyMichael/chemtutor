@@ -1,0 +1,5684 @@
+[
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 0.00450?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 0.00450: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 100.0?",
+  "answer": 4.0,
+  "answer_text": "4",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 100.0: 4."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 0.0820?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 0.0820: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 3.0200?",
+  "answer": 5.0,
+  "answer_text": "5",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 3.0200: 5."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-04"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 5.60 x 10^3?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 5.60 x 10^3: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-05"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 4001?",
+  "answer": 4.0,
+  "answer_text": "4",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 4001: 4."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-06"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 0.000230?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 0.000230: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-07"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "How many significant figures are in the measurement 12.040?",
+  "answer": 5.0,
+  "answer_text": "5",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Leading zeros are never significant.",
+   "Zeros between nonzero digits, and trailing zeros after a decimal point, are significant.",
+   "Count the significant digits in 12.040: 5."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigfigs-08"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 11.8 km to m.",
+  "answer": 11800.0,
+  "answer_text": "11800 m",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 km = 1000 m.",
+   "Multiply: 11.8 km x (1000 m per km) .",
+   "= 11800 m."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 80.0 mL to L.",
+  "answer": 0.08,
+  "answer_text": "0.0800 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 mL = 0.001 L.",
+   "Multiply: 80.0 mL x (0.001000 L per mL) .",
+   "= 0.0800 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 40.5 g to kg.",
+  "answer": 0.0405,
+  "answer_text": "0.0405 kg",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 kg = 1000 g.",
+   "Multiply: 40.5 g x (0.001000 kg per g) .",
+   "= 0.0405 kg."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 37.5 hours to seconds.",
+  "answer": 135000.0,
+  "answer_text": "135000 seconds",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 h = 3600 s.",
+   "Multiply: 37.5 hours x (3600 seconds per hours) .",
+   "= 135000 seconds."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-04"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 20.6 inches to cm.",
+  "answer": 52.324,
+  "answer_text": "52.3 cm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 in = 2.54 cm.",
+   "Multiply: 20.6 inches x (2.540 cm per inches) .",
+   "= 52.3 cm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-05"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 44.0 lb to kg.",
+  "answer": 19.9584,
+  "answer_text": "20.0 kg",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 lb = 0.4536 kg.",
+   "Multiply: 44.0 lb x (0.4536 kg per lb) .",
+   "= 20.0 kg."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-06"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 29.0 miles to km.",
+  "answer": 46.661,
+  "answer_text": "46.7 km",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 mi = 1.609 km.",
+   "Multiply: 29.0 miles x (1.609 km per miles) .",
+   "= 46.7 km."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-07"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 90.4 gallons to L.",
+  "answer": 342.164,
+  "answer_text": "342 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the conversion factor: 1 gal = 3.785 L.",
+   "Multiply: 90.4 gallons x (3.785 L per gallons) .",
+   "= 342 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-unitconv-08"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "A car travels at 36 km/h. Express its speed in m/s.",
+  "answer": 10.0,
+  "answer_text": "10.0 m/s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use 1 km = 1000 m and 1 h = 3600 s.",
+   "36 km/h x (1000 m / 1 km) x (1 h / 3600 s).",
+   "= 36000 / 3600 = 10.0 m/s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-speed-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "A car travels at 54 km/h. Express its speed in m/s.",
+  "answer": 15.0,
+  "answer_text": "15.0 m/s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use 1 km = 1000 m and 1 h = 3600 s.",
+   "54 km/h x (1000 m / 1 km) x (1 h / 3600 s).",
+   "= 54000 / 3600 = 15.0 m/s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-speed-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "A car travels at 72 km/h. Express its speed in m/s.",
+  "answer": 20.0,
+  "answer_text": "20.0 m/s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use 1 km = 1000 m and 1 h = 3600 s.",
+   "72 km/h x (1000 m / 1 km) x (1 h / 3600 s).",
+   "= 72000 / 3600 = 20.0 m/s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-speed-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "When 0.0000041 is written in scientific notation (a x 10^n, 1 ≤ a < 10), what is n?",
+  "answer": -6.0,
+  "answer_text": "-6",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Move the decimal point until there is one nonzero digit to its left.",
+   "Count the places moved: left = positive exponent, right = negative.",
+   "0.0000041 = 4.1 x 10^-6, so n = -6."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sci-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "When 0.000036 is written in scientific notation (a x 10^n, 1 ≤ a < 10), what is n?",
+  "answer": -5.0,
+  "answer_text": "-5",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Move the decimal point until there is one nonzero digit to its left.",
+   "Count the places moved: left = positive exponent, right = negative.",
+   "0.000036 = 3.6 x 10^-5, so n = -5."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sci-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "When 0.00098 is written in scientific notation (a x 10^n, 1 ≤ a < 10), what is n?",
+  "answer": -4.0,
+  "answer_text": "-4",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Move the decimal point until there is one nonzero digit to its left.",
+   "Count the places moved: left = positive exponent, right = negative.",
+   "0.00098 = 9.8 x 10^-4, so n = -4."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sci-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "When 0.0025 is written in scientific notation (a x 10^n, 1 ≤ a < 10), what is n?",
+  "answer": -3.0,
+  "answer_text": "-3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Move the decimal point until there is one nonzero digit to its left.",
+   "Count the places moved: left = positive exponent, right = negative.",
+   "0.0025 = 2.5 x 10^-3, so n = -3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sci-04"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "A sample of aluminum has a mass of 77.5 g and a volume of 28.7 cm³. What is its density in g/cm³?",
+  "answer": 2.70035,
+  "answer_text": "2.70 g/cm³",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Density = mass / volume.",
+   "77.5 g / 28.7 cm³ = 2.70 g/cm³."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "The density of iron is 7.87 g/cm³. What volume (cm³) does 35 g of it occupy?",
+  "answer": 4.44727,
+  "answer_text": "4.45 cm³",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange density = m/V to V = m / density.",
+   "V = 35 g / 7.87 g/cm³ = 4.45 cm³."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "The density of copper is 8.96 g/cm³. What is the mass (g) of 31.3 cm³ of it?",
+  "answer": 280.448,
+  "answer_text": "280 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange density = m/V to m = density x V.",
+   "m = 8.96 g/cm³ x 31.3 cm³ = 280 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "A sample of lead has a mass of 652.0 g and a volume of 57.7 cm³. What is its density in g/cm³?",
+  "answer": 11.2998,
+  "answer_text": "11.3 g/cm³",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Density = mass / volume.",
+   "652.0 g / 57.7 cm³ = 11.3 g/cm³."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-04"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "The density of gold is 19.3 g/cm³. What volume (cm³) does 210 g of it occupy?",
+  "answer": 10.8808,
+  "answer_text": "10.9 cm³",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange density = m/V to V = m / density.",
+   "V = 210 g / 19.3 g/cm³ = 10.9 cm³."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-05"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "The density of silver is 10.5 g/cm³. What is the mass (g) of 29.5 cm³ of it?",
+  "answer": 309.75,
+  "answer_text": "310 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange density = m/V to m = density x V.",
+   "m = 10.5 g/cm³ x 29.5 cm³ = 310 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-density-06"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 58 °C to kelvin.",
+  "answer": 331.15,
+  "answer_text": "331 K",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "K = °C + 273.15.",
+   "58 + 273.15 = 331.1 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-01"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 40 °C to degrees Fahrenheit.",
+  "answer": 104.0,
+  "answer_text": "104 °F",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "°F = (9/5) x °C + 32.",
+   "1.8 x 40 + 32 = 104.0 °F."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-02"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 176 °F to degrees Celsius.",
+  "answer": 80.0,
+  "answer_text": "80 °C",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "°C = (5/9)(°F − 32).",
+   "(176 − 32) / 1.8 = 80.0 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-03"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 43 °C to kelvin.",
+  "answer": 316.15,
+  "answer_text": "316 K",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "K = °C + 273.15.",
+   "43 + 273.15 = 316.1 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-04"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 15 °C to degrees Fahrenheit.",
+  "answer": 59.0,
+  "answer_text": "59 °F",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "°F = (9/5) x °C + 32.",
+   "1.8 x 15 + 32 = 59.00 °F."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-05"
+ },
+ {
+  "topic": "Foundations",
+  "level": 1,
+  "question": "Convert 212 °F to degrees Celsius.",
+  "answer": 100.0,
+  "answer_text": "100 °C",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "°C = (5/9)(°F − 32).",
+   "(212 − 32) / 1.8 = 100 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-temp-06"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of carbon-14?",
+  "answer": 8.0,
+  "answer_text": "8",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of C on the periodic table: Z = 6.",
+   "neutrons = mass number − atomic number.",
+   "14 − 6 = 8."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-01"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of chlorine-37?",
+  "answer": 20.0,
+  "answer_text": "20",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of Cl on the periodic table: Z = 17.",
+   "neutrons = mass number − atomic number.",
+   "37 − 17 = 20."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-02"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of uranium-235?",
+  "answer": 143.0,
+  "answer_text": "143",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of U on the periodic table: Z = 92.",
+   "neutrons = mass number − atomic number.",
+   "235 − 92 = 143."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-03"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of iron-56?",
+  "answer": 30.0,
+  "answer_text": "30",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of Fe on the periodic table: Z = 26.",
+   "neutrons = mass number − atomic number.",
+   "56 − 26 = 30."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-04"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of potassium-40?",
+  "answer": 21.0,
+  "answer_text": "21",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of K on the periodic table: Z = 19.",
+   "neutrons = mass number − atomic number.",
+   "40 − 19 = 21."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-05"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of copper-65?",
+  "answer": 36.0,
+  "answer_text": "36",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of Cu on the periodic table: Z = 29.",
+   "neutrons = mass number − atomic number.",
+   "65 − 29 = 36."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-06"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of bromine-81?",
+  "answer": 46.0,
+  "answer_text": "46",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of Br on the periodic table: Z = 35.",
+   "neutrons = mass number − atomic number.",
+   "81 − 35 = 46."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-07"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many neutrons are in an atom of strontium-90?",
+  "answer": 52.0,
+  "answer_text": "52",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find the atomic number Z of Sr on the periodic table: Z = 38.",
+   "neutrons = mass number − atomic number.",
+   "90 − 38 = 52."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-neutrons-08"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one Fe³⁺ ion?",
+  "answer": 23.0,
+  "answer_text": "23",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Fe has Z = 26, so a neutral atom has 26 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "26 − (+3) = 23."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-01"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one S²⁻ ion?",
+  "answer": 18.0,
+  "answer_text": "18",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "S has Z = 16, so a neutral atom has 16 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "16 − (-2) = 18."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-02"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one Al³⁺ ion?",
+  "answer": 10.0,
+  "answer_text": "10",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Al has Z = 13, so a neutral atom has 13 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "13 − (+3) = 10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-03"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one Cl⁻ ion?",
+  "answer": 18.0,
+  "answer_text": "18",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Cl has Z = 17, so a neutral atom has 17 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "17 − (-1) = 18."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-04"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one Mg²⁺ ion?",
+  "answer": 10.0,
+  "answer_text": "10",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Mg has Z = 12, so a neutral atom has 12 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "12 − (+2) = 10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-05"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one N³⁻ ion?",
+  "answer": 10.0,
+  "answer_text": "10",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "N has Z = 7, so a neutral atom has 7 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "7 − (-3) = 10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-06"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "How many electrons are in one Cu²⁺ ion?",
+  "answer": 27.0,
+  "answer_text": "27",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Cu has Z = 29, so a neutral atom has 29 electrons.",
+   "Electrons in an ion = Z − charge (a cation lost electrons, an anion gained them).",
+   "29 − (+2) = 27."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ions-07"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring chlorine has two isotopes with masses and abundances of 34.969 amu (75.78%) and 36.966 amu (24.22%). What is the average atomic mass of chlorine in amu?",
+  "answer": 35.4527,
+  "answer_text": "35.5 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 34.969 x 0.7578 + 36.966 x 0.2422 = 35.45 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-01"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring copper has two isotopes with masses and abundances of 62.93 amu (69.15%) and 64.928 amu (30.85%). What is the average atomic mass of copper in amu?",
+  "answer": 63.5464,
+  "answer_text": "63.5 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 62.93 x 0.6915 + 64.928 x 0.3085 = 63.55 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-02"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring boron has two isotopes with masses and abundances of 10.013 amu (19.9%) and 11.009 amu (80.1%). What is the average atomic mass of boron in amu?",
+  "answer": 10.8108,
+  "answer_text": "10.8 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 10.013 x 0.1990 + 11.009 x 0.8010 = 10.81 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-03"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring lithium has two isotopes with masses and abundances of 6.015 amu (7.59%) and 7.016 amu (92.41%). What is the average atomic mass of lithium in amu?",
+  "answer": 6.94002,
+  "answer_text": "6.94 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 6.015 x 0.0759 + 7.016 x 0.9241 = 6.940 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-04"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring bromine has two isotopes with masses and abundances of 78.918 amu (50.69%) and 80.916 amu (49.31%). What is the average atomic mass of bromine in amu?",
+  "answer": 79.9032,
+  "answer_text": "79.9 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 78.918 x 0.5069 + 80.916 x 0.4931 = 79.90 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-05"
+ },
+ {
+  "topic": "Atoms, Molecules & Ions",
+  "level": 2,
+  "question": "Naturally occurring gallium has two isotopes with masses and abundances of 68.926 amu (60.11%) and 70.925 amu (39.89%). What is the average atomic mass of gallium in amu?",
+  "answer": 69.7234,
+  "answer_text": "69.7 amu",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Convert each percent to a fraction (÷ 100).",
+   "Multiply each isotope mass by its fractional abundance.",
+   "Add: 68.926 x 0.6011 + 70.925 x 0.3989 = 69.72 amu."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-avgmass-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of NaCl in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 58.44,
+  "answer_text": "58.4 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of NaCl = 1 x 22.99 + 1 x 35.45 = 58.44 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of H₂O in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 18.015,
+  "answer_text": "18.0 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of CO₂ in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 44.009,
+  "answer_text": "44.0 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of CO₂ = 1 x 12.011 + 2 x 15.999 = 44.01 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of CaCO₃ in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 100.086,
+  "answer_text": "100 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of CaCO₃ = 1 x 40.078 + 1 x 12.011 + 3 x 15.999 = 100.1 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of H₂SO₄ in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 98.072,
+  "answer_text": "98.1 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of H₂SO₄ = 2 x 1.008 + 1 x 32.06 + 4 x 15.999 = 98.07 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of NaOH in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 39.997,
+  "answer_text": "40.0 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of NaOH = 1 x 22.99 + 1 x 15.999 + 1 x 1.008 = 40.00 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of Mg(OH)₂ in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 58.319,
+  "answer_text": "58.3 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of Mg(OH)₂ = 1 x 24.305 + 2 x 15.999 + 2 x 1.008 = 58.32 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-07"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the molar mass of C₆H₁₂O₆ in g/mol? (Use the periodic table in the cheat sheet.)",
+  "answer": 180.156,
+  "answer_text": "180 g/mol",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count the atoms of each element in the formula (expand any parentheses).",
+   "Multiply each count by the atomic mass from the periodic table.",
+   "Molar mass of C₆H₁₂O₆ = 6 x 12.011 + 12 x 1.008 + 6 x 15.999 = 180.2 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarmass-08"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 195.5 g of CO₂?",
+  "answer": 4.44227,
+  "answer_text": "4.44 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CO₂ = 1 x 12.011 + 2 x 15.999 = 44.01 g/mol.",
+   "moles = mass / molar mass.",
+   "195.5 g / 44.01 g/mol = 4.44 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 111.0 g of C₆H₁₂O₆?",
+  "answer": 0.616133,
+  "answer_text": "0.616 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₆H₁₂O₆ = 6 x 12.011 + 12 x 1.008 + 6 x 15.999 = 180.2 g/mol.",
+   "moles = mass / molar mass.",
+   "111.0 g / 180.2 g/mol = 0.616 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 195.5 g of C₂H₅OH?",
+  "answer": 4.24363,
+  "answer_text": "4.24 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₂H₅OH = 2 x 12.011 + 6 x 1.008 + 1 x 15.999 = 46.07 g/mol.",
+   "moles = mass / molar mass.",
+   "195.5 g / 46.07 g/mol = 4.24 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 97.6 g of NaHCO₃?",
+  "answer": 1.16182,
+  "answer_text": "1.16 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaHCO₃ = 1 x 22.99 + 1 x 1.008 + 1 x 12.011 + 3 x 15.999 = 84.01 g/mol.",
+   "moles = mass / molar mass.",
+   "97.6 g / 84.01 g/mol = 1.16 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 69.0 g of H₂SO₄?",
+  "answer": 0.703565,
+  "answer_text": "0.704 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂SO₄ = 2 x 1.008 + 1 x 32.06 + 4 x 15.999 = 98.07 g/mol.",
+   "moles = mass / molar mass.",
+   "69.0 g / 98.07 g/mol = 0.704 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "How many moles are in 55.2 g of Al₂(SO₄)₃?",
+  "answer": 0.161341,
+  "answer_text": "0.161 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of Al₂(SO₄)₃ = 2 x 26.982 + 3 x 32.06 + 12 x 15.999 = 342.1 g/mol.",
+   "moles = mass / molar mass.",
+   "55.2 g / 342.1 g/mol = 0.161 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gtomol-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass in grams of 2.69 mol of CaCO₃?",
+  "answer": 269.231,
+  "answer_text": "269 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CaCO₃ = 1 x 40.078 + 1 x 12.011 + 3 x 15.999 = 100.1 g/mol.",
+   "mass = moles x molar mass.",
+   "2.69 mol x 100.1 g/mol = 269 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-moltog-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass in grams of 0.12 mol of Ca(NO₃)₂?",
+  "answer": 19.6903,
+  "answer_text": "19.7 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of Ca(NO₃)₂ = 1 x 40.078 + 2 x 14.007 + 6 x 15.999 = 164.1 g/mol.",
+   "mass = moles x molar mass.",
+   "0.12 mol x 164.1 g/mol = 19.7 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-moltog-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass in grams of 4.74 mol of NaHCO₃?",
+  "answer": 398.188,
+  "answer_text": "398 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaHCO₃ = 1 x 22.99 + 1 x 1.008 + 1 x 12.011 + 3 x 15.999 = 84.01 g/mol.",
+   "mass = moles x molar mass.",
+   "4.74 mol x 84.01 g/mol = 398 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-moltog-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass in grams of 3.52 mol of Mg(OH)₂?",
+  "answer": 205.283,
+  "answer_text": "205 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of Mg(OH)₂ = 1 x 24.305 + 2 x 15.999 + 2 x 1.008 = 58.32 g/mol.",
+   "mass = moles x molar mass.",
+   "3.52 mol x 58.32 g/mol = 205 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-moltog-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass in grams of 2.64 mol of NH₃?",
+  "answer": 44.9618,
+  "answer_text": "45.0 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NH₃ = 1 x 14.007 + 3 x 1.008 = 17.03 g/mol.",
+   "mass = moles x molar mass.",
+   "2.64 mol x 17.03 g/mol = 45.0 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-moltog-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many molecules (or formula units) are in 3.67 mol of NaCl? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 2.21007e+24,
+  "answer_text": "2.21 x 10^24 particles",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Particles = moles x Avogadro's number (6.022 x 10²³ per mol).",
+   "3.67 x 6.022e23 = 2.21 x 10^24."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many molecules (or formula units) are in 51.0 g of H₂SO₄? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 3.1316e+23,
+  "answer_text": "3.13 x 10^23 particles",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂SO₄ = 2 x 1.008 + 1 x 32.06 + 4 x 15.999 = 98.07 g/mol.",
+   "moles = 51.0 / 98.07 = 0.520 mol.",
+   "Particles = 0.520 x 6.022e23 = 3.13 x 10^23."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many atoms of hydrogen are in 46.3 g of H₂O? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 3.0954e+24,
+  "answer_text": "3.10 x 10^24 atoms",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "moles of H₂O = 46.3 / 18.02 = 2.57 mol.",
+   "Molecules = 2.57 x 6.022e23.",
+   "Each molecule has 2 H atom(s): multiply by 2 → 3.10 x 10^24 atoms."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many molecules (or formula units) are in 2.99 mol of Al₂(SO₄)₃? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.80058e+24,
+  "answer_text": "1.80 x 10^24 particles",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Particles = moles x Avogadro's number (6.022 x 10²³ per mol).",
+   "2.99 x 6.022e23 = 1.80 x 10^24."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many molecules (or formula units) are in 35.5 g of NH₃? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.25525e+24,
+  "answer_text": "1.26 x 10^24 particles",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NH₃ = 1 x 14.007 + 3 x 1.008 = 17.03 g/mol.",
+   "moles = 35.5 / 17.03 = 2.08 mol.",
+   "Particles = 2.08 x 6.022e23 = 1.26 x 10^24."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "How many atoms of oxygen are in 6.5 g of CO₂? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.77886e+23,
+  "answer_text": "1.78 x 10^23 atoms",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CO₂ = 1 x 12.011 + 2 x 15.999 = 44.01 g/mol.",
+   "moles of CO₂ = 6.5 / 44.01 = 0.148 mol.",
+   "Molecules = 0.148 x 6.022e23.",
+   "Each molecule has 2 O atom(s): multiply by 2 → 1.78 x 10^23 atoms."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-particles-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of oxygen in H₂O?",
+  "answer": 88.8093,
+  "answer_text": "88.8 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "Mass of O in one mole = 1 x 15.999 = 16.00 g.",
+   "% = 16.00 / 18.02 x 100 = 88.8%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of carbon in CO₂?",
+  "answer": 27.2921,
+  "answer_text": "27.3 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CO₂ = 1 x 12.011 + 2 x 15.999 = 44.01 g/mol.",
+   "Mass of C in one mole = 1 x 12.011 = 12.01 g.",
+   "% = 12.01 / 44.01 x 100 = 27.3%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of calcium in CaCO₃?",
+  "answer": 40.0436,
+  "answer_text": "40.0 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CaCO₃ = 1 x 40.078 + 1 x 12.011 + 3 x 15.999 = 100.1 g/mol.",
+   "Mass of Ca in one mole = 1 x 40.078 = 40.08 g.",
+   "% = 40.08 / 100.1 x 100 = 40.0%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of sodium in NaCl?",
+  "answer": 39.3395,
+  "answer_text": "39.3 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaCl = 1 x 22.99 + 1 x 35.45 = 58.44 g/mol.",
+   "Mass of Na in one mole = 1 x 22.99 = 22.99 g.",
+   "% = 22.99 / 58.44 x 100 = 39.3%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of iron in Fe₂O₃?",
+  "answer": 69.9431,
+  "answer_text": "69.9 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of Fe₂O₃ = 2 x 55.845 + 3 x 15.999 = 159.7 g/mol.",
+   "Mass of Fe in one mole = 2 x 55.845 = 111.7 g.",
+   "% = 111.7 / 159.7 x 100 = 69.9%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of carbon in C₆H₁₂O₆?",
+  "answer": 40.002,
+  "answer_text": "40.0 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₆H₁₂O₆ = 6 x 12.011 + 12 x 1.008 + 6 x 15.999 = 180.2 g/mol.",
+   "Mass of C in one mole = 6 x 12.011 = 72.07 g.",
+   "% = 72.07 / 180.2 x 100 = 40.0%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of nitrogen in NH₄NO₃?",
+  "answer": 34.9987,
+  "answer_text": "35.0 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NH₄NO₃ = 2 x 14.007 + 4 x 1.008 + 3 x 15.999 = 80.04 g/mol.",
+   "Mass of N in one mole = 2 x 14.007 = 28.01 g.",
+   "% = 28.01 / 80.04 x 100 = 35.0%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-07"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 2,
+  "question": "What is the mass percent of sulfur in H₂SO₄?",
+  "answer": 32.6903,
+  "answer_text": "32.7 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂SO₄ = 2 x 1.008 + 1 x 32.06 + 4 x 15.999 = 98.07 g/mol.",
+   "Mass of S in one mole = 1 x 32.06 = 32.06 g.",
+   "% = 32.06 / 98.07 x 100 = 32.7%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-percomp-08"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 5.93% hydrogen, 94.07% oxygen by mass. What is the subscript of hydrogen in its empirical formula?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: H = 5.93/1.008 = 5.883, O = 94.07/15.999 = 5.880",
+   "Divide by the smallest (5.880): H 1.00, O 1.00; multiply to reach whole numbers.",
+   "Empirical formula subscript of H = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 85.63% carbon, 14.37% hydrogen by mass. What is the subscript of carbon in its empirical formula?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: C = 85.63/12.011 = 7.129, H = 14.37/1.008 = 14.256",
+   "Divide by the smallest (7.129): C 1.00, H 2.00; multiply to reach whole numbers.",
+   "Empirical formula subscript of C = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 92.26% carbon, 7.74% hydrogen by mass. What is the subscript of hydrogen in its empirical formula?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: C = 92.26/12.011 = 7.681, H = 7.74/1.008 = 7.679",
+   "Divide by the smallest (7.679): C 1.00, H 1.00; multiply to reach whole numbers.",
+   "Empirical formula subscript of H = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 82.66% carbon, 17.34% hydrogen by mass. What is the subscript of carbon in its empirical formula?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: C = 82.66/12.011 = 6.882, H = 17.34/1.008 = 17.202",
+   "Divide by the smallest (6.882): C 1.00, H 2.50; multiply to reach whole numbers.",
+   "Empirical formula subscript of C = 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 30.45% nitrogen, 69.55% oxygen by mass. What is the subscript of oxygen in its empirical formula?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: N = 30.45/14.007 = 2.174, O = 69.55/15.999 = 4.347",
+   "Divide by the smallest (2.174): N 1.00, O 2.00; multiply to reach whole numbers.",
+   "Empirical formula subscript of O = 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "A compound is 84.12% carbon, 15.88% hydrogen by mass. What is the subscript of hydrogen in its empirical formula?",
+  "answer": 9.0,
+  "answer_text": "9",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Assume 100 g, so each percent is that many grams.",
+   "Moles: C = 84.12/12.011 = 7.004, H = 15.88/1.008 = 15.754",
+   "Divide by the smallest (7.004): C 1.00, H 2.25; multiply to reach whole numbers.",
+   "Empirical formula subscript of H = 9."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-empirical-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction 2 H₂ + O₂ → 2 H₂O, how many grams of H₂O form from 52.9 g of H₂? Assume all other reactants are in excess.",
+  "answer": 472.715,
+  "answer_text": "473 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of H₂: 52.9 g / 2.016 g/mol = 26.2 mol.",
+   "Mole ratio H₂O : H₂ = 2 : 2.",
+   "Moles of H₂O = 26.2 x 2/2 = 26.2 mol.",
+   "Mass = 26.2 x 18.02 g/mol = 473 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction N₂ + 3 H₂ → 2 NH₃, how many grams of NH₃ form from 58.1 g of N₂? Assume all other reactants are in excess.",
+  "answer": 70.6433,
+  "answer_text": "70.6 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of N₂: 58.1 g / 28.01 g/mol = 2.07 mol.",
+   "Mole ratio NH₃ : N₂ = 2 : 1.",
+   "Moles of NH₃ = 2.07 x 2/1 = 4.15 mol.",
+   "Mass = 4.15 x 17.03 g/mol = 70.6 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction CH₄ + 2 O₂ → CO₂ + 2 H₂O, how many grams of CO₂ form from 96.3 g of CH₄? Assume all other reactants are in excess.",
+  "answer": 264.169,
+  "answer_text": "264 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of CH₄: 96.3 g / 16.04 g/mol = 6.00 mol.",
+   "Mole ratio CO₂ : CH₄ = 1 : 1.",
+   "Moles of CO₂ = 6.00 x 1/1 = 6.00 mol.",
+   "Mass = 6.00 x 44.01 g/mol = 264 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction 2 Na + Cl₂ → 2 NaCl, how many grams of NaCl form from 67.1 g of Na? Assume all other reactants are in excess.",
+  "answer": 170.567,
+  "answer_text": "171 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of Na: 67.1 g / 22.99 g/mol = 2.92 mol.",
+   "Mole ratio NaCl : Na = 2 : 2.",
+   "Moles of NaCl = 2.92 x 2/2 = 2.92 mol.",
+   "Mass = 2.92 x 58.44 g/mol = 171 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction CaCO₃ → CaO + CO₂, how many grams of CaO form from 6.3 g of CaCO₃?",
+  "answer": 3.52982,
+  "answer_text": "3.53 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of CaCO₃: 6.3 g / 100.1 g/mol = 0.0629 mol.",
+   "Mole ratio CaO : CaCO₃ = 1 : 1.",
+   "Moles of CaO = 0.0629 x 1/1 = 0.0629 mol.",
+   "Mass = 0.0629 x 56.08 g/mol = 3.53 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction 2 Al + 3 Cl₂ → 2 AlCl₃, how many grams of AlCl₃ form from 111.6 g of Al? Assume all other reactants are in excess.",
+  "answer": 551.473,
+  "answer_text": "551 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of Al: 111.6 g / 26.98 g/mol = 4.14 mol.",
+   "Mole ratio AlCl₃ : Al = 2 : 2.",
+   "Moles of AlCl₃ = 4.14 x 2/2 = 4.14 mol.",
+   "Mass = 4.14 x 133.3 g/mol = 551 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction 2 KClO₃ → 2 KCl + 3 O₂, how many grams of KCl form from 88.6 g of KClO₃?",
+  "answer": 53.8982,
+  "answer_text": "53.9 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of KClO₃: 88.6 g / 122.5 g/mol = 0.723 mol.",
+   "Mole ratio KCl : KClO₃ = 2 : 2.",
+   "Moles of KCl = 0.723 x 2/2 = 0.723 mol.",
+   "Mass = 0.723 x 74.55 g/mol = 53.9 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-07"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For the reaction Zn + 2 HCl → ZnCl₂ + H₂, how many grams of ZnCl₂ form from 116.6 g of Zn? Assume all other reactants are in excess.",
+  "answer": 243.044,
+  "answer_text": "243 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of Zn: 116.6 g / 65.38 g/mol = 1.78 mol.",
+   "Mole ratio ZnCl₂ : Zn = 1 : 1.",
+   "Moles of ZnCl₂ = 1.78 x 1/1 = 1.78 mol.",
+   "Mass = 1.78 x 136.3 g/mol = 243 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmass-08"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For Mg + 2 HCl → MgCl₂ + H₂, 10.1 g of Mg reacts with 12.1 g of HCl. What mass (g) of MgCl₂ can form?",
+  "answer": 15.7987,
+  "answer_text": "15.8 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: Mg: 0.416, HCl: 0.166; the smaller is limiting → HCl.",
+   "Product moles = 0.166 x 1 = 0.166 mol.",
+   "Mass = 0.166 mol x 95.21 g/mol = 15.8 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For N₂ + 3 H₂ → 2 NH₃, 35.9 g of N₂ reacts with 4.7 g of H₂. How many grams of the excess reactant remain after the reaction?",
+  "answer": 14.1299,
+  "answer_text": "14.1 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: N₂: 1.28, H₂: 0.777; the smaller is limiting → H₂.",
+   "N₂ consumed = 0.777 x 1 x 28.01 g/mol = 21.8 g.",
+   "Remaining = 35.9 − 21.8 = 14.1 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O, 22.3 g of C₃H₈ reacts with 121.4 g of O₂. What mass (g) of CO₂ can form?",
+  "answer": 66.7665,
+  "answer_text": "66.8 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: C₃H₈: 0.506, O₂: 0.759; the smaller is limiting → C₃H₈.",
+   "Product moles = 0.506 x 3 = 1.52 mol.",
+   "Mass = 1.52 mol x 44.01 g/mol = 66.8 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For Mg + 2 HCl → MgCl₂ + H₂, 53.9 g of Mg reacts with 97.0 g of HCl. How many grams of the excess reactant remain after the reaction?",
+  "answer": 21.5671,
+  "answer_text": "21.6 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: Mg: 2.22, HCl: 1.33; the smaller is limiting → HCl.",
+   "Mg consumed = 1.33 x 1 x 24.30 g/mol = 32.3 g.",
+   "Remaining = 53.9 − 32.3 = 21.6 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-04"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O, 50.2 g of C₃H₈ reacts with 109.3 g of O₂. What mass (g) of CO₂ can form?",
+  "answer": 90.1966,
+  "answer_text": "90.2 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: C₃H₈: 1.14, O₂: 0.683; the smaller is limiting → O₂.",
+   "Product moles = 0.683 x 3 = 2.05 mol.",
+   "Mass = 2.05 mol x 44.01 g/mol = 90.2 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-05"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 4,
+  "question": "For 2 Na + Cl₂ → 2 NaCl, 9.4 g of Na reacts with 8.7 g of Cl₂. How many grams of the excess reactant remain after the reaction?",
+  "answer": 3.75788,
+  "answer_text": "3.76 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles ÷ coefficient: Na: 0.204, Cl₂: 0.123; the smaller is limiting → Cl₂.",
+   "Na consumed = 0.123 x 2 x 22.99 g/mol = 5.64 g.",
+   "Remaining = 9.4 − 5.64 = 3.76 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-limiting-06"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For N₂ + 3 H₂ → 2 NH₃, 46.4 g of N₂ reacts (other reactants in excess) and 48.7 g of NH₃ is collected. What is the percent yield?",
+  "answer": 86.3209,
+  "answer_text": "86.3 %",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Theoretical yield: 46.4 / 28.01 x 2/1 x 17.03 = 56.4 g.",
+   "% yield = actual / theoretical x 100 = 48.7 / 56.4 x 100 = 86.3%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-yield-01"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For CaCO₃ → CaO + CO₂, 89.1 g of CaCO₃ reacts and 45.9 g of CaO is collected. What is the percent yield?",
+  "answer": 91.944,
+  "answer_text": "91.9 %",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Theoretical yield: 89.1 / 100.1 x 1/1 x 56.08 = 49.9 g.",
+   "% yield = actual / theoretical x 100 = 45.9 / 49.9 x 100 = 91.9%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-yield-02"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For Zn + 2 HCl → ZnCl₂ + H₂, 25.6 g of Zn reacts (other reactants in excess) and 50.0 g of ZnCl₂ is collected. What is the percent yield?",
+  "answer": 93.7007,
+  "answer_text": "93.7 %",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Theoretical yield: 25.6 / 65.38 x 1/1 x 136.3 = 53.4 g.",
+   "% yield = actual / theoretical x 100 = 50.0 / 53.4 x 100 = 93.7%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-yield-03"
+ },
+ {
+  "topic": "Moles & Stoichiometry",
+  "level": 3,
+  "question": "For Mg + 2 HCl → MgCl₂ + H₂, 51.0 g of Mg reacts (other reactants in excess) and 118.3 g of MgCl₂ is collected. What is the percent yield?",
+  "answer": 59.2176,
+  "answer_text": "59.2 %",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Theoretical yield: 51.0 / 24.30 x 1/1 x 95.21 = 200 g.",
+   "% yield = actual / theoretical x 100 = 118.3 / 200 x 100 = 59.2%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-yield-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "12.9 g of NaCl is dissolved in water to make 874 mL of solution. What is the molarity?",
+  "answer": 0.252562,
+  "answer_text": "0.253 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaCl = 1 x 22.99 + 1 x 35.45 = 58.44 g/mol.",
+   "moles = 12.9 / 58.44 = 0.221 mol.",
+   "Volume = 874 mL = 0.874 L.",
+   "M = 0.221 / 0.874 = 0.253 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "How many grams of KCl are needed to make 785 mL of a 1.29 M solution?",
+  "answer": 75.491,
+  "answer_text": "75.5 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "moles = M x V = 1.29 x 0.785 L = 1.01 mol.",
+   "Molar mass of KCl = 1 x 39.098 + 1 x 35.45 = 74.55 g/mol.",
+   "mass = 1.01 x 74.55 = 75.5 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "What volume (mL) of a 1.78 M NaOH solution contains 18.6 g of NaOH?",
+  "answer": 261.256,
+  "answer_text": "261 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaOH = 1 x 22.99 + 1 x 15.999 + 1 x 1.008 = 40.00 g/mol.",
+   "moles = 18.6 / 40.00 = 0.465 mol.",
+   "V = moles / M = 0.465 / 1.78 = 0.2613 L = 261 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-03"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "33.3 g of C₆H₁₂O₆ is dissolved in water to make 637 mL of solution. What is the molarity?",
+  "answer": 0.290172,
+  "answer_text": "0.290 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₆H₁₂O₆ = 6 x 12.011 + 12 x 1.008 + 6 x 15.999 = 180.2 g/mol.",
+   "moles = 33.3 / 180.2 = 0.185 mol.",
+   "Volume = 637 mL = 0.637 L.",
+   "M = 0.185 / 0.637 = 0.290 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "How many grams of CaCl₂ are needed to make 244 mL of a 0.5 M solution?",
+  "answer": 13.5393,
+  "answer_text": "13.5 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "moles = M x V = 0.5 x 0.244 L = 0.122 mol.",
+   "Molar mass of CaCl₂ = 1 x 40.078 + 2 x 35.45 = 111.0 g/mol.",
+   "mass = 0.122 x 111.0 = 13.5 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-05"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "What volume (mL) of a 0.5 M KNO₃ solution contains 37.2 g of KNO₃?",
+  "answer": 735.89,
+  "answer_text": "736 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of KNO₃ = 1 x 39.098 + 1 x 14.007 + 3 x 15.999 = 101.1 g/mol.",
+   "moles = 37.2 / 101.1 = 0.368 mol.",
+   "V = moles / M = 0.368 / 0.5 = 0.7359 L = 736 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-molarity-06"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "How many mL of 3.0 M stock solution are needed to prepare 365 mL of 0.9 M solution?",
+  "answer": 109.5,
+  "answer_text": "110 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use M₁V₁ = M₂V₂ and solve for V₁ = M₂V₂ / M₁.",
+   "V₁ = (0.9 x 365) / 3.0 = 110 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "41 mL of 3.0 M HCl is diluted with water to a final volume of 298 mL. What is the new molarity?",
+  "answer": 0.412752,
+  "answer_text": "0.413 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of solute are unchanged: M₁V₁ = M₂V₂.",
+   "M₂ = (3.0 x 41) / 298 = 0.413 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "49 mL of 3.0 M solution is diluted to 0.1 M. What is the final volume in mL?",
+  "answer": 1470.0,
+  "answer_text": "1470 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "M₁V₁ = M₂V₂, so V₂ = M₁V₁ / M₂.",
+   "V₂ = (3.0 x 49) / 0.1 = 1470 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-03"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "How many mL of 6.0 M stock solution are needed to prepare 744 mL of 0.18 M solution?",
+  "answer": 22.32,
+  "answer_text": "22.3 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use M₁V₁ = M₂V₂ and solve for V₁ = M₂V₂ / M₁.",
+   "V₁ = (0.18 x 744) / 6.0 = 22.3 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "24 mL of 2.0 M HCl is diluted with water to a final volume of 347 mL. What is the new molarity?",
+  "answer": 0.138329,
+  "answer_text": "0.138 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of solute are unchanged: M₁V₁ = M₂V₂.",
+   "M₂ = (2.0 x 24) / 347 = 0.138 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-05"
+ },
+ {
+  "topic": "Solutions",
+  "level": 3,
+  "question": "37 mL of 2.0 M solution is diluted to 0.25 M. What is the final volume in mL?",
+  "answer": 296.0,
+  "answer_text": "296 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "M₁V₁ = M₂V₂, so V₂ = M₁V₁ / M₂.",
+   "V₂ = (2.0 x 37) / 0.25 = 296 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dilution-06"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What volume (mL) of 0.202 M NaOH is needed to completely neutralize 19.7 mL of 0.2 M HCl?",
+  "answer": 19.505,
+  "answer_text": "19.5 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of HCl = 0.2 x 0.0197 L = 0.00394 mol.",
+   "Neutralization ratio is 1 HCl : 1 NaOH, so moles NaOH = 0.00394 x 1/1 = 0.00394 mol.",
+   "Volume = 0.00394 / 0.202 = 0.01950 L = 19.5 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "49.7 mL of H₂SO₄ solution is neutralized by 21.2 mL of 0.298 M NaOH. What is the molarity of the H₂SO₄?",
+  "answer": 0.0635573,
+  "answer_text": "0.0636 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of NaOH = 0.298 x 0.0212 L = 0.00632 mol.",
+   "Ratio is 1 H₂SO₄ : 2 NaOH, so moles H₂SO₄ = 0.00632 x 1/2 = 0.00316 mol.",
+   "M = 0.00316 / 0.0497 L = 0.0636 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What volume (mL) of 0.353 M Ba(OH)₂ is needed to completely neutralize 49.3 mL of 0.353 M HCl?",
+  "answer": 24.65,
+  "answer_text": "24.6 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of HCl = 0.353 x 0.0493 L = 0.0174 mol.",
+   "Neutralization ratio is 2 HCl : 1 Ba(OH)₂, so moles Ba(OH)₂ = 0.0174 x 1/2 = 0.00870 mol.",
+   "Volume = 0.00870 / 0.353 = 0.02465 L = 24.6 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-03"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "25.1 mL of HNO₃ solution is neutralized by 25.9 mL of 0.067 M KOH. What is the molarity of the HNO₃?",
+  "answer": 0.0691355,
+  "answer_text": "0.0691 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of KOH = 0.067 x 0.0259 L = 0.00174 mol.",
+   "Ratio is 1 HNO₃ : 1 KOH, so moles HNO₃ = 0.00174 x 1/1 = 0.00174 mol.",
+   "M = 0.00174 / 0.0251 L = 0.0691 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What volume (mL) of 0.15 M NaOH is needed to completely neutralize 46.0 mL of 0.419 M H₃PO₄?",
+  "answer": 385.48,
+  "answer_text": "385 mL",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of H₃PO₄ = 0.419 x 0.046 L = 0.0193 mol.",
+   "Neutralization ratio is 1 H₃PO₄ : 3 NaOH, so moles NaOH = 0.0193 x 3/1 = 0.0578 mol.",
+   "Volume = 0.0578 / 0.15 = 0.3855 L = 385 mL."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-05"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "40.1 mL of HCl solution is neutralized by 17.6 mL of 0.067 M NaOH. What is the molarity of the HCl?",
+  "answer": 0.0294065,
+  "answer_text": "0.0294 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles of NaOH = 0.067 x 0.0176 L = 0.00118 mol.",
+   "Ratio is 1 HCl : 1 NaOH, so moles HCl = 0.00118 x 1/1 = 0.00118 mol.",
+   "M = 0.00118 / 0.0401 L = 0.0294 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-titration-06"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "7.2 g of KCl is dissolved in 391 g of water. What is the mass percent of KCl in the solution?",
+  "answer": 1.80814,
+  "answer_text": "1.81 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Mass of solution = 7.2 + 391 = 398.2 g.",
+   "% = 7.2 / 398.2 x 100 = 1.81%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmolal-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "16.9 g of NaOH is dissolved in 355 g of water. What is the molality (mol/kg)?",
+  "answer": 1.19023,
+  "answer_text": "1.19 m",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaOH = 1 x 22.99 + 1 x 15.999 + 1 x 1.008 = 40.00 g/mol.",
+   "moles = 16.9 / 40.00 = 0.423 mol.",
+   "kg solvent = 0.355.",
+   "m = 0.423 / 0.355 = 1.19 mol/kg."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmolal-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "36.9 g of C₆H₁₂O₆ is dissolved in 310 g of water. What is the mass percent of C₆H₁₂O₆ in the solution?",
+  "answer": 10.6371,
+  "answer_text": "10.6 %",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Mass of solution = 36.9 + 310 = 346.9 g.",
+   "% = 36.9 / 346.9 x 100 = 10.6%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmolal-03"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "51.7 g of CaCl₂ is dissolved in 124 g of water. What is the molality (mol/kg)?",
+  "answer": 3.75692,
+  "answer_text": "3.76 m",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CaCl₂ = 1 x 40.078 + 2 x 35.45 = 111.0 g/mol.",
+   "moles = 51.7 / 111.0 = 0.466 mol.",
+   "kg solvent = 0.124.",
+   "m = 0.466 / 0.124 = 3.76 mol/kg."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-massmolal-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "37.0 g of NaCl (van't Hoff factor i = 2) is dissolved in 461 g of water (K_f = 1.86 °C·kg/mol). By how many °C is the freezing point lowered?",
+  "answer": 5.10897,
+  "answer_text": "5.11 °C",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NaCl = 1 x 22.99 + 1 x 35.45 = 58.44 g/mol.",
+   "molality = (37.0/58.44) / 0.461 kg = 1.37 m.",
+   "ΔT_f = i K_f m = 2 x 1.86 x 1.37 = 5.11 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-colligative-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "13.1 g of C₆H₁₂O₆ (i = 1) is dissolved in 427 g of water (K_b = 0.512 °C·kg/mol). What is the boiling point of the solution in °C?",
+  "answer": 100.087,
+  "answer_text": "100 °C",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₆H₁₂O₆ = 6 x 12.011 + 12 x 1.008 + 6 x 15.999 = 180.2 g/mol.",
+   "molality = (13.1/180.2) / 0.427 kg = 0.170 m.",
+   "ΔT_b = 1 x 0.512 x 0.170 = 0.0872 °C; boiling point = 100 + ΔT_b = 100.1 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-colligative-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "27.4 g of CaCl₂ (van't Hoff factor i = 3) is dissolved in 220 g of water (K_f = 1.86 °C·kg/mol). By how many °C is the freezing point lowered?",
+  "answer": 6.26217,
+  "answer_text": "6.26 °C",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CaCl₂ = 1 x 40.078 + 2 x 35.45 = 111.0 g/mol.",
+   "molality = (27.4/111.0) / 0.22 kg = 1.12 m.",
+   "ΔT_f = i K_f m = 3 x 1.86 x 1.12 = 6.26 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-colligative-03"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "26.5 g of C₁₂H₂₂O₁₁ (i = 1) is dissolved in 298 g of water (K_b = 0.512 °C·kg/mol). What is the boiling point of the solution in °C?",
+  "answer": 100.133,
+  "answer_text": "100 °C",
+  "tolerance_rel": 0.002,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of C₁₂H₂₂O₁₁ = 12 x 12.011 + 22 x 1.008 + 11 x 15.999 = 342.3 g/mol.",
+   "molality = (26.5/342.3) / 0.298 kg = 0.260 m.",
+   "ΔT_b = 1 x 0.512 x 0.260 = 0.133 °C; boiling point = 100 + ΔT_b = 100.1 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-colligative-04"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "13.1 g of KBr (van't Hoff factor i = 2) is dissolved in 156 g of water (K_f = 1.86 °C·kg/mol). By how many °C is the freezing point lowered?",
+  "answer": 2.62504,
+  "answer_text": "2.63 °C",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of KBr = 1 x 39.098 + 1 x 79.904 = 119.0 g/mol.",
+   "molality = (13.1/119.0) / 0.156 kg = 0.706 m.",
+   "ΔT_f = i K_f m = 2 x 1.86 x 0.706 = 2.63 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-colligative-05"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What is the osmotic pressure (atm) of a 0.38 M glucose solution (a nonelectrolyte) at 23 °C?",
+  "answer": 9.23479,
+  "answer_text": "9.23 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "π = i M R T with i = 1, R = 0.08206 L·atm/(mol·K).",
+   "T = 23 + 273.15 = 296.1 K.",
+   "π = 0.38 x 0.08206 x 296.1 = 9.23 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-osmotic-01"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What is the osmotic pressure (atm) of a 0.1 M glucose solution (a nonelectrolyte) at 16 °C?",
+  "answer": 2.37276,
+  "answer_text": "2.37 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "π = i M R T with i = 1, R = 0.08206 L·atm/(mol·K).",
+   "T = 16 + 273.15 = 289.1 K.",
+   "π = 0.1 x 0.08206 x 289.1 = 2.37 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-osmotic-02"
+ },
+ {
+  "topic": "Solutions",
+  "level": 4,
+  "question": "What is the osmotic pressure (atm) of a 0.38 M glucose solution (a nonelectrolyte) at 33 °C?",
+  "answer": 9.54661,
+  "answer_text": "9.55 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "π = i M R T with i = 1, R = 0.08206 L·atm/(mol·K).",
+   "T = 33 + 273.15 = 306.1 K.",
+   "π = 0.38 x 0.08206 x 306.1 = 9.55 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-osmotic-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "What volume (L) does 2.85 mol of an ideal gas occupy at 2.06 atm and 61 °C?",
+  "answer": 37.9359,
+  "answer_text": "37.9 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 61 + 273.15 = 334.1 K.",
+   "V = nRT / P.",
+   "V = (2.85)(0.08206)(334.1) / 2.06 = 37.9 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-01"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "What is the pressure (atm) of 3.0 mol of an ideal gas in a 4.8 L container at 46 °C?",
+  "answer": 16.3684,
+  "answer_text": "16.4 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 46 + 273.15 = 319.1 K.",
+   "P = nRT / V.",
+   "P = (3.0)(0.08206)(319.1) / 4.8 = 16.4 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-02"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "How many moles of an ideal gas are in 29.2 L at 0.84 atm and 47 °C?",
+  "answer": 0.933635,
+  "answer_text": "0.934 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 47 + 273.15 = 320.1 K.",
+   "n = PV / RT.",
+   "n = (0.84)(29.2) / ((0.08206)(320.1)) = 0.934 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "0.86 mol of an ideal gas occupies 13.4 L at 1.92 atm. What is its temperature in kelvin?",
+  "answer": 364.566,
+  "answer_text": "365 K",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = PV / nR.",
+   "T = (1.92)(13.4) / ((0.86)(0.08206)) = 364.6 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-04"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "What volume (L) does 1.51 mol of an ideal gas occupy at 2.38 atm and 78 °C?",
+  "answer": 18.282,
+  "answer_text": "18.3 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 78 + 273.15 = 351.1 K.",
+   "V = nRT / P.",
+   "V = (1.51)(0.08206)(351.1) / 2.38 = 18.3 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-05"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "What is the pressure (atm) of 2.88 mol of an ideal gas in a 27.5 L container at 33 °C?",
+  "answer": 2.63103,
+  "answer_text": "2.63 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 33 + 273.15 = 306.1 K.",
+   "P = nRT / V.",
+   "P = (2.88)(0.08206)(306.1) / 27.5 = 2.63 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-06"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "How many moles of an ideal gas are in 22.5 L at 1.4 atm and 37 °C?",
+  "answer": 1.23768,
+  "answer_text": "1.24 mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = 37 + 273.15 = 310.1 K.",
+   "n = PV / RT.",
+   "n = (1.4)(22.5) / ((0.08206)(310.1)) = 1.24 mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-07"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "0.27 mol of an ideal gas occupies 24.9 L at 1.4 atm. What is its temperature in kelvin?",
+  "answer": 1573.37,
+  "answer_text": "1570 K",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "T = PV / nR.",
+   "T = (1.4)(24.9) / ((0.27)(0.08206)) = 1573 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-idealgas-08"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 10.0 L at 2.45 atm. What is its volume (L) at 5.75 atm if temperature and amount are constant?",
+  "answer": 4.26087,
+  "answer_text": "4.26 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Boyle's law: P₁V₁ = P₂V₂.",
+   "V₂ = (2.45)(10.0) / 5.75 = 4.26 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-01"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 6.6 L at 21 °C. What is its volume (L) at 123 °C at constant pressure?",
+  "answer": 8.88863,
+  "answer_text": "8.89 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Charles's law (kelvin!): V₁/T₁ = V₂/T₂.",
+   "T₁ = 294.1 K, T₂ = 396.1 K.",
+   "V₂ = 6.6 x 396.1 / 294.1 = 8.89 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-02"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 7.2 L at 1.13 atm and 34 °C. What is its volume (L) at 3.26 atm and 104 °C?",
+  "answer": 3.06448,
+  "answer_text": "3.06 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Combined gas law: P₁V₁/T₁ = P₂V₂/T₂ (kelvin).",
+   "T₁ = 307.1 K, T₂ = 377.1 K.",
+   "V₂ = (1.13)(7.2)(377.1) / ((307.1)(3.26)) = 3.06 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A sealed rigid container holds gas at 1.53 atm and 23 °C. What is the pressure (atm) after heating to 107 °C?",
+  "answer": 1.96397,
+  "answer_text": "1.96 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Gay-Lussac: P₁/T₁ = P₂/T₂ (kelvin).",
+   "P₂ = 1.53 x 380.1 / 296.1 = 1.96 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-04"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 9.8 L at 0.86 atm. What is its volume (L) at 0.55 atm if temperature and amount are constant?",
+  "answer": 15.3236,
+  "answer_text": "15.3 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Boyle's law: P₁V₁ = P₂V₂.",
+   "V₂ = (0.86)(9.8) / 0.55 = 15.3 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-05"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 3.8 L at 12 °C. What is its volume (L) at 138 °C at constant pressure?",
+  "answer": 5.47912,
+  "answer_text": "5.48 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Charles's law (kelvin!): V₁/T₁ = V₂/T₂.",
+   "T₁ = 285.1 K, T₂ = 411.1 K.",
+   "V₂ = 3.8 x 411.1 / 285.1 = 5.48 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-06"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A gas occupies 9.0 L at 1.69 atm and 23 °C. What is its volume (L) at 2.04 atm and 55 °C?",
+  "answer": 8.26152,
+  "answer_text": "8.26 L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Combined gas law: P₁V₁/T₁ = P₂V₂/T₂ (kelvin).",
+   "T₁ = 296.1 K, T₂ = 328.1 K.",
+   "V₂ = (1.69)(9.0)(328.1) / ((296.1)(2.04)) = 8.26 L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-07"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A sealed rigid container holds gas at 1.2 atm and 26 °C. What is the pressure (atm) after heating to 85 °C?",
+  "answer": 1.43667,
+  "answer_text": "1.44 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Gay-Lussac: P₁/T₁ = P₂/T₂ (kelvin).",
+   "P₂ = 1.2 x 358.1 / 299.1 = 1.44 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gaslaws-08"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A mixture contains 3.9 mol O₂, 3.08 mol N₂, with a total pressure of 1.22 atm. What is the partial pressure (atm) of O₂?",
+  "answer": 0.681662,
+  "answer_text": "0.682 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Total moles = 6.98 mol.",
+   "Mole fraction of O₂ = 3.9 / 6.98 = 0.5587.",
+   "P = X x P_total = 0.5587 x 1.22 = 0.682 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dalton-01"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A mixture contains 2.66 mol Ar, 3.05 mol He, 2.44 mol N₂, with a total pressure of 3.99 atm. What is the partial pressure (atm) of Ar?",
+  "answer": 1.30226,
+  "answer_text": "1.30 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Total moles = 8.15 mol.",
+   "Mole fraction of Ar = 2.66 / 8.15 = 0.3264.",
+   "P = X x P_total = 0.3264 x 3.99 = 1.30 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dalton-02"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A mixture contains 2.98 mol CO₂, 3.51 mol N₂, with a total pressure of 1.54 atm. What is the partial pressure (atm) of CO₂?",
+  "answer": 0.707119,
+  "answer_text": "0.707 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Total moles = 6.49 mol.",
+   "Mole fraction of CO₂ = 2.98 / 6.49 = 0.4592.",
+   "P = X x P_total = 0.4592 x 1.54 = 0.707 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dalton-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 3,
+  "question": "A mixture contains 0.87 mol N₂, 3.48 mol O₂, 3.94 mol Ar, with a total pressure of 1.65 atm. What is the partial pressure (atm) of N₂?",
+  "answer": 0.17316,
+  "answer_text": "0.173 atm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Total moles = 8.29 mol.",
+   "Mole fraction of N₂ = 0.87 / 8.29 = 0.1049.",
+   "P = X x P_total = 0.1049 x 1.65 = 0.173 atm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-dalton-04"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "What is the density (g/L) of N₂ gas at 1.73 atm and 95 °C?",
+  "answer": 1.60422,
+  "answer_text": "1.60 g/L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of N₂ = 2 x 14.007 = 28.01 g/mol.",
+   "T = 368.1 K.",
+   "d = PM / RT = (1.73)(28.01) / ((0.08206)(368.1)) = 1.60 g/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-01"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "A gas has a density of 1.31 g/L at 1.22 atm and 90 °C. What is its molar mass (g/mol)?",
+  "answer": 31.9985,
+  "answer_text": "32.0 g/mol",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange d = PM/RT to M = dRT / P.",
+   "T = 363.1 K.",
+   "M = (1.31)(0.08206)(363.1) / 1.22 = 32.0 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-02"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "What is the density (g/L) of CO₂ gas at 1.84 atm and 21 °C?",
+  "answer": 3.35474,
+  "answer_text": "3.35 g/L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of CO₂ = 1 x 12.011 + 2 x 15.999 = 44.01 g/mol.",
+   "T = 294.1 K.",
+   "d = PM / RT = (1.84)(44.01) / ((0.08206)(294.1)) = 3.35 g/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "A gas has a density of 0.945 g/L at 1.64 atm and 66 °C. What is its molar mass (g/mol)?",
+  "answer": 16.0366,
+  "answer_text": "16.0 g/mol",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange d = PM/RT to M = dRT / P.",
+   "T = 339.1 K.",
+   "M = (0.945)(0.08206)(339.1) / 1.64 = 16.0 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-04"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "What is the density (g/L) of NH₃ gas at 1.55 atm and 17 °C?",
+  "answer": 1.10871,
+  "answer_text": "1.11 g/L",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of NH₃ = 1 x 14.007 + 3 x 1.008 = 17.03 g/mol.",
+   "T = 290.1 K.",
+   "d = PM / RT = (1.55)(17.03) / ((0.08206)(290.1)) = 1.11 g/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-05"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "A gas has a density of 0.276 g/L at 1.77 atm and 40 °C. What is its molar mass (g/mol)?",
+  "answer": 4.007,
+  "answer_text": "4.01 g/mol",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Rearrange d = PM/RT to M = dRT / P.",
+   "T = 313.1 K.",
+   "M = (0.276)(0.08206)(313.1) / 1.77 = 4.01 g/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gasdensity-06"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "How many times faster does H₂ effuse than O₂ under the same conditions?",
+  "answer": 3.98397,
+  "answer_text": "3.98 times",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Graham's law: rate₁/rate₂ = √(M₂/M₁).",
+   "M(H₂) = 2.016, M(O₂) = 32.00 g/mol.",
+   "√(32.00/2.016) = 3.98."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-graham-01"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "How many times faster does He effuse than CH₄ under the same conditions?",
+  "answer": 2.00204,
+  "answer_text": "2.00 times",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Graham's law: rate₁/rate₂ = √(M₂/M₁).",
+   "M(He) = 4.003, M(CH₄) = 16.04 g/mol.",
+   "√(16.04/4.003) = 2.00."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-graham-02"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "How many times faster does NH₃ effuse than HCl under the same conditions?",
+  "answer": 1.46311,
+  "answer_text": "1.46 times",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Graham's law: rate₁/rate₂ = √(M₂/M₁).",
+   "M(NH₃) = 17.03, M(HCl) = 36.46 g/mol.",
+   "√(36.46/17.03) = 1.46."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-graham-03"
+ },
+ {
+  "topic": "Gases",
+  "level": 4,
+  "question": "How many times faster does H₂ effuse than CO₂ under the same conditions?",
+  "answer": 4.67224,
+  "answer_text": "4.67 times",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Graham's law: rate₁/rate₂ = √(M₂/M₁).",
+   "M(H₂) = 2.016, M(CO₂) = 44.01 g/mol.",
+   "√(44.01/2.016) = 4.67."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-graham-04"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to warm 500 g of water from 22 °C to 42 °C? (c = 4.184 J/g·°C)",
+  "answer": 41.84,
+  "answer_text": "41.8 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "q = m c ΔT.",
+   "ΔT = 42 − 22 = 20 °C.",
+   "q = 500 x 4.184 x 20 = 41800 J = 41.8 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-01"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "51.7 kJ of heat is added to 151 g of water at 11 °C. What is the final temperature (°C)? (c = 4.184 J/g·°C)",
+  "answer": 92.8318,
+  "answer_text": "92.8 °C",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔT = q / (m c) with q in joules.",
+   "ΔT = 51700.0 / (151 x 4.184) = 81.8 °C.",
+   "T_final = 11 + 81.8 = 92.83 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-02"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "What mass (g) of water absorbs 6.9 kJ when its temperature rises by 45 °C? (c = 4.184 J/g·°C)",
+  "answer": 36.6475,
+  "answer_text": "36.6 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "m = q / (c ΔT) with q in joules.",
+   "m = 6900.0 / (4.184 x 45) = 36.6 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-03"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (J) is needed to warm 180 g of iron (c = 0.449 J/g·°C) from 22 °C to 65 °C?",
+  "answer": 3475.26,
+  "answer_text": "3480 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "q = m c ΔT.",
+   "q = 180 x 0.449 x 43 = 3480 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-04"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to warm 490 g of water from 14 °C to 25 °C? (c = 4.184 J/g·°C)",
+  "answer": 22.5518,
+  "answer_text": "22.6 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "q = m c ΔT.",
+   "ΔT = 25 − 14 = 11 °C.",
+   "q = 490 x 4.184 x 11 = 22600 J = 22.6 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-05"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "58.0 kJ of heat is added to 328 g of water at 30 °C. What is the final temperature (°C)? (c = 4.184 J/g·°C)",
+  "answer": 72.2632,
+  "answer_text": "72.3 °C",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔT = q / (m c) with q in joules.",
+   "ΔT = 58000.0 / (328 x 4.184) = 42.3 °C.",
+   "T_final = 30 + 42.3 = 72.26 °C."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-06"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "What mass (g) of water absorbs 58.6 kJ when its temperature rises by 32 °C? (c = 4.184 J/g·°C)",
+  "answer": 437.679,
+  "answer_text": "438 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "m = q / (c ΔT) with q in joules.",
+   "m = 58600.0 / (4.184 x 32) = 438 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-07"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (J) is needed to warm 471 g of aluminum (c = 0.897 J/g·°C) from 23 °C to 65 °C?",
+  "answer": 17744.5,
+  "answer_text": "17700 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "q = m c ΔT.",
+   "q = 471 x 0.897 x 42 = 17700 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-calorimetry-08"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to melt 166 g of ice at 0 °C? (ΔH_fus = 6.01 kJ/mol)",
+  "answer": 55.3794,
+  "answer_text": "55.4 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "moles = 166 / 18.02 = 9.21 mol.",
+   "q = n ΔH_fus = 9.21 x 6.01 = 55.4 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phase-01"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to vaporize 284 g of water at 100 °C? (ΔH_vap = 40.7 kJ/mol)",
+  "answer": 641.621,
+  "answer_text": "642 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "moles = 284 / 18.02 = 15.8 mol.",
+   "q = n ΔH_vap = 15.8 x 40.7 = 642 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phase-02"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to melt 111 g of ice at 0 °C? (ΔH_fus = 6.01 kJ/mol)",
+  "answer": 37.0308,
+  "answer_text": "37.0 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "moles = 111 / 18.02 = 6.16 mol.",
+   "q = n ΔH_fus = 6.16 x 6.01 = 37.0 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phase-03"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 3,
+  "question": "How much heat (kJ) is needed to vaporize 181 g of water at 100 °C? (ΔH_vap = 40.7 kJ/mol)",
+  "answer": 408.92,
+  "answer_text": "409 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Molar mass of H₂O = 2 x 1.008 + 1 x 15.999 = 18.02 g/mol.",
+   "moles = 181 / 18.02 = 10.0 mol.",
+   "q = n ΔH_vap = 10.0 x 40.7 = 409 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phase-04"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for CH4(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l). ΔH°f (kJ/mol): CH₄ −74.8, CO₂ −393.5, H₂O(l) −285.8.",
+  "answer": -890.3,
+  "answer_text": "-890.3 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -965.10 kJ.   Reactants: -74.800 kJ.",
+   "ΔH°rxn = -965.10 − (-74.800) = -890.30 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-01"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for C₃H₈(g) + 5 O₂(g) → 3 CO₂(g) + 4 H₂O(l). ΔH°f (kJ/mol): C₃H₈ −103.8, CO₂ −393.5, H₂O(l) −285.8.",
+  "answer": -2219.9,
+  "answer_text": "-2220 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -2323.7 kJ.   Reactants: -103.80 kJ.",
+   "ΔH°rxn = -2323.7 − (-103.80) = -2219.9 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-02"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for CaCO₃(s) → CaO(s) + CO₂(g). ΔH°f (kJ/mol): CaCO₃ −1206.9, CaO −635.1, CO₂ −393.5.",
+  "answer": 178.3,
+  "answer_text": "178.3 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -1028.6 kJ.   Reactants: -1206.9 kJ.",
+   "ΔH°rxn = -1028.6 − (-1206.9) = 178.30 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-03"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for N₂(g) + 3 H₂(g) → 2 NH₃(g). ΔH°f (kJ/mol): NH₃ −46.1 (elements in standard state are 0).",
+  "answer": -92.2,
+  "answer_text": "-92.20 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -92.200 kJ.   Reactants: 0 kJ.",
+   "ΔH°rxn = -92.200 − (0) = -92.200 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-04"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for C₂H₄(g) + H₂(g) → C₂H₆(g). ΔH°f (kJ/mol): C₂H₄ +52.4, C₂H₆ −84.7.",
+  "answer": -137.1,
+  "answer_text": "-137.1 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -84.700 kJ.   Reactants: 52.400 kJ.",
+   "ΔH°rxn = -84.700 − (52.400) = -137.10 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-05"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Calculate ΔH°rxn (kJ) for 2 SO₂(g) + O₂(g) → 2 SO₃(g). ΔH°f (kJ/mol): SO₂ −296.8, SO₃ −395.7.",
+  "answer": -197.8,
+  "answer_text": "-197.8 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔH°rxn = Σ n ΔH°f(products) − Σ n ΔH°f(reactants); elements in their standard state are 0.",
+   "Products: -791.40 kJ.   Reactants: -593.60 kJ.",
+   "ΔH°rxn = -791.40 − (-593.60) = -197.80 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formation-06"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Use Hess's law: C(s) + O₂(g) → CO₂(g), ΔH = −393.5 kJ; CO(g) + ½ O₂(g) → CO₂(g), ΔH = −283.0 kJ. Find ΔH for C(s) + ½ O₂(g) → CO(g).",
+  "answer": -110.5,
+  "answer_text": "-110.5 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Arrange the given reactions so they sum to the target.",
+   "Keep reaction 1; reverse reaction 2 (sign flips to +283.0), then add: −393.5 + 283.0.",
+   "ΔH = -110.5 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hess-01"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Use Hess's law: N₂(g) + O₂(g) → 2 NO(g), ΔH = +180.5 kJ; 2 NO(g) + O₂(g) → 2 NO₂(g), ΔH = −114.1 kJ. Find ΔH for N₂(g) + 2 O₂(g) → 2 NO₂(g).",
+  "answer": 66.4,
+  "answer_text": "66.40 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Arrange the given reactions so they sum to the target.",
+   "The two reactions add directly (2 NO cancels): 180.5 + (−114.1).",
+   "ΔH = 66.40 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hess-02"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Use Hess's law: 2 H₂(g) + O₂(g) → 2 H₂O(g), ΔH = −483.6 kJ; H₂O(l) → H₂O(g), ΔH = +44.0 kJ. Find ΔH for 2 H₂(g) + O₂(g) → 2 H₂O(l).",
+  "answer": -571.6,
+  "answer_text": "-571.6 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Arrange the given reactions so they sum to the target.",
+   "Reverse the second reaction and double it (ΔH = −88.0), then add to the first: −483.6 − 88.0.",
+   "ΔH = -571.6 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hess-03"
+ },
+ {
+  "topic": "Thermochemistry",
+  "level": 4,
+  "question": "Use Hess's law: C(graphite) + O₂(g) → CO₂(g), ΔH = −393.5 kJ; C(diamond) + O₂(g) → CO₂(g), ΔH = −395.4 kJ. Find ΔH for C(graphite) → C(diamond).",
+  "answer": 1.9,
+  "answer_text": "1.900 kJ",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Arrange the given reactions so they sum to the target.",
+   "Keep reaction 1, reverse reaction 2 (+395.4), add: −393.5 + 395.4.",
+   "ΔH = 1.900 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hess-04"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the frequency (Hz) of light with a wavelength of 650 nm? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 461538000000000.0,
+  "answer_text": "4.62 x 10^14 Hz",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "c = λν, so ν = c / λ.",
+   "λ = 650 nm = 650e-9 m.",
+   "ν = 3.00e8 / 650e-9 = 4.62 x 10^14 Hz."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-01"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of one photon of light with a wavelength of 520 nm? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 3.82269e-19,
+  "answer_text": "3.82 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "E = hc / λ with h = 6.626e-34 J·s and c = 3.00e8 m/s.",
+   "E = (6.626e-34)(3.00e8) / (520e-9) = 3.82 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-02"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the wavelength (nm) of light with a frequency of 4.5e+14 Hz?",
+  "answer": 666.667,
+  "answer_text": "667 nm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "λ = c / ν.",
+   "λ = 3.00e8 / 4.5e+14 = 6.67 x 10^-7 m = 667 nm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-03"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of a photon with a frequency of 7.0e+14 Hz? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 4.6382e-19,
+  "answer_text": "4.64 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "E = hν with h = 6.626e-34 J·s.",
+   "E = (6.626e-34)(7.0e+14) = 4.64 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-04"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the frequency (Hz) of light with a wavelength of 520 nm? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 576923000000000.0,
+  "answer_text": "5.77 x 10^14 Hz",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "c = λν, so ν = c / λ.",
+   "λ = 520 nm = 520e-9 m.",
+   "ν = 3.00e8 / 520e-9 = 5.77 x 10^14 Hz."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-05"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of one photon of light with a wavelength of 450 nm? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 4.41733e-19,
+  "answer_text": "4.42 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "E = hc / λ with h = 6.626e-34 J·s and c = 3.00e8 m/s.",
+   "E = (6.626e-34)(3.00e8) / (450e-9) = 4.42 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-06"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the wavelength (nm) of light with a frequency of 7.5e+14 Hz?",
+  "answer": 400.0,
+  "answer_text": "400 nm",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "λ = c / ν.",
+   "λ = 3.00e8 / 7.5e+14 = 4.00 x 10^-7 m = 400 nm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-07"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of a photon with a frequency of 4.5e+14 Hz? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 2.9817e-19,
+  "answer_text": "2.98 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "E = hν with h = 6.626e-34 J·s.",
+   "E = (6.626e-34)(4.5e+14) = 2.98 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-light-08"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of the electron in the n = 1 level of a hydrogen atom? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": -2.178e-18,
+  "answer_text": "-2.18 x 10^-18 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Eₙ = −2.178e-18 J / n².",
+   "E = −2.178e-18 / 1² = -2.18 x 10^-18 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-01"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "An electron in a hydrogen atom falls from n = 4 to n = 2. What is the energy (J) of the emitted photon? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 4.08375e-19,
+  "answer_text": "4.08 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/n_f² − 1/n_i²), take the magnitude for the photon.",
+   "= 2.178e-18 x (1/4 − 1/16) = 4.08 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-02"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 4,
+  "question": "An electron in a hydrogen atom falls from n = 5 to n = 2. What is the wavelength (nm) of the emitted photon?",
+  "answer": 434.606,
+  "answer_text": "435 nm",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/4 − 1/25) = 4.57 x 10^-19 J.",
+   "λ = hc / ΔE.",
+   "λ = (6.626e-34)(3.00e8) / 4.57 x 10^-19 = 4.35 x 10^-7 m = 435 nm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-03"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of the electron in the n = 2 level of a hydrogen atom? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": -5.445e-19,
+  "answer_text": "-5.44 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Eₙ = −2.178e-18 J / n².",
+   "E = −2.178e-18 / 2² = -5.44 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-04"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "An electron in a hydrogen atom falls from n = 4 to n = 3. What is the energy (J) of the emitted photon? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.05875e-19,
+  "answer_text": "1.06 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/n_f² − 1/n_i²), take the magnitude for the photon.",
+   "= 2.178e-18 x (1/9 − 1/16) = 1.06 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-05"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 4,
+  "question": "An electron in a hydrogen atom falls from n = 2 to n = 1. What is the wavelength (nm) of the emitted photon?",
+  "answer": 121.69,
+  "answer_text": "122 nm",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/1 − 1/4) = 1.63 x 10^-18 J.",
+   "λ = hc / ΔE.",
+   "λ = (6.626e-34)(3.00e8) / 1.63 x 10^-18 = 1.22 x 10^-7 m = 122 nm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-06"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "What is the energy (J) of the electron in the n = 3 level of a hydrogen atom? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": -2.42e-19,
+  "answer_text": "-2.42 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Eₙ = −2.178e-18 J / n².",
+   "E = −2.178e-18 / 3² = -2.42 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-07"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "An electron in a hydrogen atom falls from n = 6 to n = 2. What is the energy (J) of the emitted photon? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 4.84e-19,
+  "answer_text": "4.84 x 10^-19 J",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/n_f² − 1/n_i²), take the magnitude for the photon.",
+   "= 2.178e-18 x (1/4 − 1/36) = 4.84 x 10^-19 J."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-08"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 4,
+  "question": "An electron in a hydrogen atom falls from n = 3 to n = 2. What is the wavelength (nm) of the emitted photon?",
+  "answer": 657.124,
+  "answer_text": "657 nm",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔE = 2.178e-18 (1/4 − 1/9) = 3.02 x 10^-19 J.",
+   "λ = hc / ΔE.",
+   "λ = (6.626e-34)(3.00e8) / 3.02 x 10^-19 = 6.57 x 10^-7 m = 657 nm."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-bohr-09"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many unpaired electrons are in a ground-state nitrogen atom?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the ground-state electron configuration (Aufbau order; note exceptions Cr and Cu).",
+   "Apply Hund's rule: fill degenerate orbitals singly before pairing.",
+   "Unpaired electrons: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-01"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 2,
+  "question": "How many valence electrons does a sodium atom have?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "For main-group elements, valence electrons = group number (groups 1–2) or group number − 10 (groups 13–18).",
+   "Na: 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-02"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many electrons are in the 3d subshell of a ground-state iron atom?",
+  "answer": 6.0,
+  "answer_text": "6",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the configuration [Ar] 4s² 3d^x (with Cr and Cu exceptions).",
+   "3d electrons for Fe: 6."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-03"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many unpaired electrons are in a ground-state oxygen atom?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the ground-state electron configuration (Aufbau order; note exceptions Cr and Cu).",
+   "Apply Hund's rule: fill degenerate orbitals singly before pairing.",
+   "Unpaired electrons: 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-04"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 2,
+  "question": "How many valence electrons does a magnesium atom have?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "For main-group elements, valence electrons = group number (groups 1–2) or group number − 10 (groups 13–18).",
+   "Mg: 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-05"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many electrons are in the 3d subshell of a ground-state zinc atom?",
+  "answer": 10.0,
+  "answer_text": "10",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the configuration [Ar] 4s² 3d^x (with Cr and Cu exceptions).",
+   "3d electrons for Zn: 10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-06"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many unpaired electrons are in a ground-state iron atom?",
+  "answer": 4.0,
+  "answer_text": "4",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the ground-state electron configuration (Aufbau order; note exceptions Cr and Cu).",
+   "Apply Hund's rule: fill degenerate orbitals singly before pairing.",
+   "Unpaired electrons: 4."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-07"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 2,
+  "question": "How many valence electrons does a aluminum atom have?",
+  "answer": 3.0,
+  "answer_text": "3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "For main-group elements, valence electrons = group number (groups 1–2) or group number − 10 (groups 13–18).",
+   "Al: 3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-08"
+ },
+ {
+  "topic": "Electronic Structure & Periodicity",
+  "level": 3,
+  "question": "How many electrons are in the 3d subshell of a ground-state copper atom?",
+  "answer": 10.0,
+  "answer_text": "10",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Write the configuration [Ar] 4s² 3d^x (with Cr and Cu exceptions).",
+   "3d electrons for Cu: 10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-econfig-09"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of H₂O?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "H₂O: 2 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-01"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of CH₄?",
+  "answer": 0.0,
+  "answer_text": "0",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "CH₄: 0 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-02"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of SF₄?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "SF₄: 1 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-03"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "What is the ideal bond angle (degrees) around the central atom in CH₄?",
+  "answer": 109.5,
+  "answer_text": "109.5 °",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "Count electron groups around the central atom.",
+   "Match to the VSEPR geometry: 2 → 180°, 3 → 120°, 4 → 109.5°, 6 → 90°.",
+   "CH₄: 109.5°."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-04"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of PCl₅?",
+  "answer": 0.0,
+  "answer_text": "0",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "PCl₅: 0 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-05"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of SO₂?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "SO₂: 1 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-06"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "How many lone pairs are on the central atom of ClF₃?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Count valence electrons and draw the Lewis structure.",
+   "Lone pairs on the central atom = leftover electron pairs after bonding.",
+   "ClF₃: 2 lone pair(s)."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-07"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "What is the ideal bond angle (degrees) around the central atom in BF₃?",
+  "answer": 120.0,
+  "answer_text": "120 °",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.6,
+  "units": [],
+  "steps": [
+   "Count electron groups around the central atom.",
+   "Match to the VSEPR geometry: 2 → 180°, 3 → 120°, 4 → 109.5°, 6 → 90°.",
+   "BF₃: 120°."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-vsepr-08"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 5 valence electrons, 0 nonbonding (lone-pair) electrons and shares 8 electrons in its bonds. What is its formal charge?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 5 − 0 − 8/2 = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-01"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 6 valence electrons, 6 nonbonding (lone-pair) electrons and shares 2 electrons in its bonds. What is its formal charge?",
+  "answer": -1.0,
+  "answer_text": "-1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 6 − 6 − 2/2 = -1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-02"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 6 valence electrons, 4 nonbonding (lone-pair) electrons and shares 4 electrons in its bonds. What is its formal charge?",
+  "answer": 0.0,
+  "answer_text": "0",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 6 − 4 − 4/2 = 0."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-03"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 7 valence electrons, 6 nonbonding (lone-pair) electrons and shares 2 electrons in its bonds. What is its formal charge?",
+  "answer": 0.0,
+  "answer_text": "0",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 7 − 6 − 2/2 = 0."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-04"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 5 valence electrons, 2 nonbonding (lone-pair) electrons and shares 6 electrons in its bonds. What is its formal charge?",
+  "answer": 0.0,
+  "answer_text": "0",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 5 − 2 − 6/2 = 0."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-05"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 3,
+  "question": "An atom has 6 valence electrons, 2 nonbonding (lone-pair) electrons and shares 6 electrons in its bonds. What is its formal charge?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0,
+  "units": [],
+  "steps": [
+   "Formal charge = V − N − B/2.",
+   "= 6 − 2 − 6/2 = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-formal-06"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many sigma (σ) bonds are in a molecule of C₂H₄?",
+  "answer": 5.0,
+  "answer_text": "5",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "C₂H₄: 5 σ and 1 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-01"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many pi (π) bonds are in a molecule of C₂H₂?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "C₂H₂: 3 σ and 2 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-02"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many sigma (σ) bonds are in a molecule of CO₂?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "CO₂: 2 σ and 2 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-03"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many pi (π) bonds are in a molecule of HCN?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "HCN: 2 σ and 2 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-04"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many sigma (σ) bonds are in a molecule of N₂?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "N₂: 1 σ and 2 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-05"
+ },
+ {
+  "topic": "Bonding & Geometry",
+  "level": 4,
+  "question": "How many pi (π) bonds are in a molecule of H₂CO?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Draw the Lewis structure; every bond has one σ bond.",
+   "A double bond adds one π; a triple bond adds two π.",
+   "H₂CO: 3 σ and 1 π."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-sigmapi-06"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction has k = 0.0231 s⁻¹. What is its half-life in seconds?",
+  "answer": 30.0064,
+  "answer_text": "30.0 s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "For first order, t½ = ln 2 / k = 0.693 / k.",
+   "t½ = 0.693 / 0.0231 = 30.0 s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-01"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction has k = 0.04 s⁻¹ and an initial concentration of 0.7 M. What is [A] (M) after 42 s?",
+  "answer": 0.130462,
+  "answer_text": "0.130 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Integrated first-order law: [A] = [A]₀ e^(−kt).",
+   "kt = 0.04 x 42 = 1.68.",
+   "[A] = 0.7 x e^(−1.68) = 0.130 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-02"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction has k = 0.01 s⁻¹. How long (s) until the concentration falls to 0.25 of its initial value?",
+  "answer": 138.629,
+  "answer_text": "139 s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ln([A]₀/[A]) = kt, so t = ln(1/fraction) / k.",
+   "t = ln(4) / 0.01 = 139 s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-03"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction goes from 0.77 M to 0.0595 M in 64 s. What is the rate constant k (s⁻¹)?",
+  "answer": 0.0400065,
+  "answer_text": "0.0400 s⁻¹",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ln([A]₀/[A]) = kt, so k = ln([A]₀/[A]) / t.",
+   "k = ln(0.77/0.0595) / 64 = 0.0400 s⁻¹."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-04"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction has k = 0.00693 s⁻¹. What is its half-life in seconds?",
+  "answer": 100.021,
+  "answer_text": "100 s",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "For first order, t½ = ln 2 / k = 0.693 / k.",
+   "t½ = 0.693 / 0.00693 = 100 s."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-05"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "A first-order reaction has k = 0.04 s⁻¹ and an initial concentration of 0.68 M. What is [A] (M) after 21 s?",
+  "answer": 0.293563,
+  "answer_text": "0.294 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Integrated first-order law: [A] = [A]₀ e^(−kt).",
+   "kt = 0.04 x 21 = 0.840.",
+   "[A] = 0.68 x e^(−0.840) = 0.294 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-firstorder-06"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 3.500e-04 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 7.000e-04 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 7.000e-04 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 1.400e-03 M/s\nWhat is the reaction order with respect to A?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [A] changes (Exp 1 and 2).",
+   "Rate ratio = concentration ratio ^ order: 2 = 2^x.",
+   "x = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-01"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 5.000e-04 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 2.000e-03 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 1.000e-03 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 4.000e-03 M/s\nWhat is the reaction order with respect to B?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [B] changes (Exp 1 and 3).",
+   "Rate ratio = concentration ratio ^ order: 2 = 2^x.",
+   "x = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-02"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 5.000e-02 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 1.000e-01 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 5.000e-02 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 1.000e-01 M/s\nWhat is the reaction order with respect to A?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [A] changes (Exp 1 and 2).",
+   "Rate ratio = concentration ratio ^ order: 2 = 2^x.",
+   "x = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-03"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 2.500e-01 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 2.500e-01 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 5.000e-01 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 5.000e-01 M/s\nWhat is the reaction order with respect to B?",
+  "answer": 1.0,
+  "answer_text": "1",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [B] changes (Exp 1 and 3).",
+   "Rate ratio = concentration ratio ^ order: 2 = 2^x.",
+   "x = 1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-04"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 2.500e-02 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 1.000e-01 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 2.500e-02 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 1.000e-01 M/s\nWhat is the reaction order with respect to A?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [A] changes (Exp 1 and 2).",
+   "Rate ratio = concentration ratio ^ order: 4 = 2^x.",
+   "x = 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-05"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products:\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 5.000e-04 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 1.000e-03 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 2.000e-03 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 4.000e-03 M/s\nWhat is the reaction order with respect to B?",
+  "answer": 2.0,
+  "answer_text": "2",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Compare two experiments where only [B] changes (Exp 1 and 3).",
+   "Rate ratio = concentration ratio ^ order: 4 = 2^x.",
+   "x = 2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-06"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products (the rate law is rate = k[A]^1[B]^1):\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 8.000e-03 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 1.600e-02 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 1.600e-02 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 3.200e-02 M/s\nWhat is the rate constant k? (Give the number only.)",
+  "answer": 0.8,
+  "answer_text": "0.800",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use any experiment: k = rate / ([A]^m [B]^n).",
+   "Exp 1: k = 8.000e-03 / (0.10^1 x 0.10^1) = 0.800."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-07"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 4,
+  "question": "Initial-rate data for A + B → products (the rate law is rate = k[A]^2[B]^1):\nExp 1: [A] = 0.10 M, [B] = 0.10 M, initial rate = 8.000e-04 M/s\nExp 2: [A] = 0.20 M, [B] = 0.10 M, initial rate = 3.200e-03 M/s\nExp 3: [A] = 0.10 M, [B] = 0.20 M, initial rate = 1.600e-03 M/s\nExp 4: [A] = 0.20 M, [B] = 0.20 M, initial rate = 6.400e-03 M/s\nWhat is the rate constant k? (Give the number only.)",
+  "answer": 0.8,
+  "answer_text": "0.800",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use any experiment: k = rate / ([A]^m [B]^n).",
+   "Exp 1: k = 8.000e-04 / (0.10^2 x 0.10^1) = 0.800."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-rate-08"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 5,
+  "question": "A reaction has rate constant 4.10e-05 s⁻¹ at 297 K and 2.52e-03 s⁻¹ at 325 K. What is the activation energy in kJ/mol?",
+  "answer": 118.039,
+  "answer_text": "118 kJ/mol",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂) with R = 8.314 J/(mol·K).",
+   "ln(2.52e-03/4.10e-05) = 4.12; (1/297 − 1/325) = 2.90 x 10^-4.",
+   "Ea = 8.314 x 4.12 / 2.90 x 10^-4 = 118000 J/mol = 118 kJ/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-arrhenius-01"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 5,
+  "question": "A reaction has rate constant 2.85e-05 s⁻¹ at 318 K and 2.49e-04 s⁻¹ at 341 K. What is the activation energy in kJ/mol?",
+  "answer": 84.9635,
+  "answer_text": "85.0 kJ/mol",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂) with R = 8.314 J/(mol·K).",
+   "ln(2.49e-04/2.85e-05) = 2.17; (1/318 − 1/341) = 2.12 x 10^-4.",
+   "Ea = 8.314 x 2.17 / 2.12 x 10^-4 = 85000 J/mol = 85.0 kJ/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-arrhenius-02"
+ },
+ {
+  "topic": "Kinetics",
+  "level": 5,
+  "question": "A reaction has rate constant 4.21e-04 s⁻¹ at 310 K and 5.80e-03 s⁻¹ at 332 K. What is the activation energy in kJ/mol?",
+  "answer": 102.019,
+  "answer_text": "102 kJ/mol",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Use ln(k₂/k₁) = (Ea/R)(1/T₁ − 1/T₂) with R = 8.314 J/(mol·K).",
+   "ln(5.80e-03/4.21e-04) = 2.62; (1/310 − 1/332) = 2.14 x 10^-4.",
+   "Ea = 8.314 x 2.62 / 2.14 x 10^-4 = 102000 J/mol = 102 kJ/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-arrhenius-03"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For N₂ + 3 H₂ ⇌ 2 NH₃ at equilibrium: [N₂] = 0.06 M, [H₂] = 0.26 M, [NH₃] = 0.08 M. Calculate Kc.",
+  "answer": 6.06888,
+  "answer_text": "6.07",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kc = [products]^coefficients / [reactants]^coefficients.",
+   "Kc = [NH₃]^2 / ([N₂] [H₂]^3)",
+   "Kc = 0.006400 / 0.001055 = 6.07."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kc-01"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For 2 SO₂ + O₂ ⇌ 2 SO₃ at equilibrium: [SO₂] = 0.66 M, [O₂] = 0.79 M, [SO₃] = 0.56 M. Calculate Kc.",
+  "answer": 0.911299,
+  "answer_text": "0.911",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kc = [products]^coefficients / [reactants]^coefficients.",
+   "Kc = [SO₃]^2 / ([SO₂]^2 [O₂])",
+   "Kc = 0.3136 / 0.3441 = 0.911."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kc-02"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For H₂ + I₂ ⇌ 2 HI at equilibrium: [H₂] = 0.38 M, [I₂] = 0.73 M, [HI] = 0.32 M. Calculate Kc.",
+  "answer": 0.369142,
+  "answer_text": "0.369",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kc = [products]^coefficients / [reactants]^coefficients.",
+   "Kc = [HI]^2 / ([H₂] [I₂])",
+   "Kc = 0.1024 / 0.2774 = 0.369."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kc-03"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For N₂O₄ ⇌ 2 NO₂ at equilibrium: [N₂O₄] = 0.11 M, [NO₂] = 0.05 M. Calculate Kc.",
+  "answer": 0.0227273,
+  "answer_text": "0.0227",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kc = [products]^coefficients / [reactants]^coefficients.",
+   "Kc = [NO₂]^2 / ([N₂O₄])",
+   "Kc = 0.002500 / 0.1100 = 0.0227."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kc-04"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For PCl₅ ⇌ PCl₃ + Cl₂ at equilibrium: [PCl₅] = 0.36 M, [PCl₃] = 0.68 M, [Cl₂] = 0.73 M. Calculate Kc.",
+  "answer": 1.37889,
+  "answer_text": "1.38",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kc = [products]^coefficients / [reactants]^coefficients.",
+   "Kc = [PCl₃] [Cl₂] / ([PCl₅])",
+   "Kc = 0.4964 / 0.3600 = 1.38."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kc-05"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For N₂ + 3 H₂ ⇌ 2 NH₃, Kc = 20.9 at 517 K. Calculate Kp.",
+  "answer": 0.0116119,
+  "answer_text": "0.0116",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kp = Kc (RT)^Δn with R = 0.08206 and T in kelvin.",
+   "Δn = (moles gas products) − (moles gas reactants) = -2.",
+   "Kp = 20.9 x (0.08206 x 517)^-2 = 0.0116."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kp-01"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For PCl₅ ⇌ PCl₃ + Cl₂, Kc = 29.8 at 837 K. Calculate Kp.",
+  "answer": 2046.79,
+  "answer_text": "2050",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kp = Kc (RT)^Δn with R = 0.08206 and T in kelvin.",
+   "Δn = (moles gas products) − (moles gas reactants) = 1.",
+   "Kp = 29.8 x (0.08206 x 837)^1 = 2050."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kp-02"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For 2 SO₂ + O₂ ⇌ 2 SO₃, Kc = 18.7 at 494 K. Calculate Kp.",
+  "answer": 0.4613,
+  "answer_text": "0.461",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kp = Kc (RT)^Δn with R = 0.08206 and T in kelvin.",
+   "Δn = (moles gas products) − (moles gas reactants) = -1.",
+   "Kp = 18.7 x (0.08206 x 494)^-1 = 0.461."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kp-03"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For N₂O₄ ⇌ 2 NO₂, Kc = 19.9 at 650 K. Calculate Kp.",
+  "answer": 1061.45,
+  "answer_text": "1060",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kp = Kc (RT)^Δn with R = 0.08206 and T in kelvin.",
+   "Δn = (moles gas products) − (moles gas reactants) = 1.",
+   "Kp = 19.9 x (0.08206 x 650)^1 = 1060."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kp-04"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 4,
+  "question": "For H₂ + I₂ ⇌ 2 HI, Kc = 19.1 at 313 K. Calculate Kp.",
+  "answer": 19.1,
+  "answer_text": "19.1",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Kp = Kc (RT)^Δn with R = 0.08206 and T in kelvin.",
+   "Δn = (moles gas products) − (moles gas reactants) = 0.",
+   "Kp = 19.1 x (0.08206 x 313)^0 = 19.1."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kp-05"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "H₂(g) + I₂(g) ⇌ 2 HI(g) has Kc = 54.0. If a vessel starts with [H₂] = [I₂] = 1.0 M and no HI, what is [HI] at equilibrium (M)?",
+  "answer": 1.57212,
+  "answer_text": "1.57 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE table: [H₂] = [I₂] = c₀ − x, [HI] = 2x.",
+   "K = (2x)² / (c₀ − x)² → 2x/(c₀ − x) = √K = 7.348.",
+   "x = c₀√K / (2 + √K) = 0.7861 M; [HI] = 2x = 1.57 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-01"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "N₂O₄(g) ⇌ 2 NO₂(g) has Kc = 0.2. Starting with 0.5 M N₂O₄ only, what is [NO₂] at equilibrium (M)?",
+  "answer": 0.270156,
+  "answer_text": "0.270 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE: [N₂O₄] = c₀ − x, [NO₂] = 2x.",
+   "K = (2x)² / (c₀ − x) → 4x² + Kx − K c₀ = 0.",
+   "x = (−K + √(K² + 16 K c₀)) / 8 = 0.1351 M; [NO₂] = 2x = 0.270 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-02"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "H₂(g) + I₂(g) ⇌ 2 HI(g) has Kc = 16.0. If a vessel starts with [H₂] = [I₂] = 0.5 M and no HI, what is [HI] at equilibrium (M)?",
+  "answer": 0.666667,
+  "answer_text": "0.667 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE table: [H₂] = [I₂] = c₀ − x, [HI] = 2x.",
+   "K = (2x)² / (c₀ − x)² → 2x/(c₀ − x) = √K = 4.000.",
+   "x = c₀√K / (2 + √K) = 0.3333 M; [HI] = 2x = 0.667 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-03"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "N₂O₄(g) ⇌ 2 NO₂(g) has Kc = 0.1. Starting with 0.2 M N₂O₄ only, what is [NO₂] at equilibrium (M)?",
+  "answer": 0.118614,
+  "answer_text": "0.119 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE: [N₂O₄] = c₀ − x, [NO₂] = 2x.",
+   "K = (2x)² / (c₀ − x) → 4x² + Kx − K c₀ = 0.",
+   "x = (−K + √(K² + 16 K c₀)) / 8 = 0.05931 M; [NO₂] = 2x = 0.119 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-04"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "H₂(g) + I₂(g) ⇌ 2 HI(g) has Kc = 25.0. If a vessel starts with [H₂] = [I₂] = 0.1 M and no HI, what is [HI] at equilibrium (M)?",
+  "answer": 0.142857,
+  "answer_text": "0.143 M",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE table: [H₂] = [I₂] = c₀ − x, [HI] = 2x.",
+   "K = (2x)² / (c₀ − x)² → 2x/(c₀ − x) = √K = 5.000.",
+   "x = c₀√K / (2 + √K) = 0.07143 M; [HI] = 2x = 0.143 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-05"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "N₂O₄(g) ⇌ 2 NO₂(g) has Kc = 0.01. Starting with 0.1 M N₂O₄ only, what is [NO₂] at equilibrium (M)?",
+  "answer": 0.0292214,
+  "answer_text": "0.0292 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ICE: [N₂O₄] = c₀ − x, [NO₂] = 2x.",
+   "K = (2x)² / (c₀ − x) → 4x² + Kx − K c₀ = 0.",
+   "x = (−K + √(K² + 16 K c₀)) / 8 = 0.01461 M; [NO₂] = 2x = 0.0292 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ice-06"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "The Ksp of AgCl is 1.8e-10. What is its molar solubility (mol/L) in pure water? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.34164e-05,
+  "answer_text": "1.34 x 10^-5 mol/L",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Dissolution: AgCl(s) ⇌ 1 cation + 1 anion; Ksp = (1s)^1 (1s)^1 = 1 s^2.",
+   "s = (1.8e-10 / 1)^(1/2) = 1.34 x 10^-5 mol/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ksp-01"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "The Ksp of Ca(OH)₂ is 5.5e-06. What is its molar solubility (mol/L) in pure water? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 0.0111199,
+  "answer_text": "0.0111 mol/L",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Dissolution: Ca(OH)₂(s) ⇌ 1 cation + 2 anion; Ksp = (1s)^1 (2s)^2 = 4 s^3.",
+   "s = (5.5e-06 / 4)^(1/3) = 0.0111 mol/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ksp-02"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "The Ksp of PbI₂ is 9.8e-09. What is its molar solubility (mol/L) in pure water? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 0.0013481,
+  "answer_text": "0.00135 mol/L",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Dissolution: PbI₂(s) ⇌ 1 cation + 2 anion; Ksp = (1s)^1 (2s)^2 = 4 s^3.",
+   "s = (9.8e-09 / 4)^(1/3) = 0.00135 mol/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ksp-03"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "The Ksp of BaSO₄ is 1.1e-10. What is its molar solubility (mol/L) in pure water? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.04881e-05,
+  "answer_text": "1.05 x 10^-5 mol/L",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Dissolution: BaSO₄(s) ⇌ 1 cation + 1 anion; Ksp = (1s)^1 (1s)^1 = 1 s^2.",
+   "s = (1.1e-10 / 1)^(1/2) = 1.05 x 10^-5 mol/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ksp-04"
+ },
+ {
+  "topic": "Equilibrium",
+  "level": 5,
+  "question": "The Ksp of Ag₂CrO₄ is 1.1e-12. What is its molar solubility (mol/L) in pure water? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 6.50296e-05,
+  "answer_text": "6.50 x 10^-5 mol/L",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Dissolution: Ag₂CrO₄(s) ⇌ 2 cation + 1 anion; Ksp = (2s)^2 (1s)^1 = 4 s^3.",
+   "s = (1.1e-12 / 4)^(1/3) = 6.50 x 10^-5 mol/L."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ksp-05"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.25 M HBr solution?",
+  "answer": 0.60206,
+  "answer_text": "0.602",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "Strong acid: [H₃O⁺] = acid concentration.",
+   "pH = −log(0.25) = 0.602."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-01"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.1 M NaOH solution?",
+  "answer": 13.0,
+  "answer_text": "13",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "[OH⁻] = 1 x 0.1 = 0.100 M.",
+   "pOH = −log(0.100) = 1.00.",
+   "pH = 14.00 − pOH = 13.0."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-02"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "A solution has a pH of 4.9. What is [H₃O⁺] in mol/L? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.25893e-05,
+  "answer_text": "1.26 x 10^-5 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "[H₃O⁺] = 10^(−pH).",
+   "= 10^(−4.9) = 1.26 x 10^-5 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-03"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.0025 M HCl solution?",
+  "answer": 2.60206,
+  "answer_text": "2.60",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "Strong acid: [H₃O⁺] = acid concentration.",
+   "pH = −log(0.0025) = 2.60."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-04"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.001 M NaOH solution?",
+  "answer": 11.0,
+  "answer_text": "11",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "[OH⁻] = 1 x 0.001 = 0.00100 M.",
+   "pOH = −log(0.00100) = 3.00.",
+   "pH = 14.00 − pOH = 11.0."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-05"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "A solution has a pH of 4.88. What is [H₃O⁺] in mol/L? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.31826e-05,
+  "answer_text": "1.32 x 10^-5 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "[H₃O⁺] = 10^(−pH).",
+   "= 10^(−4.88) = 1.32 x 10^-5 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-phstrong-06"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.32 M solution of acetic acid (Ka = 1.8e-05)?",
+  "answer": 2.62142,
+  "answer_text": "2.62",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "HA ⇌ H⁺ + A⁻;  Ka = x² / (C − x).",
+   "Check the approximation: x ≈ √(Ka C) = 0.00240 (use the quadratic x² + Ka x − Ka C = 0 if this is over 5% of C).",
+   "x = 0.00239 M, so pH = −log x = 2.62."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-01"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "What is the percent ionization of a 0.462 M solution of formic acid (Ka = 1.8e-04)?",
+  "answer": 1.95447,
+  "answer_text": "1.95 %",
+  "tolerance_rel": 0.05,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find [H⁺] = x from Ka = x² / (C − x).",
+   "x = 0.00903 M.",
+   "% ionization = x / C x 100 = 1.95%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-02"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.222 M solution of hydrofluoric acid (Ka = 6.8e-04)?",
+  "answer": 1.92259,
+  "answer_text": "1.92",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "HA ⇌ H⁺ + A⁻;  Ka = x² / (C − x).",
+   "Check the approximation: x ≈ √(Ka C) = 0.0123 (use the quadratic x² + Ka x − Ka C = 0 if this is over 5% of C).",
+   "x = 0.0120 M, so pH = −log x = 1.92."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-03"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "What is the percent ionization of a 0.201 M solution of benzoic acid (Ka = 6.3e-05)?",
+  "answer": 1.7548,
+  "answer_text": "1.75 %",
+  "tolerance_rel": 0.05,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find [H⁺] = x from Ka = x² / (C − x).",
+   "x = 0.00353 M.",
+   "% ionization = x / C x 100 = 1.75%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-04"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "What is the pH of a 0.164 M solution of nitrous acid (Ka = 4.5e-04)?",
+  "answer": 2.07735,
+  "answer_text": "2.08",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "HA ⇌ H⁺ + A⁻;  Ka = x² / (C − x).",
+   "Check the approximation: x ≈ √(Ka C) = 0.00859 (use the quadratic x² + Ka x − Ka C = 0 if this is over 5% of C).",
+   "x = 0.00837 M, so pH = −log x = 2.08."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-05"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "What is the percent ionization of a 0.386 M solution of acetic acid (Ka = 1.8e-05)?",
+  "answer": 0.68055,
+  "answer_text": "0.681 %",
+  "tolerance_rel": 0.05,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Find [H⁺] = x from Ka = x² / (C − x).",
+   "x = 0.00263 M.",
+   "% ionization = x / C x 100 = 0.681%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-weak-06"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "A buffer contains 0.12 M of the acid and 0.36 M of the conjugate base (acetic acid / acetate, pKa = 4.74). What is its pH?",
+  "answer": 5.21712,
+  "answer_text": "5.22",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.03,
+  "units": [],
+  "steps": [
+   "Henderson–Hasselbalch: pH = pKa + log([base]/[acid]).",
+   "pH = 4.74 + log(0.36/0.12) = 5.22."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hh-01"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "A buffer contains 0.33 M of the acid and 0.1 M of the conjugate base (formic acid / formate, pKa = 3.75). What is its pH?",
+  "answer": 3.23149,
+  "answer_text": "3.23",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.03,
+  "units": [],
+  "steps": [
+   "Henderson–Hasselbalch: pH = pKa + log([base]/[acid]).",
+   "pH = 3.75 + log(0.1/0.33) = 3.23."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hh-02"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "A buffer contains 0.33 M of the acid and 0.44 M of the conjugate base (hydrofluoric acid / fluoride, pKa = 3.17). What is its pH?",
+  "answer": 3.29494,
+  "answer_text": "3.29",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.03,
+  "units": [],
+  "steps": [
+   "Henderson–Hasselbalch: pH = pKa + log([base]/[acid]).",
+   "pH = 3.17 + log(0.44/0.33) = 3.29."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hh-03"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "A buffer contains 0.46 M of the acid and 0.16 M of the conjugate base (benzoic acid / benzoate, pKa = 4.2). What is its pH?",
+  "answer": 3.74136,
+  "answer_text": "3.74",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.03,
+  "units": [],
+  "steps": [
+   "Henderson–Hasselbalch: pH = pKa + log([base]/[acid]).",
+   "pH = 4.2 + log(0.16/0.46) = 3.74."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-hh-04"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "70 mL of 0.46 M HCl is mixed with 99 mL of 0.24 M NaOH. What is the pH of the resulting solution?",
+  "answer": 1.30154,
+  "answer_text": "1.30",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Moles H⁺ = 0.46 x 0.07 = 0.0322 mol; moles OH⁻ = 0.24 x 0.099 = 0.0238 mol.",
+   "Total volume = 169 mL = 0.169 L.",
+   "Excess H⁺ = 0.0322 − 0.0238 = 0.00844 mol; [H⁺] = 0.0499 M; pH = 1.30."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-mixing-01"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "83 mL of 0.11 M HCl is mixed with 86 mL of 0.27 M NaOH. What is the pH of the resulting solution?",
+  "answer": 12.921,
+  "answer_text": "12.9",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Moles H⁺ = 0.11 x 0.083 = 0.00913 mol; moles OH⁻ = 0.27 x 0.086 = 0.0232 mol.",
+   "Total volume = 169 mL = 0.169 L.",
+   "Excess OH⁻ = 0.0232 − 0.00913 = 0.0141 mol; [OH⁻] = 0.0834 M; pOH = 1.08; pH = 12.9."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-mixing-02"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "91 mL of 0.33 M HCl is mixed with 23 mL of 0.48 M NaOH. What is the pH of the resulting solution?",
+  "answer": 0.77838,
+  "answer_text": "0.778",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Moles H⁺ = 0.33 x 0.091 = 0.0300 mol; moles OH⁻ = 0.48 x 0.023 = 0.0110 mol.",
+   "Total volume = 114 mL = 0.114 L.",
+   "Excess H⁺ = 0.0300 − 0.0110 = 0.0190 mol; [H⁺] = 0.167 M; pH = 0.778."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-mixing-03"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 5,
+  "question": "16 mL of 0.26 M HCl is mixed with 49 mL of 0.35 M NaOH. What is the pH of the resulting solution?",
+  "answer": 13.3007,
+  "answer_text": "13.3",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.05,
+  "units": [],
+  "steps": [
+   "Moles H⁺ = 0.26 x 0.016 = 0.00416 mol; moles OH⁻ = 0.35 x 0.049 = 0.0171 mol.",
+   "Total volume = 65 mL = 0.065 L.",
+   "Excess OH⁻ = 0.0171 − 0.00416 = 0.0130 mol; [OH⁻] = 0.200 M; pOH = 0.699; pH = 13.3."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-mixing-04"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "The Ka of acetic acid is 1.8e-05. What is Kb of its conjugate base? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 5.55556e-10,
+  "answer_text": "5.56 x 10^-10",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Ka x Kb = K_w = 1.0 x 10⁻¹⁴.",
+   "Kb = 1.0e-14 / 1.8e-05 = 5.56 x 10^-10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-01"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "A solution has pH 4.43. What is its pOH?",
+  "answer": 9.57,
+  "answer_text": "9.57",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "pH + pOH = 14.00.",
+   "pOH = 14.00 − 4.43 = 9.57."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-02"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "[H₃O⁺] = 2.5e-05 M. What is [OH⁻] in mol/L? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 4e-10,
+  "answer_text": "4.00 x 10^-10 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "K_w = [H₃O⁺][OH⁻] = 1.0 x 10⁻¹⁴.",
+   "[OH⁻] = 1.0e-14 / 2.5e-05 = 4.00 x 10^-10 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-03"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "The Ka of benzoic acid is 6.3e-05. What is Kb of its conjugate base? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 1.5873e-10,
+  "answer_text": "1.59 x 10^-10",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Ka x Kb = K_w = 1.0 x 10⁻¹⁴.",
+   "Kb = 1.0e-14 / 6.3e-05 = 1.59 x 10^-10."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-04"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "A solution has pH 6.69. What is its pOH?",
+  "answer": 7.31,
+  "answer_text": "7.31",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "pH + pOH = 14.00.",
+   "pOH = 14.00 − 6.69 = 7.31."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-05"
+ },
+ {
+  "topic": "Acids & Bases",
+  "level": 4,
+  "question": "[H₃O⁺] = 3.2e-04 M. What is [OH⁻] in mol/L? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 3.125e-11,
+  "answer_text": "3.12 x 10^-11 M",
+  "tolerance_rel": 0.02,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "K_w = [H₃O⁺][OH⁻] = 1.0 x 10⁻¹⁴.",
+   "[OH⁻] = 1.0e-14 / 3.2e-04 = 3.12 x 10^-11 M."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-kw-06"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "For a reaction ΔH = -207.3 kJ and ΔS = 67 J/K. Calculate ΔG (kJ) at 400 K.",
+  "answer": -234.1,
+  "answer_text": "-234 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.3,
+  "units": [],
+  "steps": [
+   "ΔG = ΔH − TΔS; convert ΔS to kJ/K.",
+   "TΔS = 400 x 67 / 1000 = 26.8 kJ.",
+   "ΔG = -207.3 − (26.8) = -234 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-01"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has ΔH = +176 kJ and ΔS = +122 J/K. Above what temperature (K) does it become spontaneous?",
+  "answer": 1442.62,
+  "answer_text": "1440 K",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Spontaneous when ΔG < 0; at the crossover ΔG = 0, so T = ΔH / ΔS.",
+   "T = (176 x 1000 J) / 122 J/K = 1440 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-02"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has ΔG° = -9.8 kJ/mol at 298 K. What is the equilibrium constant K? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 52.221,
+  "answer_text": "52.2",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔG° = −RT ln K → K = e^(−ΔG°/RT) (ΔG° in J).",
+   "K = exp(−(-9.8 x 1000) / (8.314 x 298)) = 52.2."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-03"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has K = 6.7e-03 at 298 K. What is ΔG° in kJ/mol?",
+  "answer": 12.4019,
+  "answer_text": "12.4 kJ/mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.3,
+  "units": [],
+  "steps": [
+   "ΔG° = −RT ln K.",
+   "ΔG° = −(8.314)(298) ln(6.7e-03) / 1000 = 12.4 kJ/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-04"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "For a reaction ΔH = -140.4 kJ and ΔS = 229 J/K. Calculate ΔG (kJ) at 350 K.",
+  "answer": -220.55,
+  "answer_text": "-221 kJ",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.3,
+  "units": [],
+  "steps": [
+   "ΔG = ΔH − TΔS; convert ΔS to kJ/K.",
+   "TΔS = 350 x 229 / 1000 = 80.2 kJ.",
+   "ΔG = -140.4 − (80.2) = -221 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-05"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has ΔH = +48 kJ and ΔS = +121 J/K. Above what temperature (K) does it become spontaneous?",
+  "answer": 396.694,
+  "answer_text": "397 K",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Spontaneous when ΔG < 0; at the crossover ΔG = 0, so T = ΔH / ΔS.",
+   "T = (48 x 1000 J) / 121 J/K = 397 K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-06"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has ΔG° = 0.1 kJ/mol at 298 K. What is the equilibrium constant K? Give your answer in scientific notation (e.g. 3.2e-5).",
+  "answer": 0.960442,
+  "answer_text": "0.960",
+  "tolerance_rel": 0.03,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔG° = −RT ln K → K = e^(−ΔG°/RT) (ΔG° in J).",
+   "K = exp(−(0.1 x 1000) / (8.314 x 298)) = 0.960."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-07"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "A reaction has K = 9.3e+02 at 298 K. What is ΔG° in kJ/mol?",
+  "answer": -16.9347,
+  "answer_text": "-16.9 kJ/mol",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.3,
+  "units": [],
+  "steps": [
+   "ΔG° = −RT ln K.",
+   "ΔG° = −(8.314)(298) ln(9.3e+02) / 1000 = -16.9 kJ/mol."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-gibbs-08"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "Calculate ΔS°rxn (J/K) for N₂(g) + 3 H₂(g) → 2 NH₃(g). S° (J/mol·K): N₂ 191.6, H₂ 130.7, NH₃ 192.5.",
+  "answer": -198.7,
+  "answer_text": "-198.7 J/K",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.1,
+  "units": [],
+  "steps": [
+   "ΔS°rxn = Σ n S°(products) − Σ n S°(reactants).",
+   "Products: 385.0; reactants: 583.7.",
+   "ΔS° = 385.0 − 583.7 = -198.7 J/K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-entropy-01"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "Calculate ΔS°rxn (J/K) for 2 SO₂(g) + O₂(g) → 2 SO₃(g). S° (J/mol·K): SO₂ 248.2, O₂ 205.1, SO₃ 256.8.",
+  "answer": -187.9,
+  "answer_text": "-187.9 J/K",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.1,
+  "units": [],
+  "steps": [
+   "ΔS°rxn = Σ n S°(products) − Σ n S°(reactants).",
+   "Products: 513.6; reactants: 701.5.",
+   "ΔS° = 513.6 − 701.5 = -187.9 J/K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-entropy-02"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "Calculate ΔS°rxn (J/K) for CaCO₃(s) → CaO(s) + CO₂(g). S° (J/mol·K): CaCO₃ 92.9, CaO 39.8, CO₂ 213.8.",
+  "answer": 160.7,
+  "answer_text": "160.7 J/K",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.1,
+  "units": [],
+  "steps": [
+   "ΔS°rxn = Σ n S°(products) − Σ n S°(reactants).",
+   "Products: 253.6; reactants: 92.90.",
+   "ΔS° = 253.6 − 92.90 = 160.7 J/K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-entropy-03"
+ },
+ {
+  "topic": "Thermodynamics",
+  "level": 5,
+  "question": "Calculate ΔS°rxn (J/K) for 2 H₂(g) + O₂(g) → 2 H₂O(l). S° (J/mol·K): H₂ 130.7, O₂ 205.1, H₂O(l) 70.0.",
+  "answer": -326.5,
+  "answer_text": "-326.5 J/K",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.1,
+  "units": [],
+  "steps": [
+   "ΔS°rxn = Σ n S°(products) − Σ n S°(reactants).",
+   "Products: 140.0; reactants: 466.5.",
+   "ΔS° = 140.0 − 466.5 = -326.5 J/K."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-entropy-04"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A galvanic cell uses the half-reactions Cu²⁺ + 2e⁻ → Cu (E° = +0.34 V) and Zn²⁺ + 2e⁻ → Zn (E° = -0.76 V). What is E°cell (V)?",
+  "answer": 1.1,
+  "answer_text": "1.10 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "The half-reaction with the larger (more positive) E° is the cathode.",
+   "E°cell = E°cathode − E°anode = +0.34 − (-0.76) = 1.10 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-01"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A cell made from Cu and Ag half-cells has E°cell = 0.46 V and transfers n = 2 electrons. What is ΔG° (kJ)?",
+  "answer": -88.7662,
+  "answer_text": "-88.8 kJ",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔG° = −n F E° with F = 96,485 C/mol.",
+   "ΔG° = −(2)(96485)(0.46) = -88800 J = -88.8 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-02"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A galvanic cell uses the half-reactions Cu²⁺ + 2e⁻ → Cu (E° = +0.34 V) and Fe²⁺ + 2e⁻ → Fe (E° = -0.44 V). What is E°cell (V)?",
+  "answer": 0.78,
+  "answer_text": "0.780 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "The half-reaction with the larger (more positive) E° is the cathode.",
+   "E°cell = E°cathode − E°anode = +0.34 − (-0.44) = 0.78 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-03"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A cell made from Zn and Ag half-cells has E°cell = 1.56 V and transfers n = 2 electrons. What is ΔG° (kJ)?",
+  "answer": -301.033,
+  "answer_text": "-301 kJ",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔG° = −n F E° with F = 96,485 C/mol.",
+   "ΔG° = −(2)(96485)(1.56) = -301000 J = -301 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-04"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A galvanic cell uses the half-reactions Ag¹⁺ + 1e⁻ → Ag (E° = +0.80 V) and Ni²⁺ + 2e⁻ → Ni (E° = -0.25 V). What is E°cell (V)?",
+  "answer": 1.05,
+  "answer_text": "1.05 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.02,
+  "units": [],
+  "steps": [
+   "The half-reaction with the larger (more positive) E° is the cathode.",
+   "E°cell = E°cathode − E°anode = +0.80 − (-0.25) = 1.05 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-05"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A cell made from Mg and Cu half-cells has E°cell = 2.71 V and transfers n = 2 electrons. What is ΔG° (kJ)?",
+  "answer": -522.949,
+  "answer_text": "-523 kJ",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "ΔG° = −n F E° with F = 96,485 C/mol.",
+   "ΔG° = −(2)(96485)(2.71) = -523000 J = -523 kJ."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-ecell-06"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A Zn/Cu cell (Zn + Cu²⁺ → Zn²⁺ + Cu, E° = 1.10 V) has [Zn²⁺] = 0.05 M and [Cu²⁺] = 1.0 M at 25 °C. What is the cell potential (V)?",
+  "answer": 1.13851,
+  "answer_text": "1.14 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.01,
+  "units": [],
+  "steps": [
+   "Q = [Zn²⁺]/[Cu²⁺] = 0.05/1.0 = 0.05000.",
+   "Nernst: E = E° − (0.0592/n) log Q with n = 2.",
+   "E = 1.10 − 0.0296 x log(0.05000) = 1.139 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-nernst-01"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A Cu/Ag cell (Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag, E° = 0.46 V) has [Cu²⁺] = 0.5 M and [Ag⁺] = 0.1 M at 25 °C. What is the cell potential (V)?",
+  "answer": 0.40971,
+  "answer_text": "0.410 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.01,
+  "units": [],
+  "steps": [
+   "Q = [Cu²⁺]/[Ag⁺]² = 0.5/0.1² = 50.00.",
+   "E = E° − (0.0592/2) log Q.",
+   "E = 0.46 − 0.0296 x log(50.00) = 0.4097 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-nernst-02"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A Zn/Cu cell (Zn + Cu²⁺ → Zn²⁺ + Cu, E° = 1.10 V) has [Zn²⁺] = 0.05 M and [Cu²⁺] = 0.5 M at 25 °C. What is the cell potential (V)?",
+  "answer": 1.1296,
+  "answer_text": "1.13 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.01,
+  "units": [],
+  "steps": [
+   "Q = [Zn²⁺]/[Cu²⁺] = 0.05/0.5 = 0.1000.",
+   "Nernst: E = E° − (0.0592/n) log Q with n = 2.",
+   "E = 1.10 − 0.0296 x log(0.1000) = 1.130 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-nernst-03"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A Cu/Ag cell (Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag, E° = 0.46 V) has [Cu²⁺] = 0.01 M and [Ag⁺] = 1.0 M at 25 °C. What is the cell potential (V)?",
+  "answer": 0.5192,
+  "answer_text": "0.519 V",
+  "tolerance_rel": 0,
+  "tolerance_abs": 0.01,
+  "units": [],
+  "steps": [
+   "Q = [Cu²⁺]/[Ag⁺]² = 0.01/1.0² = 0.01000.",
+   "E = E° − (0.0592/2) log Q.",
+   "E = 0.46 − 0.0296 x log(0.01000) = 0.5192 V."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-nernst-04"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A current of 2.8 A flows for 80 minutes through a solution of Cu2+ ions. What mass (g) of copper is deposited?",
+  "answer": 4.42586,
+  "answer_text": "4.43 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Charge = I t = 2.8 x 4800 s = 13400 C.",
+   "Moles e⁻ = 13400 / 96485 = 0.139 mol; moles Cu = 0.139 / 2.",
+   "Mass = 0.0696 x 63.546 g/mol = 4.43 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-01"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "How long (minutes) must a 5.7 A current flow to deposit 1.3 g of silver from Ag⁺ ions?",
+  "answer": 3.39998,
+  "answer_text": "3.40 min",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles Ag = 1.3 / 107.87 = 0.0121 mol; moles e⁻ = x 1 = 0.0121 mol.",
+   "Charge = 0.0121 x 96485 = 1160 C.",
+   "t = Q / I = 204 s = 3.40 min."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-02"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A current of 8.3 A flows for 13 minutes through a solution of Zn2+ ions. What mass (g) of zinc is deposited?",
+  "answer": 2.19345,
+  "answer_text": "2.19 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Charge = I t = 8.3 x 780 s = 6470 C.",
+   "Moles e⁻ = 6470 / 96485 = 0.0671 mol; moles Zn = 0.0671 / 2.",
+   "Mass = 0.0335 x 65.38 g/mol = 2.19 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-03"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "How long (minutes) must a 2.1 A current flow to deposit 1.18 g of nickel from Ni2+ ions?",
+  "answer": 30.7904,
+  "answer_text": "30.8 min",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles Ni = 1.18 / 58.693 = 0.0201 mol; moles e⁻ = x 2 = 0.0402 mol.",
+   "Charge = 0.0402 x 96485 = 3880 C.",
+   "t = Q / I = 1850 s = 30.8 min."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-04"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "A current of 6.2 A flows for 83 minutes through a solution of Al3+ ions. What mass (g) of aluminum is deposited?",
+  "answer": 2.87815,
+  "answer_text": "2.88 g",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Charge = I t = 6.2 x 4980 s = 30900 C.",
+   "Moles e⁻ = 30900 / 96485 = 0.320 mol; moles Al = 0.320 / 3.",
+   "Mass = 0.107 x 26.982 g/mol = 2.88 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-05"
+ },
+ {
+  "topic": "Electrochemistry",
+  "level": 5,
+  "question": "How long (minutes) must a 3.5 A current flow to deposit 0.77 g of copper from Cu2+ ions?",
+  "answer": 11.1346,
+  "answer_text": "11.1 min",
+  "tolerance_rel": 0.01,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Moles Cu = 0.77 / 63.546 = 0.0121 mol; moles e⁻ = x 2 = 0.0242 mol.",
+   "Charge = 0.0242 x 96485 = 2340 C.",
+   "t = Q / I = 668 s = 11.1 min."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-electrolysis-06"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "Iodine-131 has a half-life of 8.02 days. How many grams remain from a 64.5 g sample after 20.05 days?",
+  "answer": 11.4021,
+  "answer_text": "11.4 g",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Number of half-lives = 20.05 / 8.02 = 2.50.",
+   "N = N₀ (1/2)^(t/t½).",
+   "N = 64.5 x 0.5^2.50 = 11.4 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-01"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "Carbon-14 has a half-life of 5730 years. How long does it take for its activity to fall to 0.5 of the original?",
+  "answer": 5730.0,
+  "answer_text": "5730 years",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "N/N₀ = (1/2)^(t/t½) → t = t½ x log₂(N₀/N).",
+   "t = 5730 x log₂(2) = 5730 years."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-02"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "After 5 half-lives, what percent of a radioactive sample remains?",
+  "answer": 3.125,
+  "answer_text": "3.12 %",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Each half-life halves the amount.",
+   "Remaining = (1/2)^5 = 0.03125 = 3.125%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-03"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "Phosphorus-32 has a half-life of 14.3 days. How many grams remain from a 135.2 g sample after 42.9 days?",
+  "answer": 16.9,
+  "answer_text": "16.9 g",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Number of half-lives = 42.9 / 14.3 = 3.00.",
+   "N = N₀ (1/2)^(t/t½).",
+   "N = 135.2 x 0.5^3.00 = 16.9 g."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-04"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "Strontium-90 has a half-life of 28.8 years. How long does it take for its activity to fall to 0.5 of the original?",
+  "answer": 28.8,
+  "answer_text": "28.8 years",
+  "tolerance_rel": 0.015,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "N/N₀ = (1/2)^(t/t½) → t = t½ x log₂(N₀/N).",
+   "t = 28.8 x log₂(2) = 28.8 years."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-05"
+ },
+ {
+  "topic": "Nuclear",
+  "level": 3,
+  "question": "After 3 half-lives, what percent of a radioactive sample remains?",
+  "answer": 12.5,
+  "answer_text": "12.5 %",
+  "tolerance_rel": 0.005,
+  "tolerance_abs": 0.0,
+  "units": [],
+  "steps": [
+   "Each half-life halves the amount.",
+   "Remaining = (1/2)^3 = 0.1250 = 12.50%."
+  ],
+  "source": "generated (original); atomic masses from the cheat sheet",
+  "id": "gen-decay-06"
+ }
+]

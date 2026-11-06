@@ -1,0 +1,19 @@
+ChemTutor third-party content
+
+Problems in data/problems/openstax.json (ids beginning "ox-") are adapted from:
+
+    Chemistry 2e
+    OpenStax
+    https://openstax.org/details/books/chemistry-2e
+    Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/
+    Access for free at openstax.org
+
+Adaptation: end-of-chapter exercises were selected and reformatted with their published answers (single-part,
+numeric-answer exercises only) so they can be graded automatically. Each problem's "source" field names the
+original chapter and exercise number.
+
+OpenStax is a trademark of Rice University; this project is not affiliated with or endorsed by OpenStax.
+
+AP is a trademark of the College Board, which is not affiliated with this project. The free-response questions in
+data/frq/ are original and only imitate the format of the exam.

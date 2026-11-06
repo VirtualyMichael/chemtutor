@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""ChemTutor launcher.
+
+    python chemtutor.py             start the app and open it in your browser
+    python chemtutor.py doctor      check that everything is set up (Python, data, AI model, port)
+    python chemtutor.py ingest FILE.pdf   index a textbook PDF so the tutor can cite pages (optional)
+
+Options: --port 8765  --model qwen2.5:7b  --llm-url http://localhost:11434/v1  --no-browser
+Any OpenAI-compatible local server works (Ollama by default; for LM Studio use --llm-url http://localhost:1234/v1).
+"""
+from __future__ import annotations
+import argparse, json, os, subprocess, sys, threading, time, urllib.request, webbrowser
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+MIN_PY = (3, 10)
+OLLAMA_URL = "https://ollama.com/download"
+
+
+def say(msg: str = "") -> None:
+    print(msg, flush=True)
+
+
+def fetch_json(url: str, timeout: float = 1.5):
+    with urllib.request.urlopen(url, timeout=timeout) as r:
+        return json.load(r)
+
+
+def chemtutor_at(port: int):
+    """Health dict if a ChemTutor server is already answering on this port, else None."""
+    try:
+        cfg = fetch_json(f"http://127.0.0.1:{port}/api/health", timeout=3)
+        return cfg if isinstance(cfg, dict) and cfg.get("app") == "chemtutor" else None
+    except Exception:
+        return None
+
+
+def port_busy(port: int) -> bool:
+    import socket
+    with socket.socket() as s:
+        s.settimeout(0.5)
+        return s.connect_ex(("127.0.0.1", port)) == 0
+
+
+def ai_tips(web) -> list[str]:
+    up, have, names = web.llm_status(force=True)
+    if have:
+        return [f"AI tutor ready: {web.LLM_MODEL}"]
+    if up:
+        return [f"The AI server is running but '{web.LLM_MODEL}' is not installed.",
+                f"  Install it once with:  ollama pull {web.LLM_MODEL}",
+                f"  (or choose an installed model with --model; installed: {', '.join(names) or 'none'})"]
+    return [f"AI tutor not detected at {web.LLM_URL}.",
+            f"  Hints, explanations and AI feedback need a local model. Install Ollama from {OLLAMA_URL}",
+            f"  then run:  ollama pull {web.LLM_MODEL}",
+            "  Practice problems, mock exams, the cheat sheet and free-response checking work without it."]
+
+
+def cmd_run(args, web) -> int:
+    port = web.PORT
+    url = f"http://127.0.0.1:{port}"
+    if chemtutor_at(port):
+        say(f"ChemTutor is already running at {url}")
+        if not args.no_browser:
+            webbrowser.open(url)
+        return 0
+    if port_busy(port):
+        say(f"Port {port} is in use by another program. Try:  python chemtutor.py --port {port + 1}")
+        return 1
+    server = web.make_server()
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    for _ in range(40):
+        if chemtutor_at(port):
+            break
+        time.sleep(0.1)
+    from app import __version__
+    say(f"ChemTutor {__version__} is running at {url}")
+    for line in ai_tips(web):
+        say(line)
+    say("Close this window (or press Ctrl+C) to stop ChemTutor.")
+    if not args.no_browser:
+        webbrowser.open(url)
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        say("\nStopping ChemTutor. Your progress is saved.")
+        server.shutdown()
+    return 0
+
+
+def cmd_doctor(args, web) -> int:
+    from app import __version__, library
+    problems_ok = True
+    say(f"ChemTutor {__version__} doctor")
+    v = sys.version_info
+    ok = (v.major, v.minor) >= MIN_PY
+    say(f"[{'ok' if ok else '!!'}] Python {v.major}.{v.minor}.{v.micro} (needs {MIN_PY[0]}.{MIN_PY[1]}+)")
+    problems_ok &= ok
+    try:
+        probs, frqs = web.load_problems(), web.frq.load()
+        say(f"[ok] {len(probs)} practice problems, {len(frqs)} free-response questions loaded")
+    except Exception as e:  # noqa: BLE001
+        say(f"[!!] could not load the problem files: {e}")
+        problems_ok = False
+    try:
+        library.DB.parent.mkdir(parents=True, exist_ok=True)
+        say(f"[ok] progress is saved in {library.DB.parent}")
+    except OSError as e:
+        say(f"[!!] cannot write to {library.DB.parent}: {e}")
+        problems_ok = False
+    running = chemtutor_at(web.PORT)
+    say(f"[ok] ChemTutor is running on port {web.PORT}" if running else
+        f"[{'ok' if not port_busy(web.PORT) else '!!'}] port {web.PORT} is {'free' if not port_busy(web.PORT) else 'used by another program (use --port)'}")
+    tips = ai_tips(web)
+    say(("[ok] " if tips[0].startswith("AI tutor ready") else "[--] ") + tips[0])
+    for line in tips[1:]:
+        say("     " + line)
+    try:
+        from app.library import sources
+        n = len(sources())
+        say(f"[--] textbook citations: {n} source(s) indexed" + ("" if n else "  (optional: python chemtutor.py ingest <OpenStax Chemistry 2e PDF>)"))
+    except Exception:  # noqa: BLE001
+        pass
+    return 0 if problems_ok else 1
+
+
+def cmd_ingest(args, web) -> int:
+    if not args.file:
+        say("Usage: python chemtutor.py ingest path/to/textbook.pdf")
+        return 1
+    try:
+        import pypdf  # noqa: F401
+    except ImportError:
+        say("Installing the 'pypdf' package (needed only to read PDFs)...")
+        if subprocess.call([sys.executable, "-m", "pip", "install", "--user", "pypdf"]) != 0:
+            say("Could not install pypdf. Run:  python -m pip install pypdf")
+            return 1
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import ingest_pdf
+    ingest_pdf.main(args.file)
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="ChemTutor launcher")
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest"])
+    ap.add_argument("file", nargs="?", help="PDF to index (ingest only)")
+    ap.add_argument("--port", type=int)
+    ap.add_argument("--model")
+    ap.add_argument("--llm-url")
+    ap.add_argument("--no-browser", action="store_true")
+    args = ap.parse_args()
+    if sys.version_info < MIN_PY:
+        say(f"ChemTutor needs Python {MIN_PY[0]}.{MIN_PY[1]} or newer (this is {sys.version.split()[0]}). Get it at https://www.python.org/downloads/")
+        return 1
+    # settings are read when app.web is imported, so set them first
+    for key, val in (("PORT", args.port), ("LLM_MODEL", args.model), ("LLM_URL", args.llm_url)):
+        if val:
+            os.environ[key] = str(val)
+    sys.path.insert(0, str(ROOT))
+    from app import web
+    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest}[args.command](args, web)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
