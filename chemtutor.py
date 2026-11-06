@@ -6,6 +6,8 @@
     python chemtutor.py ingest FILE.pdf   index a textbook PDF so the tutor can cite pages (optional)
     python chemtutor.py course add [URL]  fetch video captions for Learn mode (default: Crash Course Chemistry)
     python chemtutor.py course list       show the videos you have loaded and your progress
+    python chemtutor.py phone             set up the phone app: prints the link to open on your Android phone
+    python chemtutor.py phone off         turn phone access off again (phone reset: make old links stop working)
 
 Options: --port 8765  --model qwen2.5:7b  --llm-url http://localhost:11434/v1  --no-browser
 Any OpenAI-compatible local server works (Ollama by default; for LM Studio use --llm-url http://localhost:1234/v1).
@@ -69,7 +71,9 @@ def cmd_run(args, web) -> int:
     if port_busy(port):
         say(f"Port {port} is in use by another program. Try:  python chemtutor.py --port {port + 1}")
         return 1
-    server = web.make_server()
+    from app import remote
+    phone = remote.enabled()
+    server = web.make_server(remote_access=phone)
     threading.Thread(target=server.serve_forever, daemon=True).start()
     for _ in range(40):
         if chemtutor_at(port):
@@ -79,6 +83,8 @@ def cmd_run(args, web) -> int:
     say(f"ChemTutor {__version__} is running at {url}")
     for line in ai_tips(web):
         say(line)
+    if phone:
+        say("Phone access is ON. For the link to open on your phone run:  python chemtutor.py phone")
     say("Close this window (or press Ctrl+C) to stop ChemTutor.")
     if not args.no_browser:
         webbrowser.open(url)
@@ -191,9 +197,60 @@ def cmd_course(args, web) -> int:
     return 0
 
 
+def cmd_phone(args, web) -> int:
+    from app import remote
+    action = (args.file or "on").lower()
+    port = web.PORT
+    if action == "off":
+        remote.set_enabled(False)
+        say("Phone access is off. Restart ChemTutor for it to take effect (it then listens on this computer only).")
+        return 0
+    if action == "reset":
+        remote.reset_token()
+        say("New access key created. Every phone has to be paired again with the link below.")
+    elif action not in ("on", "show", "reset"):
+        say("Usage: python chemtutor.py phone [on|off|reset]")
+        return 1
+    was = remote.enabled()
+    remote.set_enabled(True)
+    running = chemtutor_at(port)
+    links = remote.pairing_links(port)
+    say("")
+    say("ChemTutor on your phone")
+    say("=======================")
+    if not links:
+        say("No network address found. Connect this computer to Wi-Fi (or install Tailscale) and run this again.")
+        return 1
+    ts = remote.tailscale_info()
+    say("Open ONE of these links on your Android phone (in Chrome), once. The phone then stays paired:")
+    say("")
+    for l in links:
+        say(f"  {l['label']}:")
+        say(f"    {l['url']}")
+    say("")
+    if ts:
+        host = ts.get("dns") or ts["ip"]
+        say("Tailscale is connected here. For a real installable app with a home-screen icon, run this once")
+        say(f"(it adds a secure https address, then open https://{host}/?key=... on the phone):")
+        say(f"    tailscale serve --bg --https=443 http://127.0.0.1:{port}")
+    else:
+        say("To use it away from home (mobile data, school, work), install the free Tailscale app on this computer")
+        say("and on your phone, sign in to both with the same account, then run this command again.")
+        say("Tailscale: https://tailscale.com/download")
+    say("")
+    say("Notes: the computer must be on and running ChemTutor (and its AI) for the phone to work.")
+    say("Treat the link like a password; anyone with it can use your ChemTutor. 'phone reset' replaces it.")
+    if running and not was:
+        say("")
+        say("ChemTutor is already running. Close its window and start it again to switch phone access on.")
+    elif not running:
+        say("Now start ChemTutor (desktop shortcut) and the phone link will work.")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="ChemTutor launcher")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest", "course"])
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest", "course", "phone"])
     ap.add_argument("file", nargs="?", help="PDF to index (ingest), or add/list (course)")
     ap.add_argument("extra", nargs="?", help="URL for: course add")
     ap.add_argument("--port", type=int)
@@ -210,7 +267,7 @@ def main() -> int:
             os.environ[key] = str(val)
     sys.path.insert(0, str(ROOT))
     from app import web
-    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course}[args.command](args, web)
+    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course, "phone": cmd_phone}[args.command](args, web)
 
 
 if __name__ == "__main__":

@@ -33,9 +33,11 @@ def in_round_rect(x, y, r=0.2):
     return (x - cx) ** 2 + (y - cy) ** 2 <= r * r
 
 
-def pixel(x, y):
-    """RGBA at unit coordinates (x, y)."""
-    if not in_round_rect(x, y):
+def pixel(x, y, maskable=False):
+    """RGBA at unit coordinates (x, y). maskable: full-bleed tile with the flask shrunk into the safe zone (Android crops it)."""
+    if maskable:
+        x, y = (x - 0.5) / 0.72 + 0.5, (y - 0.5) / 0.72 + 0.5
+    elif not in_round_rect(x, y):
         return (0, 0, 0, 0)
     col = BLUE
     if inside(FLASK, x, y) or inside(LIP, x, y):
@@ -47,7 +49,7 @@ def pixel(x, y):
     return (*col, 255)
 
 
-def render(size: int, ss: int = 3):
+def render(size: int, ss: int = 3, maskable=False):
     out = []
     for py in range(size):
         row = []
@@ -55,7 +57,7 @@ def render(size: int, ss: int = 3):
             acc = [0, 0, 0, 0]
             for sy in range(ss):
                 for sx in range(ss):
-                    r, g, b, a = pixel((px + (sx + .5) / ss) / size, (py + (sy + .5) / ss) / size)
+                    r, g, b, a = pixel((px + (sx + .5) / ss) / size, (py + (sy + .5) / ss) / size, maskable)
                     acc[0] += r * a; acc[1] += g * a; acc[2] += b * a; acc[3] += a
             n = ss * ss
             a = acc[3] / n
@@ -89,6 +91,11 @@ def main():
     imgs = {s: png(render(s)) for s in (16, 32, 48, 64, 128, 256)}
     (OUT / "chemtutor.png").write_bytes(imgs[256])
     (OUT / "chemtutor.ico").write_bytes(ico(imgs))
+    web = ROOT / "web" / "icons"  # installable phone app (PWA) icons
+    web.mkdir(parents=True, exist_ok=True)
+    (web / "icon-192.png").write_bytes(png(render(192)))
+    (web / "icon-512.png").write_bytes(png(render(512, 2)))
+    (web / "maskable-512.png").write_bytes(png(render(512, 2, True)))
     print("wrote", OUT / "chemtutor.ico", f"({sum(map(len, imgs.values()))} bytes of PNG data)")
 
 

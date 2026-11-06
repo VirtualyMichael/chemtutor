@@ -1,6 +1,10 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>ChemTutor</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 <style>
 :root{
   --bg:#f4f6f9;--surface:#fff;--surface2:#f0f3f8;--fg:#18202e;--mut:#667085;--bd:#e3e8ef;
@@ -112,6 +116,7 @@ input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);bor
 .rub input{width:auto;margin-top:4px}
 .fa{margin-top:2px}
 /* mock exam */
+.tab .sm{display:none}
 .tab:disabled{opacity:.4;cursor:not-allowed}.tab:disabled:hover{background:none}
 .lock{background:var(--warn-soft);border-radius:10px;padding:10px 14px;font-size:14px}
 .topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 16px;margin:8px 0 16px}
@@ -189,6 +194,23 @@ kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid
 .bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}.bar i{display:block;height:100%;background:var(--ok);border-radius:99px;transition:width .4s}
 .bar.attempted i{background:var(--acc)}
 [hidden]{display:none!important}
+
+/* phone: tabs move to a bottom bar, bigger tap targets */
+@media(max-width:700px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .top{padding:0 12px;gap:8px}
+  .tabs{position:fixed;left:0;right:0;bottom:0;margin:0;gap:0;z-index:8;background:var(--surface);border-top:1px solid var(--bd);
+    padding-bottom:env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(5,1fr)}
+  .tab{padding:12px 2px 14px;font-size:12px;border-radius:0;text-align:center;overflow:hidden;text-overflow:ellipsis}
+  .tab.on{background:var(--acc-soft)}
+  .sheet{top:56px;width:100vw}
+  .tab .lg{display:none}.tab .sm{display:inline}
+  button,.btn,select,input{min-height:40px}
+  input,select,textarea{font-size:16px} /* stops iOS/Android zooming the page when a field is focused */
+  .list{max-height:42vh}
+  .card.pad{padding:14px}
+}
+@media(display-mode:standalone){.top{padding-top:env(safe-area-inset-top);height:calc(56px + env(safe-area-inset-top))}}
 </style></head><body>
 
 <header class="top">
@@ -196,8 +218,8 @@ kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid
   <nav class="tabs" role="tablist">
     <button class="tab on" id="tab-learn" role="tab" onclick="show('learn')">Learn</button>
     <button class="tab" id="tab-study" role="tab" onclick="show('study')">Practice</button>
-    <button class="tab" id="tab-exam" role="tab" onclick="show('exam')">Mock Exam</button>
-    <button class="tab" id="tab-frq" role="tab" onclick="show('frq')">Free Response</button>
+    <button class="tab" id="tab-exam" role="tab" onclick="show('exam')"><span class="lg">Mock </span>Exam</button>
+    <button class="tab" id="tab-frq" role="tab" onclick="show('frq')"><span class="lg">Free Response</span><span class="sm">FRQ</span></button>
     <button class="tab" id="tab-dash" role="tab" onclick="show('dash')">Progress</button>
   </nav>
   <div class="spacer"></div>
@@ -315,6 +337,7 @@ function toggle(t){open.has(t)?open.delete(t):open.add(t);renderList()}
 /* ---- problem view ---- */
 function pick(id){
   cur=problems.find(p=>p.id===id);hints=0;open.add(cur.topic);renderList();
+  if(matchMedia('(max-width:860px)').matches)setTimeout(()=>$('work').scrollIntoView({behavior:'smooth',block:'start'}),0);
   $('work').innerHTML=`
   <div class="card pad">
     <div class="meta"><span class="pill">${esc(cur.topic)}</span><span class="pill lvl">Level ${cur.level}</span>
@@ -768,4 +791,5 @@ function show(v,keep){
   ['learn','study','exam','frq','dash'].forEach(t=>$('tab-'+t).classList.toggle('on',v===t));
   if(v==='learn'&&!keep)showLearn();if(v==='dash')renderProg();if(v==='exam'&&!keep)showExam();if(v==='frq')showFrq()}
 init();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 </script></body></html>

@@ -23,6 +23,7 @@ mock exams, and look anything up on a built-in cheat sheet.
   you, you score the written parts against the rubric, and the AI can give feedback (you decide the score).
 - **Cheat sheet** (press `?`): formulas, step-by-step algorithms (limiting reagent, ICE tables, Hess's law, ...),
   notation, constants, ion tables, solubility rules, VSEPR, reduction potentials, and a periodic table with atomic masses.
+- **On your Android phone**: an installable app that talks to your computer, so your progress is always the same on both and the tutor still runs on your own AI. See [Use it on your phone](#use-it-on-your-android-phone).
 - **Progress dashboard** with topic mastery, review schedule, exam and free-response scores.
 
 ## Learn from the beginning (Crash Course Chemistry)
@@ -100,6 +101,29 @@ python chemtutor.py ingest path/to/chemistry-2e.pdf
 
 (This installs the small `pypdf` package the first time.)
 
+## Use it on your Android phone
+
+ChemTutor installs on your phone as an app (a PWA: it has its own icon and opens full screen). It does not copy your data:
+the phone is a window onto ChemTutor running on your computer, so **progress, reviews and exams are the same on both with
+no syncing to break**, and the AI tutor and Crash Course notes use your own local model.
+
+1. Install the free [Tailscale](https://tailscale.com/download) app on your computer **and** your phone and sign in to both
+   with the same account. (This is what lets the phone reach your computer from anywhere, privately. On the same Wi-Fi you can skip it.)
+2. On your computer double-click **`Phone Setup.bat`** (or run `python chemtutor.py phone`). It prints a link.
+3. Restart ChemTutor if it was already open, then open that link once in Chrome on your phone. The phone is now paired.
+4. For the full app experience, run the `tailscale serve` command that step 2 prints (once), open the `https://` link on the
+   phone and choose Chrome menu, **Install app**. Without it, **Add to Home screen** still gives you a shortcut.
+
+Good to know:
+
+- Your computer has to be on, with ChemTutor (and Ollama for the AI) running. If not, the phone shows "Can't reach your computer".
+  The cheat sheet stays available offline.
+- The link contains a secret key. Anyone who has it can use your ChemTutor, so do not share it. `python chemtutor.py phone reset`
+  makes a new one (you pair again), and `python chemtutor.py phone off` turns phone access off.
+- Phone access is off until you run the setup, and when it is off ChemTutor listens on your computer only. When it is on, every
+  device except the computer itself must present the key. Windows may ask once whether Python may use the network: allow it for private networks.
+- A mock exam started on the phone is also locked on the computer, because they share one set of progress.
+
 ## Your data
 
 Progress, spaced-repetition schedule, exam and free-response history are stored in one SQLite file under the
@@ -117,12 +141,13 @@ zip, so your progress is kept.
 | "Port 8765 is in use" | `python chemtutor.py --port 8766` |
 | Learn tab asks to install `yt-dlp` | Click Install, or `python -m pip install --user yt-dlp`. Captions are fetched only from YouTube, from your computer. |
 | Learn tab says captions failed (HTTP 429) | YouTube rate-limited you. Wait a few minutes and run `python chemtutor.py course add` again; it skips videos it already has. |
+| Phone says "not paired" or "Can't reach your computer" | Run `python chemtutor.py phone` again and open the new link; make sure ChemTutor is running on the computer and Tailscale is connected on both devices. |
 | Shortcut missing | Run `python setup.py` again, or start with `Start ChemTutor.bat`. |
 
 ## Development
 
 ```bash
-python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints
+python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote
 python scripts/generate_problems.py     # regenerate data/problems/generated.json (deterministic)
 python scripts/build_frq.py             # regenerate data/frq/ap_frq.json
 python scripts/make_icon.py             # redraw assets/chemtutor.ico

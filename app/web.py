@@ -11,7 +11,7 @@ from urllib.parse import parse_qs, urlparse
 
 import time
 
-from . import __version__, exams, frq, hints, learn, library, reference, srs
+from . import __version__, exams, frq, hints, learn, library, reference, remote, srs
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEMS_DIR = ROOT / "data" / "problems"
@@ -245,8 +245,41 @@ class Handler(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         return json.loads(self.rfile.read(n) or b"{}")
 
+    def _gate(self, query_key: str = "") -> bool:
+        """Phone access. True means the request was answered (blocked or redirected) and must stop here."""
+        if not getattr(self.server, "remote", False):
+            return False
+        path = self.path.split("?")[0]
+        if remote.is_public(path) or remote.is_local_request(self.client_address[0], self.headers):
+            return False
+        if query_key and self.command == "GET" and remote.has_key(self.headers, query_key):
+            self.send_response(302)  # pairing link: remember this phone, then drop the key from the address bar
+            secure = "; Secure" if (self.headers.get("X-Forwarded-Proto") or "").lower() == "https" else ""
+            self.send_header("Set-Cookie", f"{remote.COOKIE}={remote.token()}; Max-Age=31536000; Path=/; HttpOnly; SameSite=Lax{secure}")
+            self.send_header("Location", path or "/")
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return True
+        if remote.has_key(self.headers, ""):
+            return False
+        if path.startswith("/api/"):
+            self._json({"error": "This device is not paired. Open the pairing link from ChemTutor on your computer."}, 401)
+        else:
+            page = (b"<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'><title>ChemTutor</title>"
+                    b"<body style='font:16px system-ui;max-width:30em;margin:12vh auto;padding:0 20px'>"
+                    b"<h2>This phone is not paired yet</h2><p>On your computer run <code>python chemtutor.py phone</code> "
+                    b"and open the link it prints on this phone.</p>")
+            self.send_response(401)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(page)))
+            self.end_headers()
+            self.wfile.write(page)
+        return True
+
     def do_GET(self):
         path = self.path.split("?")[0]
+        if self._gate((parse_qs(urlparse(self.path).query).get("key") or [""])[0]):
+            return
         problems = load_problems()
         if path == "/api/problems":
             return self._json([{k: p[k] for k in ("id", "topic", "level", "question", "source")}
@@ -304,10 +337,13 @@ class Handler(BaseHTTPRequestHandler):
                                "llm_ok": up and have, "llm_reachable": up, "models": names[:20]})
         f = WEB_DIR / ("index.html" if path in ("/", "") else path.lstrip("/"))
         if f.is_file() and WEB_DIR in f.resolve().parents:
-            ctype = {".html": "text/html", ".js": "text/javascript", ".css": "text/css"}.get(f.suffix, "text/plain")
+            ctype = {".html": "text/html", ".js": "text/javascript", ".css": "text/css",
+                     ".webmanifest": "application/manifest+json", ".png": "image/png", ".svg": "image/svg+xml"}.get(f.suffix, "text/plain")
             data = f.read_bytes()
             self.send_response(200)
-            self.send_header("Content-Type", ctype + "; charset=utf-8")
+            self.send_header("Content-Type", ctype if ctype.startswith("image/") else ctype + "; charset=utf-8")
+            if f.name in ("sw.js", "index.html"):
+                self.send_header("Cache-Control", "no-cache")
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             self.wfile.write(data)
@@ -415,6 +451,8 @@ class Handler(BaseHTTPRequestHandler):
         self._json({"error": "not found"}, 404)
 
     def do_POST(self):
+        if self._gate():
+            return
         problems = load_problems()
         body = self._body()
         con = db()
@@ -459,9 +497,13 @@ class QuietServer(ThreadingHTTPServer):
         super().handle_error(request, client_address)
 
 
-def make_server(port: int | None = None) -> ThreadingHTTPServer:
-    """Local-only server (127.0.0.1). port=0 picks a free port (used by the tests)."""
-    return QuietServer(("127.0.0.1", PORT if port is None else port), Handler)
+def make_server(port: int | None = None, remote_access: bool = False, host: str | None = None) -> ThreadingHTTPServer:
+    """Local-only server (127.0.0.1) unless remote_access=True, which listens on the network and requires the
+    access key from every device but this computer. port=0 picks a free port (used by the tests)."""
+    bind = host or ("0.0.0.0" if remote_access else "127.0.0.1")
+    srv = QuietServer((bind, PORT if port is None else port), Handler)
+    srv.remote = remote_access
+    return srv
 
 
 def main():
