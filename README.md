@@ -8,6 +8,10 @@ mock exams, and look anything up on a built-in cheat sheet.
 
 ## What you get
 
+- **Learn mode (teach me, don't just test me)**: watch the free [Crash Course Chemistry](https://www.youtube.com/playlist?list=PL8dPuuaLjXtPHzzYuWy6fYEaX9mQQ8oGr) videos inside the app.
+  ChemTutor reads their captions, so it knows what each episode taught, and builds study notes with timestamps, "watch for"
+  questions, comprehension checks marked against the transcript, a tutor that answers from the videos (with citations),
+  and practice problems that unlock for the topics you have covered.
 - **386 practice problems, levels 1-5**, from significant figures to ICE tables, Nernst and thermodynamics. Every answer
   is **graded by code against a computed or official answer key**, never by the AI. Generated problems come with worked steps.
 - **Guided tutor**: a 4-level hint ladder (the server checks every hint and rejects any that give away the answer),
@@ -20,6 +24,25 @@ mock exams, and look anything up on a built-in cheat sheet.
 - **Cheat sheet** (press `?`): formulas, step-by-step algorithms (limiting reagent, ICE tables, Hess's law, ...),
   notation, constants, ion tables, solubility rules, VSEPR, reduction potentials, and a periodic table with atomic masses.
 - **Progress dashboard** with topic mastery, review schedule, exam and free-response scores.
+
+## Learn from the beginning (Crash Course Chemistry)
+
+Open the **Learn** tab and click **Load Crash Course Chemistry**. (First time only, ChemTutor offers to install `yt-dlp`, a free
+open-source tool that reads YouTube captions. Loading all 47 episodes takes about 3 minutes.) Then, for each episode:
+
+1. **Watch** it in the app (the video is embedded; it needs an internet connection).
+2. **Notes**: one click makes study notes from what the episode says: questions to watch for, key terms, and a timestamped
+   outline. Click a timestamp to jump the video there.
+3. **Check yourself**: the AI asks a question drawn from the transcript, marks your answer, and shows the video's own answer.
+4. **Ask**: ask anything; answers come from the videos first, cite `[Ep 6 @ 5:00]`, and say when something is beyond the videos.
+5. **Mark it watched** and the matching practice topics unlock (**Practice** and **Mock Exam** can show only what you have covered).
+
+Command line: `python chemtutor.py course add [YouTube link]` loads any playlist or video, `python chemtutor.py course list` shows progress.
+You can also paste a transcript yourself in the Learn tab.
+
+**About the captions:** they belong to their creators. ChemTutor saves them only on your computer (in `library/`) for your own study; they are
+never part of this repository or the release download. Notes, questions and answers are written by your local AI model from the
+transcript: it can make mistakes, so every item shows a timestamp to check against the video.
 
 ## Install (Windows)
 
@@ -92,12 +115,14 @@ zip, so your progress is kept.
 | Badge says **AI offline** | Start the Ollama app, then reload the page. Run `python chemtutor.py doctor`. |
 | Badge says **model not installed** | `ollama pull qwen2.5:7b` (or pass `--model` for one you have). |
 | "Port 8765 is in use" | `python chemtutor.py --port 8766` |
+| Learn tab asks to install `yt-dlp` | Click Install, or `python -m pip install --user yt-dlp`. Captions are fetched only from YouTube, from your computer. |
+| Learn tab says captions failed (HTTP 429) | YouTube rate-limited you. Wait a few minutes and run `python chemtutor.py course add` again; it skips videos it already has. |
 | Shortcut missing | Run `python setup.py` again, or start with `Start ChemTutor.bat`. |
 
 ## Development
 
 ```bash
-python -m unittest tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints
+python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints
 python scripts/generate_problems.py     # regenerate data/problems/generated.json (deterministic)
 python scripts/build_frq.py             # regenerate data/frq/ap_frq.json
 python scripts/make_icon.py             # redraw assets/chemtutor.ico
@@ -105,7 +130,7 @@ python scripts/build_release.py         # build dist/ChemTutor-<version>.zip
 ```
 
 - `app/` : server (`web.py`), spaced repetition (`srs.py`), exams (`exams.py`), hint rules (`hints.py`),
-  free response (`frq.py`), cheat sheet content (`reference.py`), shared periodic table + formula parser (`chem.py`).
+  free response (`frq.py`), Learn mode (`learn.py`: captions, notes, checks, video-grounded tutor), cheat sheet content (`reference.py`), shared periodic table + formula parser (`chem.py`).
 - `web/index.html` : the whole front end (no build step, no dependencies).
 - `data/problems/` : `starter.json` (hand-written), `openstax.json` (imported), `generated.json` (computed).
   `data/frq/ap_frq.json`: free-response questions.
@@ -122,4 +147,5 @@ Adding problems: add a JSON file to `data/problems/` with `id, topic, level, que
   see [NOTICE](NOTICE). The hand-written, generated and free-response content is original.
 - The free-response questions imitate the *format* of AP Chemistry exams. They are not College Board questions. AP is a
   trademark of the College Board, which is not affiliated with this project.
+- Video captions loaded by Learn mode belong to their creators and stay on your computer; this project does not include or redistribute them. Crash Course is a trademark of its owners, who are not affiliated with this project.
 - Study aid only. The AI can be wrong; trust the answer keys and your teacher or textbook.

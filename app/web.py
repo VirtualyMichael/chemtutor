@@ -4,14 +4,14 @@ Stdlib only. Run:  python -m app.web   then open http://127.0.0.1:8765
 LLM: any OpenAI-compatible endpoint (Ollama default; LM Studio: set LLM_URL=http://localhost:1234/v1).
 """
 from __future__ import annotations
-import json, math, os, re, sqlite3, sys, urllib.request
+import json, math, os, re, sqlite3, sys, threading, urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 import time
 
-from . import __version__, exams, frq, hints, library, reference, srs
+from . import __version__, exams, frq, hints, learn, library, reference, srs
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEMS_DIR = ROOT / "data" / "problems"
@@ -55,6 +55,7 @@ def db():
     srs.init(con)
     exams.init(con)
     frq.init(con)
+    learn.init(con)
     return con
 
 
@@ -152,6 +153,28 @@ def build_tutor_messages(p: dict, mode: str, level: int, user_text: str, history
 
 # ---------- mock exams ----------
 LOCKED = {"error": "Locked: a mock exam is in progress. Finish or abandon it first (closed-book).", "locked": True}
+
+JOBS: dict = {}  # background work (fetching captions, writing notes) the page polls
+
+
+def start_job(fn) -> str:
+    jid = f"j{int(time.time() * 1000)}"
+    job = JOBS[jid] = {"id": jid, "state": "running", "done": 0, "total": 1, "message": "Starting…", "result": None}
+    for old in list(JOBS)[:-30]:
+        JOBS.pop(old, None)
+
+    def progress(done, total, message):
+        job.update(done=done, total=max(total, 1), message=message)
+
+    def run():
+        try:
+            job["result"] = fn(progress)
+            job.update(state="done", done=job["total"], message="Done")
+        except Exception as e:  # noqa: BLE001
+            job.update(state="error", message=str(e)[:300])
+
+    threading.Thread(target=run, daemon=True).start()
+    return jid
 
 
 def record_attempt(con, p: dict, correct: bool, hints_used: int, answer: str):
@@ -259,6 +282,18 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/frq/item":
             q = frq.load().get((parse_qs(urlparse(self.path).query).get("id") or [""])[0])
             return self._json(frq.public(q)) if q else self._json({"error": "no such question"}, 404)
+        if path == "/api/learn":
+            ov = learn.course_overview(db())
+            ov.update(ytdlp=learn.have_ytdlp(), playlist=learn.PLAYLIST_URL, course_id=learn.COURSE_ID, aliases=learn.ALIASES)
+            return self._json(ov)
+        if path in ("/api/learn/video", "/api/learn/job"):
+            if active_exam(db(), problems):
+                return self._json(LOCKED, 423)
+            key = (parse_qs(urlparse(self.path).query).get("id") or [""])[0]
+            if path.endswith("/job"):
+                return self._json(JOBS[key]) if key in JOBS else self._json({"error": "no such job"}, 404)
+            d = learn.video_detail(db(), key)
+            return self._json(d) if d else self._json({"error": "no such video"}, 404)
         if path == "/api/frq/history":
             return self._json(frq.history(db()))
         if path == "/api/health":  # instant, never touches the AI server (used by the launcher)
@@ -278,6 +313,51 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(data)
         else:
             self._json({"error": "not found"}, 404)
+
+    def _learn_post(self, con, problems, body):
+        if active_exam(con, problems):  # closed-book: lessons, notes and the video tutor stay locked during a mock exam
+            return self._json(LOCKED, 423)
+        action = self.path.rsplit("/", 1)[-1]
+        vid = str(body.get("id", ""))
+        try:
+            if action == "add":
+                if not learn.have_ytdlp():
+                    return self._json({"error": "The caption reader (yt-dlp) is not installed yet.", "need_ytdlp": True}, 424)
+                url = str(body.get("url", "")).strip()
+                if not re.match(r"https?://(www\.|m\.|music\.)?(youtube\.com|youtu\.be)/", url):
+                    return self._json({"error": "Paste a YouTube video or playlist link."}, 400)
+                return self._json({"job": start_job(lambda progress: learn.import_source(db(), url, progress))})
+            if action == "install":
+                def work(progress):
+                    progress(0, 1, "Installing yt-dlp (a free caption reader)…")
+                    ok, msg = learn.install_ytdlp()
+                    if not ok:
+                        raise RuntimeError("Install failed: " + msg)
+                    return {"installed": True}
+                return self._json({"job": start_job(work)})
+            if action == "import":
+                return self._json(learn.import_text(con, str(body.get("title", "")).strip() or "My video", str(body.get("text", ""))))
+            if action == "status":
+                learn.set_status(con, vid, str(body.get("status", "")))
+                return self._json({"ok": True, "covered": learn.covered_topics(con)})
+            if action == "grade":
+                return self._json(learn.grade_check(con, int(body.get("check_id", 0)), str(body.get("answer", "")), llm))
+            if not learn.video_detail(con, vid) and action != "ask":
+                return self._json({"error": "no such video"}, 404)
+            if action == "notes":
+                return self._json({"job": start_job(lambda progress: learn.make_notes(db(), vid, llm, LLM_MODEL, progress))})
+            if action == "check":
+                return self._json(learn.new_check(con, vid, llm))
+            if action == "ask":
+                q = str(body.get("question", "")).strip()
+                if not q:
+                    return self._json({"error": "Type a question first."}, 400)
+                return self._json(learn.ask(con, q, llm, vid or None))
+        except (ValueError, KeyError) as e:
+            return self._json({"error": str(e).strip("'\"")}, 400)
+        except Exception as e:  # the AI server being offline, etc.
+            return self._json({"error": f"Tutor model unreachable ({LLM_URL}, {LLM_MODEL}): {e}"}, 502)
+        self._json({"error": "not found"}, 404)
 
     def _frq_post(self, con, problems, body):
         if active_exam(con, problems):  # closed-book: rubrics and AI feedback stay locked during a mock exam
@@ -342,6 +422,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._exam_post(con, problems, body)
         if self.path.startswith("/api/frq/"):
             return self._frq_post(con, problems, body)
+        if self.path.startswith("/api/learn/"):
+            return self._learn_post(con, problems, body)
         p = problems.get(body.get("id", ""))
         if not p:
             return self._json({"error": "unknown problem"}, 404)

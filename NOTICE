@@ -13,6 +13,10 @@ Adaptation: end-of-chapter exercises were selected and reformatted with their pu
 numeric-answer exercises only) so they can be graded automatically. Each problem's "source" field names the
 original chapter and exercise number.
 
+Learn mode (app/learn.py) can download the English captions of YouTube videos you choose, for your own study, to your own
+computer only. No captions or other video content are included in this repository or its releases. Crash Course and YouTube are
+trademarks of their owners; this project is not affiliated with or endorsed by them.
+
 OpenStax is a trademark of Rice University; this project is not affiliated with or endorsed by OpenStax.
 
 AP is a trademark of the College Board, which is not affiliated with this project. The free-response questions in

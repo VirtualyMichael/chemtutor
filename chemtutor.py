@@ -4,6 +4,8 @@
     python chemtutor.py             start the app and open it in your browser
     python chemtutor.py doctor      check that everything is set up (Python, data, AI model, port)
     python chemtutor.py ingest FILE.pdf   index a textbook PDF so the tutor can cite pages (optional)
+    python chemtutor.py course add [URL]  fetch video captions for Learn mode (default: Crash Course Chemistry)
+    python chemtutor.py course list       show the videos you have loaded and your progress
 
 Options: --port 8765  --model qwen2.5:7b  --llm-url http://localhost:11434/v1  --no-browser
 Any OpenAI-compatible local server works (Ollama by default; for LM Studio use --llm-url http://localhost:1234/v1).
@@ -117,6 +119,14 @@ def cmd_doctor(args, web) -> int:
     for line in tips[1:]:
         say("     " + line)
     try:
+        from app import learn
+        vids = learn.course_overview(web.db())["videos"]
+        say(f"[--] Learn mode: {sum(v['has_transcript'] for v in vids)} of {len(vids)} videos have captions loaded"
+            + ("" if vids else "  (open the Learn tab, or: python chemtutor.py course add)"))
+        say(f"[{'ok' if learn.have_ytdlp() else '--'}] caption reader (yt-dlp): " + ("installed" if learn.have_ytdlp() else "not installed (the Learn tab offers to install it)"))
+    except Exception:  # noqa: BLE001
+        pass
+    try:
         from app.library import sources
         n = len(sources())
         say(f"[--] textbook citations: {n} source(s) indexed" + ("" if n else "  (optional: python chemtutor.py ingest <OpenStax Chemistry 2e PDF>)"))
@@ -142,10 +152,50 @@ def cmd_ingest(args, web) -> int:
     return 0
 
 
+def cmd_course(args, web) -> int:
+    from app import learn
+    con = web.db()
+    action = args.file or "list"
+    if action == "list":
+        ov = learn.course_overview(con)
+        if not ov["videos"]:
+            say("No videos loaded yet. Run:  python chemtutor.py course add")
+            return 0
+        v = ov["videos"]
+        say(f"{len(v)} videos, {sum(x['has_transcript'] for x in v)} with transcripts, "
+            f"{sum(x['status'] != 'new' for x in v)} watched, {sum(x['has_notes'] for x in v)} with notes")
+        say("Practice unlocked for: " + (", ".join(ov["covered"]) or "nothing yet (mark lessons watched in the Learn tab)"))
+        return 0
+    if action != "add":
+        say("Usage: python chemtutor.py course add [YOUTUBE_URL]   |   python chemtutor.py course list")
+        return 1
+    url = args.extra or learn.PLAYLIST_URL
+    if not learn.have_ytdlp():
+        say("Reading captions needs 'yt-dlp', a free open-source tool.")
+        if input("Install it now with pip (for your user only)? [Y/n] ").strip().lower() not in ("", "y", "yes"):
+            return 1
+        ok, msg = learn.install_ytdlp()
+        if not ok:
+            say("Install failed: " + msg)
+            return 1
+    last = [""]
+
+    def progress(done, total, msg):
+        if msg != last[0]:
+            last[0] = msg
+            say(f"[{done}/{total}] {msg}")
+
+    res = learn.import_source(con, url, progress)
+    say(f"Done: {res['fetched']} fetched, {res['already_had']} already had, {res['no_captions']} without captions "
+        f"(of {res['videos']} videos). Captions are stored only on this computer.")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="ChemTutor launcher")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest"])
-    ap.add_argument("file", nargs="?", help="PDF to index (ingest only)")
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest", "course"])
+    ap.add_argument("file", nargs="?", help="PDF to index (ingest), or add/list (course)")
+    ap.add_argument("extra", nargs="?", help="URL for: course add")
     ap.add_argument("--port", type=int)
     ap.add_argument("--model")
     ap.add_argument("--llm-url")
@@ -160,7 +210,7 @@ def main() -> int:
             os.environ[key] = str(val)
     sys.path.insert(0, str(ROOT))
     from app import web
-    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest}[args.command](args, web)
+    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course}[args.command](args, web)
 
 
 if __name__ == "__main__":

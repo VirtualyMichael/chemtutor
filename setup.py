@@ -120,6 +120,34 @@ def check_ai(ask: Ask, no_model: bool) -> None:
         say(f"Skipped. Install later with:  ollama pull {MODEL}")
 
 
+def offer_course(ask: Ask, skip: bool) -> None:
+    step("Learn mode: Crash Course Chemistry")
+    sys.path.insert(0, str(ROOT))
+    from app import learn, web
+    have = len(learn.course_overview(web.db())["videos"])
+    if have:
+        say(f"OK: {have} videos are already loaded.")
+        return
+    say("ChemTutor can teach alongside the free Crash Course Chemistry videos: it reads their captions (saved only on this")
+    say("computer) so it knows what each episode taught. Loading all 47 takes about 3 minutes and needs the free 'yt-dlp' tool.")
+    if skip or not ask("Load the Crash Course Chemistry captions now?", default=True, big=True):
+        say("Skipped. You can do it later from the Learn tab, or:  python chemtutor.py course add")
+        return
+    if not learn.have_ytdlp():
+        ok, msg = learn.install_ytdlp()
+        say("OK: installed yt-dlp." if ok else f"Could not install yt-dlp ({msg}). Try:  python -m pip install --user yt-dlp")
+        if not ok:
+            return
+    last = [""]
+
+    def progress(done, total, m):
+        if m != last[0]:
+            last[0] = m
+            say(f"  [{done}/{total}] {m}")
+    res = learn.import_source(web.db(), learn.PLAYLIST_URL, progress)
+    say(f"OK: {res['fetched']} captions fetched ({res['no_captions']} unavailable).")
+
+
 def ps_quote(s: str) -> str:
     return "'" + s.replace("'", "''") + "'"
 
@@ -184,6 +212,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="ChemTutor setup")
     ap.add_argument("--yes", "-y", action="store_true", help="accept all prompts (including the model download)")
     ap.add_argument("--no-model", action="store_true", help="never download the AI model")
+    ap.add_argument("--no-course", action="store_true", help="do not offer to load the Crash Course captions")
     ap.add_argument("--no-shortcut", action="store_true")
     ap.add_argument("--no-launch", action="store_true")
     args = ap.parse_args()
@@ -192,6 +221,7 @@ def main() -> int:
     if not check_python() or not check_app():
         return 1
     check_ai(ask, args.no_model)
+    offer_course(ask, args.no_course)
     if not args.no_shortcut:
         make_shortcuts(ask)
     step("Done")

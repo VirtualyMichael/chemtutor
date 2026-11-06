@@ -18,11 +18,14 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 
 /* top bar */
 .top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--bd);
-  display:flex;align-items:center;gap:16px;padding:0 20px;height:56px}
+  display:flex;align-items:center;gap:12px;padding:0 16px;height:56px;overflow-x:auto;overflow-y:hidden}
+.top::-webkit-scrollbar{display:none}.sbtn,.badge,.brand{white-space:nowrap;flex:none}
+@media(max-width:1020px){.sbtn .lbl{display:none}.badge{font-size:12px}}
+@media(max-width:900px){#model{display:none}}
 .brand{font-weight:700;font-size:17px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
 .logo{width:26px;height:26px;border-radius:8px;background:var(--acc);color:var(--acc-fg);display:grid;place-items:center;font-size:14px;font-weight:800}
 .tabs{display:flex;gap:4px;margin-left:12px}
-.tab{background:none;border:0;color:var(--mut);padding:8px 14px;border-radius:8px;font-weight:600}
+.tab{background:none;border:0;color:var(--mut);padding:8px 12px;border-radius:8px;font-weight:600;white-space:nowrap}
 .tab:hover{background:var(--surface2)}.tab.on{background:var(--acc-soft);color:var(--acc)}
 .spacer{flex:1}
 .badge{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--mut);background:var(--surface2);padding:5px 10px;border-radius:99px}
@@ -85,6 +88,23 @@ input,select,textarea{font:inherit;color:var(--fg);background:var(--surface);bor
 .el.hit{background:var(--acc);color:var(--acc-fg);border-color:var(--acc)}.el.hit i{color:var(--acc-fg)}
 .el.dim{opacity:.3}.heavy{font-size:12.5px;color:var(--mut)}
 .nomatch{padding:30px 6px;text-align:center;color:var(--mut)}
+/* learn */
+.cov{grid-column:1/-1;font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center;cursor:pointer}.cov input{width:auto}
+.lgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:940px){.lgrid{grid-template-columns:1fr}}
+.video{aspect-ratio:16/9;width:100%;border:0;border-radius:10px;background:#000;display:block}
+.ep{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--bd);
+  padding:11px 20px;color:var(--fg)}
+.ep:first-child{border-top:0}.ep:hover{background:var(--surface2)}.ep.next{background:var(--acc-soft)}
+.ep .dot2{width:20px;height:20px;border-radius:50%;border:2px solid var(--bd);display:grid;place-items:center;font-size:11px;color:#fff}
+.ep .dot2.w{background:#d9a21b;border-color:#d9a21b}.ep .dot2.u{background:var(--ok);border-color:var(--ok)}
+.ep .sub2{color:var(--mut);font-size:12.5px;margin-top:2px}
+.ltabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.cue{padding:6px 0;border-bottom:1px solid var(--bd);font-size:14px}.cue a,.ts{color:var(--acc);cursor:pointer;font:12px ui-monospace,Menlo,monospace;margin-right:8px;text-decoration:none;background:none;border:0;padding:0}
+.term{margin:0 0 10px}.term b{display:block}.term span{color:var(--mut);font-size:14px}
+.pbig{height:10px}
+.jobbar{margin:12px 0}.jobbar .m{font-size:13px;color:var(--mut);margin-bottom:6px}
+.say{white-space:pre-wrap}
 /* free response */
 .stem{background:var(--surface2);border-radius:10px;padding:12px 14px;font-size:15px;white-space:pre-wrap}
 .stem .mono{font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre}
@@ -174,20 +194,26 @@ kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid
 <header class="top">
   <div class="brand"><div class="logo">⚗</div>ChemTutor</div>
   <nav class="tabs" role="tablist">
-    <button class="tab on" id="tab-study" role="tab" onclick="show('study')">Study</button>
+    <button class="tab on" id="tab-learn" role="tab" onclick="show('learn')">Learn</button>
+    <button class="tab" id="tab-study" role="tab" onclick="show('study')">Practice</button>
     <button class="tab" id="tab-exam" role="tab" onclick="show('exam')">Mock Exam</button>
     <button class="tab" id="tab-frq" role="tab" onclick="show('frq')">Free Response</button>
     <button class="tab" id="tab-dash" role="tab" onclick="show('dash')">Progress</button>
   </nav>
   <div class="spacer"></div>
-  <button class="sbtn" id="sbtn" onclick="toggleSheet()" title="Formulas, constants, periodic table (press ?)">📋 Cheat sheet</button>
+  <button class="sbtn" id="sbtn" onclick="toggleSheet()" title="Formulas, constants, periodic table (press ?)">📋<span class="lbl"> Cheat sheet</span></button>
   <div class="badge" title="Local model"><span class="dot" id="dot"></span><span id="model">connecting…</span></div>
 </header>
 
-<div class="app" id="study">
+<div class="app" id="learn" style="grid-template-columns:1fr">
+  <section class="main" id="ln"></section>
+</div>
+
+<div class="app" id="study" hidden>
   <aside class="card side">
     <div class="rev" id="rev"></div>
     <div class="filters">
+      <label class="cov" id="covbox" hidden><input type="checkbox" id="cov" onchange="renderList()"> Only topics I've covered in Learn</label>
       <input id="q" type="search" placeholder="Search problems…" aria-label="Search problems" oninput="renderList()">
       <select id="lvl" aria-label="Filter by level" onchange="renderList()">
         <option value="">All levels</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
@@ -256,7 +282,7 @@ async function init(){
     else{$('model').textContent='AI offline';$('dot').className='dot down';b.title='Start Ollama (see README). Practice, exams and the cheat sheet still work.'}}
   catch{$('model').textContent='server offline';$('dot').className='dot down'}
   problems=await api('/api/problems');status=await api('/api/status');renderList();await refreshReview();
-  const a=await api('/api/exam/active');if(a.exam)beginRun(a.exam)}  // resume an exam in progress
+  const a=await api('/api/exam/active');if(a.exam)beginRun(a.exam);else showLearn()}  // resume an exam in progress, else open Learn
 
 /* ---- spaced repetition ---- */
 async function refreshReview(){
@@ -271,7 +297,8 @@ function startReview(){queue=[...ov.due];pick(queue[0])}
 function pickFree(id){queue=[];pick(id)}
 function renderList(){
   const q=$('q').value.toLowerCase(),L=$('lvl').value;
-  const f=problems.filter(p=>(!L||String(p.level)===L)&&(!q||(p.question+p.topic).toLowerCase().includes(q)));
+  const only=$('cov')&&$('cov').checked&&lc&&lc.covered.length;
+  const f=problems.filter(p=>(!L||String(p.level)===L)&&(!q||(p.question+p.topic).toLowerCase().includes(q))&&(!only||lc.covered.includes(p.topic)));
   const groups={};f.forEach(p=>(groups[p.topic]??=[]).push(p));
   let h='';
   const avg=ps=>ps.reduce((a,p)=>a+p.level,0)/ps.length;
@@ -400,7 +427,7 @@ document.addEventListener('keydown',e=>{
 let exam=null,exAns={},exIdx=0,exFlag=new Set(),deadline=0,tick=null,saveT=null,minEdited=false;
 const mmss=s=>{s=Math.max(0,Math.round(s));return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`};
 const pct=(a,b)=>b?Math.round(100*a/b):0;
-function lockTabs(on){$('tab-study').disabled=on;$('tab-dash').disabled=on;$('tab-frq').disabled=on}
+function lockTabs(on){$('tab-learn').disabled=on;$('tab-study').disabled=on;$('tab-dash').disabled=on;$('tab-frq').disabled=on}
 
 async function showExam(){
   if(exam)return renderRun();
@@ -414,7 +441,7 @@ async function renderSetup(){
   $('ex').innerHTML=`
   <div class="card pad"><h2 style="margin:0 0 4px">Mock exam</h2>
     <p style="margin:0 0 14px;color:var(--mut)">Closed book and timed. Hints and the tutor are locked until you submit, then every question is reviewed.</p>
-    <b style="font-size:13px">Topics</b>
+    <b style="font-size:13px">Topics</b> <button class="chip" type="button" onclick="selectCovered()" style="margin-left:6px">Select only topics I've covered</button>
     <div class="topics">${Object.entries(topics).sort().map(([t,n])=>
       `<label><input type="checkbox" class="tp" value="${esc(t)}" checked> ${esc(t)} <span class="mut" style="color:var(--mut)">(${n})</span></label>`).join('')}</div>
     <div class="opts">
@@ -517,6 +544,140 @@ async function explainMiss(i,btn){
   box.innerHTML=`<div class="msg ${r.reply?'':'err'}">${r.reply?`<span class="who">${it.answer?'Where it went wrong':'Worked solution'}</span>${fmt(r.reply)}`:esc(r.error||'Error')}</div>`;btn.disabled=false}
 function practice(id){show('study');pickFree(id)}
 
+/* ---- Learn ---- */
+let lc=null,lv=null,lvTab='notes',lastCheck=null,askLog=[];
+const dur=sec=>sec?`${Math.round(sec/60)} min`:'';
+const ytEmbed=(id,start=0,auto=0)=>`https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1${start>0?`&start=${Math.floor(start)}`:''}${auto?'&autoplay=1':''}`;
+async function showLearn(){lv=null;lc=await api('/api/learn');setCov();renderCourse()}
+function setCov(){const b=$('covbox');if(!b||!lc)return;const has=lc.covered.length>0;b.hidden=!has;if(has&&!b.dataset.set){$('cov').checked=true;b.dataset.set=1}if(!has)$('cov').checked=false;renderList()}
+function selectCovered(){if(!lc||!lc.covered.length){alert("Mark a lesson as watched in the Learn tab first and its topics will unlock here.");return}
+  document.querySelectorAll('.tp').forEach(e=>e.checked=lc.covered.includes(e.value))}
+
+function watchJob(jid,mount,done){
+  const box=$(mount);if(!box)return;
+  const tick=async()=>{const j=await api('/api/learn/job?id='+jid);const el=$(mount);if(!el)return;
+    el.innerHTML=`<div class="jobbar"><div class="m">${esc(j.message||'Working…')}</div><div class="bar pbig attempted"><i style="width:${Math.round(100*j.done/Math.max(j.total,1))}%"></i></div></div>${j.state==='error'?`<div class="banner bad">${esc(j.message)}</div>`:''}`;
+    if(j.state==='running')setTimeout(tick,1200);else if(j.state==='done')done&&done(j.result)};
+  tick()}
+
+function renderCourse(){
+  const v=lc.videos,done=v.filter(x=>x.status!=='new').length,next=v.find(x=>x.status==='new'&&x.has_transcript)||v.find(x=>x.status==='new');
+  const onboard=!v.length?`<div class="card pad"><h2 style="margin:0 0 6px">Learn chemistry from the beginning</h2>
+    <p style="color:var(--mut);margin:0 0 12px">Watch the Crash Course Chemistry videos. ChemTutor reads their captions so it knows exactly what each episode taught,
+    then helps you learn it: study notes with timestamps, questions to check you understood, a tutor that answers from the videos, and practice problems that unlock for the topics you've covered.</p>
+    <p style="color:var(--mut);font-size:13px;margin:0 0 14px">The captions are saved only on this computer. Nothing is uploaded.</p>
+    ${lc.ytdlp?'':`<div class="lock" style="margin-bottom:12px">To read captions, ChemTutor uses <b>yt-dlp</b>, a free open-source tool. <button class="btn sm" onclick="installYtdlp()">Install it</button></div>`}
+    <button class="btn" onclick="addSource('${esc(lc.playlist)}')">Load Crash Course Chemistry (47 videos)</button><div id="job"></div></div>`:'';
+  const list=v.length?`<div class="card pad"><div class="meta"><b style="font-size:17px">Crash Course Chemistry</b><span class="pill">${done} of ${v.length} done</span></div>
+      <div class="bar pbig"><i style="width:${pct(done,v.length)}%"></i></div>
+      ${next?`<p style="margin:12px 0 0">Next up: <button class="btn sm" onclick="openLesson('${next.id}')">${esc(next.title.replace(/: Crash Course Chemistry.*/,''))} →</button></p>`:'<p style="margin:12px 0 0;color:var(--ok);font-weight:600">You finished the course. 🎉</p>'}
+      ${lc.covered.length?`<p class="hint" style="margin-top:10px">Practice unlocked for: ${lc.covered.map(esc).join(', ')}</p>`:'<p class="hint" style="margin-top:10px">Mark a lesson as watched and its practice problems unlock.</p>'}</div>
+    <div class="card" style="overflow:hidden">${v.map(x=>`<button class="ep ${next&&next.id===x.id?'next':''}" onclick="openLesson('${x.id}')">
+      <span class="dot2 ${x.status==='understood'?'u':x.status==='watched'?'w':''}">${x.status==='understood'?'✓':x.status==='watched'?'▶':''}</span>
+      <span><b>${esc(x.title.replace(/: Crash Course Chemistry.*/,'').replace(/ - Crash Course Chemistry.*/,''))}</b><div class="sub2">${x.ep?'Episode '+x.ep:'Preview'}${x.duration?' · '+dur(x.duration):''}${x.topics.length?' · '+x.topics.map(esc).join(', '):''}${x.has_transcript?'':' · no captions yet'}</div></span>
+      <span class="sub2">${x.has_notes?'📝 notes':''}</span></button>`).join('')}</div>`:'';
+  $('ln').innerHTML=`${onboard}${list}
+    ${v.length?`<div class="card pad"><b>Ask the tutor about anything you've watched</b>
+      <div class="answer" style="margin-top:8px"><input id="gq" placeholder="e.g. What is the difference between an isotope and an ion?" onkeydown="if(event.key==='Enter')askGlobal()"><button class="btn" onclick="askGlobal()">Ask</button></div><div id="gans"></div></div>`:''}
+    <details class="card pad"><summary style="cursor:pointer;font-weight:600">Add another video or playlist</summary>
+      <p class="hint">Paste a YouTube link. ChemTutor fetches the English captions.</p>
+      <div class="answer"><input id="url" placeholder="https://www.youtube.com/watch?v=… or a playlist link"><button class="btn" onclick="addSource($('url').value)">Add</button></div>
+      <p class="hint" style="margin-top:14px">Or paste a transcript yourself (YouTube: ⋯ → Show transcript → copy):</p>
+      <input id="ptitle" placeholder="Title of the video" style="margin-bottom:8px"><textarea id="ptext" rows="5" placeholder="Paste the transcript here"></textarea>
+      <div style="margin-top:8px"><button class="btn ghost sm" onclick="importText()">Import transcript</button></div><div id="job2"></div></details>`}
+
+async function installYtdlp(){
+  if(!confirm('This installs "yt-dlp" (free, open source) into your Python user folder so ChemTutor can read video captions. Continue?'))return;
+  const r=await api('/api/learn/install',{});watchJob(r.job,'job',()=>showLearn())}
+async function addSource(url){
+  url=(url||'').trim();if(!url)return;
+  const r=await api('/api/learn/add',{url});
+  if(r.need_ytdlp){await installYtdlp();return}
+  if(r.error){alert(r.error);return}
+  const m=$('job')||$('job2')||$('ln');watchJob(r.job,$('job')?'job':'job2',()=>showLearn())}
+async function importText(){
+  const r=await api('/api/learn/import',{title:$('ptitle').value,text:$('ptext').value});
+  if(r.error){alert(r.error);return}showLearn()}
+async function askGlobal(){
+  const q=$('gq').value.trim();if(!q)return;$('gans').innerHTML='<div class="msg load"><span class="spin"></span>Looking through your videos…</div>';
+  const r=await api('/api/learn/ask',{question:q});$('gans').innerHTML=answerHTML(r)}
+function srcLinks(srcs){return srcs&&srcs.length?`<div class="hint" style="margin-top:8px">From the videos: ${srcs.map(x=>`<button class="ts" onclick="gotoSource('${x.video_id}',${x.start})">${x.ep?'Ep '+x.ep:esc(x.title.slice(0,18))}${x.t?' @ '+x.t:''}</button>`).join(' ')}</div>`:''}
+function answerHTML(r){return `<div class="msg ${r.reply?'':'err'}"><span class="who">Tutor</span><span class="say">${r.reply?fmt(r.reply):esc(r.error||'Error')}</span>${r.reply?srcLinks(r.sources):''}</div>`}
+async function gotoSource(id,start){if(!lv||lv.id!==id)await openLesson(id);seek(start)}
+
+async function openLesson(id){lv=await api('/api/learn/video?id='+id);if(lv.error){alert(lv.error);lv=null;return}lvTab='notes';lastCheck=null;askLog=[];renderLesson();window.scrollTo(0,0)}
+function seek(sec){const fr=$('yt');if(fr)fr.src=ytEmbed(lv.id,sec,1);fr&&fr.scrollIntoView({block:'center',behavior:'smooth'})}
+function statusBtns(){const s=lv.status;return `<button class="btn ${s==='watched'?'':'ghost'} sm" onclick="setLesson('watched')">${s==='watched'?'✓ ':''}I watched it</button>
+  <button class="btn ${s==='understood'?'':'ghost'} sm" onclick="setLesson('understood')">${s==='understood'?'✓ ':''}I understand it</button>`}
+async function setLesson(st){const r=await api('/api/learn/status',{id:lv.id,status:lv.status===st?'new':st});lv.status=lv.status===st?'new':st;lc=await api('/api/learn');setCov();
+  $('lstat').innerHTML=statusBtns();if(r.covered&&r.covered.length&&lv.status!=='new')$('lmsg').innerHTML=`<span class="hint">Practice unlocked for ${lv.topics.map(esc).join(', ')||'this lesson'}.</span>`;else $('lmsg').innerHTML=''}
+function renderLesson(){
+  const t=lv.title.replace(/: Crash Course Chemistry.*/,'').replace(/ - Crash Course Chemistry.*/,'');
+  $('ln').innerHTML=`<div class="card pad"><div class="meta"><button class="btn ghost sm" onclick="showLearn()">← Course</button>
+      ${lv.ep?`<span class="pill">Episode ${lv.ep}</span>`:''}${lv.topics.map(x=>`<span class="pill lvl">${esc(x)}</span>`).join('')}</div>
+      <h2 style="margin:4px 0 10px">${esc(t)}</h2><div class="actions" style="margin:0" id="lstat">${statusBtns()}</div><div id="lmsg" style="margin-top:6px"></div></div>
+    <div class="lgrid"><div class="card pad">${/^txt-/.test(lv.id)?'<p class="hint">This transcript was pasted in, so there is no video to play here.</p>':`<iframe id="yt" class="video" src="${ytEmbed(lv.id)}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Video"></iframe>
+      <p class="hint" style="margin:8px 0 0">Watch first, then use the tabs. <a href="https://www.youtube.com/watch?v=${lv.id}" target="_blank" rel="noopener">Open on YouTube</a></p>`}</div>
+      <div class="card pad"><div class="ltabs">${[['notes','📝 Notes'],['check','🧠 Check yourself'],['ask','💬 Ask'],['practice','✏️ Practice'],['transcript','📄 Transcript']].map(([k,l])=>`<button class="tab ${lvTab===k?'on':''}" onclick="lvTab='${k}';renderLesson()">${l}</button>`).join('')}</div><div id="lt"></div></div></div>`;
+  ({notes:tabNotes,check:tabCheck,ask:tabAsk,practice:tabPractice,transcript:tabTranscript})[lvTab]()}
+
+function tabNotes(){
+  const n=lv.notes;if(!lv.transcript.length){$('lt').innerHTML='<p>No transcript for this video yet. Paste one under "Add another video" on the course page.</p>';return}
+  if(!n){$('lt').innerHTML=`<p>Study notes are made from what the video says, with timestamps so you can jump back.</p>
+    <button class="btn" onclick="makeNotes()">Make my notes (about 1–2 minutes)</button><div id="njob"></div>`;return}
+  $('lt').innerHTML=`${n.questions.length?`<div class="t">Watch for these</div><ol>${n.questions.map(q=>`<li>${esc(q)}</li>`).join('')}</ol>`:''}
+    ${n.terms.length?`<div class="t">Key terms</div>${n.terms.map(x=>`<div class="term"><b>${esc(x.term)} ${x.t?`<button class="ts" onclick="seek(${x.start})">${x.t}</button>`:''}<button class="ts" onclick="lookup('${esc(x.term).replace(/'/g,'')}')">📋 cheat sheet</button></b><span>${esc(x.definition)}</span></div>`).join('')}`:''}
+    <div class="t">Outline</div>${n.timeline.map(x=>`<div class="cue"><button class="ts" onclick="seek(${x.start})">${x.t||'•'}</button>${esc(x.text)}</div>`).join('')}
+    <p class="hint">Notes are written by your local AI from the transcript. If something looks off, check the transcript tab or rewatch that moment.</p>`}
+async function makeNotes(){const r=await api('/api/learn/notes',{id:lv.id});if(r.error){$('njob').innerHTML=`<div class="banner bad">${esc(r.error)}</div>`;return}
+  watchJob(r.job,'njob',async()=>{lv=await api('/api/learn/video?id='+lv.id);lvTab='notes';renderLesson()})}
+function lookup(term){toggleSheet(true).then(()=>{$('sq').value=term;renderSheet()})}
+
+function tabCheck(){
+  const good=lv.checks.filter(c=>c.verdict==='correct'||c.verdict==='partly').length;
+  $('lt').innerHTML=`<p>Try to answer from memory, without looking at the notes. This checks what you took in from the video.</p>
+    ${lv.checks.length?`<p class="hint">Your answers so far: ${good} of ${lv.checks.length} good.</p>`:''}
+    <div id="chk">${lastCheck?checkFormHTML():`<button class="btn" onclick="newCheck()">Ask me a question</button>`}</div>
+    ${lv.checks.length?`<div class="t" style="margin-top:14px">Earlier</div>${lv.checks.slice(0,5).map(c=>`<div class="cue"><b>${c.verdict==='correct'?'✓':c.verdict==='partly'?'≈':'✕'}</b> ${esc(c.question)}</div>`).join('')}`:''}`}
+function checkFormHTML(){return `<div class="msg"><span class="who">Question</span>${esc(lastCheck.question)}</div>
+  <textarea id="cans" rows="3" style="margin-top:8px" placeholder="Your answer in your own words"></textarea>
+  <div class="actions"><button class="btn" onclick="gradeCheck()">Submit answer</button></div>`}
+async function newCheck(){$('chk').innerHTML='<div class="msg load"><span class="spin"></span>Writing a question from the video…</div>';
+  const r=await api('/api/learn/check',{id:lv.id});if(r.error){$('chk').innerHTML=`<div class="banner bad">${esc(r.error)}</div><button class="btn ghost sm" onclick="newCheck()">Try again</button>`;return}
+  lastCheck=r;$('chk').innerHTML=checkFormHTML();$('cans').focus()}
+async function gradeCheck(){const a=$('cans').value;$('chk').innerHTML='<div class="msg load"><span class="spin"></span>Checking your answer…</div>';
+  const r=await api('/api/learn/grade',{check_id:lastCheck.check_id,answer:a});if(r.error){$('chk').innerHTML=`<div class="banner bad">${esc(r.error)}</div>`;return}
+  const ok=r.verdict==='correct',part=r.verdict==='partly';
+  lv=await api('/api/learn/video?id='+lv.id);const q=lastCheck.question;lastCheck=null;
+  $('chk').innerHTML=`<div class="banner ${ok?'ok':part?'':'bad'}" style="${part?'background:var(--warn-soft)':''}">${ok?'✓ Good':part?'≈ Partly there':r.verdict==='unknown'?'Compare with the answer below':'✕ Not quite'}: ${esc(r.feedback)}</div>
+    <div class="msg" style="margin-top:8px"><span class="who">The video's answer</span>${esc(r.reference)}${r.t?` <button class="ts" onclick="seek(${r.start})">${r.t}</button>`:''}</div>
+    <p class="hint">The AI marks your answer, and it can be wrong: always compare with the video's answer.</p>
+    <div class="actions"><button class="btn" onclick="newCheck()">Another question</button></div>`}
+
+function tabAsk(){
+  $('lt').innerHTML=`<p>Ask anything about this lesson. Answers come from the video first, with timestamps.</p>
+    <div id="alog">${askLog.map(m=>m.q?`<div class="msg" style="background:var(--acc-soft)"><span class="who">You</span>${esc(m.q)}</div>`:answerHTML(m)).join('')}</div>
+    <div class="answer" style="margin-top:8px"><input id="aq" placeholder="Ask a question" onkeydown="if(event.key==='Enter')askHere()"><button class="btn" onclick="askHere()">Ask</button></div>`}
+async function askHere(){const q=$('aq').value.trim();if(!q)return;askLog.push({q});$('aq').value='';tabAsk();
+  $('alog').insertAdjacentHTML('beforeend','<div class="msg load" id="think"><span class="spin"></span>Thinking…</div>');
+  const r=await api('/api/learn/ask',{question:q,id:lv.id});askLog.push(r);tabAsk()}
+
+function tabPractice(){
+  const topics=lv.topics;
+  if(!topics.length){$('lt').innerHTML='<p>No practice problems match this lesson yet (for example organic chemistry is not in the practice bank). Use <b>Check yourself</b> and <b>Ask</b> to learn it.</p>';return}
+  $('lt').innerHTML=`<p>Practice what this lesson taught. These topics are now unlocked once you mark the lesson watched.</p>`+topics.map(t=>{
+    const names=(lc.aliases&&lc.aliases[t])||[t],ps=problems.filter(p=>names.includes(p.topic)),by=[1,2,3,4,5].map(l=>[l,ps.filter(p=>p.level===l).length]).filter(x=>x[1]);
+    return `<div class="card pad" style="margin-bottom:10px"><b>${esc(t)}</b><div class="hint">${ps.length} practice problems${by.length?' · '+by.map(([l,n])=>`L${l}: ${n}`).join(' · '):''}</div>
+      <div class="actions"><button class="btn sm" onclick="practiceTopic('${esc(t)}')">Practice this topic</button></div></div>`}).join('')+
+    `<p class="hint">Start with level 1–2 and use the hint ladder. Open the cheat sheet (<kbd>?</kbd>) any time you forget something.</p>`}
+function practiceTopic(t){const names=(lc.aliases&&lc.aliases[t])||[t];names.forEach(n=>open.add(n));$('q').value='';$('lvl').value='';if($('cov'))$('cov').checked=false;show('study');renderList();
+  const el=[...document.querySelectorAll('.grp')].find(g=>names.some(n=>g.innerText.toUpperCase().includes(n.toUpperCase())));el&&el.scrollIntoView({block:'start'})}
+
+function tabTranscript(){
+  $('lt').innerHTML=`<input id="tq" placeholder="Search this transcript" oninput="filterTranscript()" style="margin-bottom:8px"><div id="tl"></div>`;filterTranscript()}
+function filterTranscript(){const q=($('tq')?.value||'').toLowerCase();
+  $('tl').innerHTML=lv.transcript.filter(c=>!q||c.text.toLowerCase().includes(q)).map(c=>`<div class="cue">${c.t?`<button class="ts" onclick="seek(${c.start})">${c.t}</button>`:''}${esc(c.text)}</div>`).join('')||'<p class="hint">No matches.</p>'}
+
 /* ---- AP free response ---- */
 let fq=null,fqAns={},fqRev=null,fqMarks=[],fqTitles={};
 const stemHTML=t=>t.split('\n').map(l=>/ {3,}/.test(l)?`<div class="mono">${esc(l)}</div>`:`<div>${esc(l)}</div>`).join('');
@@ -602,8 +763,8 @@ async function renderProg(){
 
 function show(v,keep){
   if(exam&&v!=='exam')return;  // closed-book: stay on the exam until submitted or abandoned
-  $('study').hidden=v!=='study';$('dash').hidden=v!=='dash';$('exam').hidden=v!=='exam';$('frq').hidden=v!=='frq';
-  ['study','exam','frq','dash'].forEach(t=>$('tab-'+t).classList.toggle('on',v===t));
-  if(v==='dash')renderProg();if(v==='exam'&&!keep)showExam();if(v==='frq')showFrq()}
+  $('learn').hidden=v!=='learn';$('study').hidden=v!=='study';$('dash').hidden=v!=='dash';$('exam').hidden=v!=='exam';$('frq').hidden=v!=='frq';
+  ['learn','study','exam','frq','dash'].forEach(t=>$('tab-'+t).classList.toggle('on',v===t));
+  if(v==='learn'&&!keep)showLearn();if(v==='dash')renderProg();if(v==='exam'&&!keep)showExam();if(v==='frq')showFrq()}
 init();
 </script></body></html>
