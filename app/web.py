@@ -407,7 +407,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/frq/history":
             return self._json(frq.history(db()))
         if path == "/api/health":  # instant, never touches the AI server (used by the launcher)
-            return self._json({"app": "chemtutor", "version": __version__})
+            return self._json({"app": "chemtutor", "version": __version__, "pid": os.getpid()})
         if path == "/api/ai":
             found = aiconfig.detect(LLM_URL)
             return self._json({"url": LLM_URL, "model": LLM_MODEL, "backends": found, "auto": _auto != "off",
@@ -545,6 +545,12 @@ class Handler(BaseHTTPRequestHandler):
             return self._learn_post(con, problems, body)
         if self.path == "/api/ai":
             return self._ai_select(body)
+        if self.path == "/api/shutdown":  # `chemtutor.py stop`, or a newer launcher replacing this version
+            if not self._is_local():
+                return self._json({"error": "Stop ChemTutor on the computer that runs it."}, 403)
+            self._json({"ok": True})
+            threading.Thread(target=self.server.shutdown, daemon=True).start()
+            return
         p = problems.get(body.get("id", ""))
         if not p:
             return self._json({"error": "unknown problem"}, 404)

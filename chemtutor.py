@@ -6,6 +6,7 @@
     python chemtutor.py ingest FILE.pdf   index a textbook PDF so the tutor can cite pages (optional)
     python chemtutor.py course add [URL]  fetch video captions for Learn mode (default: Crash Course Chemistry)
     python chemtutor.py course list       show the videos you have loaded and your progress
+    python chemtutor.py stop              stop a running ChemTutor (closing its window does the same)
     python chemtutor.py phone             set up the phone app: prints the link to open on your Android phone
     python chemtutor.py phone off         turn phone access off again (phone reset: make old links stop working)
 
@@ -40,6 +41,53 @@ def chemtutor_at(port: int):
         return None
 
 
+def listener_pid(port: int) -> int | None:
+    """Process id listening on this port (Windows/Linux/macOS), or None."""
+    try:
+        if os.name == "nt":
+            out = subprocess.run(["netstat", "-ano", "-p", "tcp"], capture_output=True, text=True, timeout=10).stdout
+            for line in out.splitlines():
+                f = line.split()
+                if len(f) >= 5 and f[3] == "LISTENING" and f[1].rsplit(":", 1)[-1] == str(port):
+                    return int(f[4])
+        else:
+            out = subprocess.run(["lsof", "-ti", f"tcp:{port}", "-sTCP:LISTEN"], capture_output=True, text=True, timeout=10).stdout.split()
+            return int(out[0]) if out else None
+    except (OSError, ValueError, subprocess.SubprocessError):
+        pass
+    return None
+
+
+def stop_server(port: int) -> bool:
+    """Stop the ChemTutor answering on this port: politely first, then by process id. True once the port is free."""
+    health = chemtutor_at(port)
+    if not health:
+        return True
+    try:
+        req = urllib.request.Request(f"http://127.0.0.1:{port}/api/shutdown", b"{}", {"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=5).read()
+    except Exception:  # noqa: BLE001  (older versions have no such request)
+        pass
+    for _ in range(30):
+        if not chemtutor_at(port) and not port_busy(port):
+            return True
+        time.sleep(0.2)
+    pid = health.get("pid") or listener_pid(port)  # confirmed ChemTutor by /api/health above
+    if pid and pid != os.getpid():
+        try:
+            if os.name == "nt":
+                subprocess.run(["taskkill", "/PID", str(pid), "/F"], capture_output=True, timeout=10)
+            else:
+                os.kill(int(pid), 15)
+        except (OSError, subprocess.SubprocessError):
+            pass
+    for _ in range(30):
+        if not port_busy(port):
+            return True
+        time.sleep(0.2)
+    return False
+
+
 def port_busy(port: int) -> bool:
     import socket
     with socket.socket() as s:
@@ -68,23 +116,37 @@ def ai_tips(web) -> list[str]:
 def cmd_run(args, web) -> int:
     port = web.PORT
     url = f"http://127.0.0.1:{port}"
-    if chemtutor_at(port):
+    from app import __version__
+    running = chemtutor_at(port)
+    if running and running.get("version") == __version__:
         say(f"ChemTutor is already running at {url}")
         if not args.no_browser:
             webbrowser.open(url)
         return 0
+    if running:  # an older copy (for example from before an update) would keep showing the old app
+        say(f"ChemTutor {running.get('version')} is still running from before the update. Replacing it with {__version__}...")
+        if not stop_server(port):
+            say(f"Could not stop it. Close its window, or end the python.exe using port {port} in Task Manager, then start again.")
+            return 1
     if port_busy(port):
         say(f"Port {port} is in use by another program. Try:  python chemtutor.py --port {port + 1}")
         return 1
     from app import remote
     phone = remote.enabled()
     server = web.make_server(remote_access=phone)
-    threading.Thread(target=server.serve_forever, daemon=True).start()
+    stopped = threading.Event()
+
+    def serve():
+        try:
+            server.serve_forever()
+        finally:
+            stopped.set()
+
+    threading.Thread(target=serve, daemon=True).start()
     for _ in range(40):
         if chemtutor_at(port):
             break
         time.sleep(0.1)
-    from app import __version__
     say(f"ChemTutor {__version__} is running at {url}")
     for line in ai_tips(web):
         say(line)
@@ -94,12 +156,22 @@ def cmd_run(args, web) -> int:
     if not args.no_browser:
         webbrowser.open(url)
     try:
-        while True:
-            time.sleep(1)
+        while not stopped.wait(1):  # ends when something asks the server to stop (python chemtutor.py stop)
+            pass
+        say("ChemTutor was stopped. Your progress is saved.")
     except KeyboardInterrupt:
         say("\nStopping ChemTutor. Your progress is saved.")
         server.shutdown()
     return 0
+
+
+def cmd_stop(args, web) -> int:
+    port = web.PORT
+    if not chemtutor_at(port):
+        say(f"ChemTutor is not running on port {port}.")
+        return 0
+    say("Stopping ChemTutor..." if stop_server(port) else f"Could not stop ChemTutor on port {port}.")
+    return 0 if not chemtutor_at(port) else 1
 
 
 def cmd_doctor(args, web) -> int:
@@ -255,7 +327,7 @@ def cmd_phone(args, web) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="ChemTutor launcher")
-    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest", "course", "phone"])
+    ap.add_argument("command", nargs="?", default="run", choices=["run", "doctor", "ingest", "course", "phone", "stop"])
     ap.add_argument("file", nargs="?", help="PDF to index (ingest), or add/list (course)")
     ap.add_argument("extra", nargs="?", help="URL for: course add")
     ap.add_argument("--port", type=int)
@@ -274,7 +346,7 @@ def main() -> int:
     from app import web
     if args.command in ("run", "doctor"):
         web.init_llm()
-    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course, "phone": cmd_phone}[args.command](args, web)
+    return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course, "phone": cmd_phone, "stop": cmd_stop}[args.command](args, web)
 
 
 if __name__ == "__main__":

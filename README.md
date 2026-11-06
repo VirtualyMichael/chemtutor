@@ -152,12 +152,13 @@ zip, so your progress is kept.
 | Learn tab asks to install `yt-dlp` | Click Install, or `python -m pip install --user yt-dlp`. Captions are fetched only from YouTube, from your computer. |
 | Learn tab says captions failed (HTTP 429) | YouTube rate-limited you. Wait a few minutes and run `python chemtutor.py course add` again; it skips videos it already has. |
 | Phone says "not paired" or "Can't reach your computer" | Run `python chemtutor.py phone` again and open the new link; make sure ChemTutor is running on the computer and Tailscale is connected on both devices. |
+| An old ChemTutor keeps opening after an update | Start ChemTutor again: it now replaces an older running copy by itself. `python chemtutor.py stop` (or `Stop ChemTutor.bat`) stops it; closing its window does too. |
 | Shortcut missing | Run `python setup.py` again, or start with `Start ChemTutor.bat`. |
 
 ## Development
 
 ```bash
-python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote tests.test_aiconfig
+python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote tests.test_aiconfig tests.test_launcher
 python scripts/generate_problems.py     # regenerate data/problems/generated.json (deterministic)
 python scripts/build_frq.py             # regenerate data/frq/ap_frq.json
 python scripts/make_icon.py             # redraw assets/chemtutor.ico
