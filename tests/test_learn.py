@@ -252,6 +252,44 @@ class ImportText(unittest.TestCase):
             learn.import_text(con, "x", "   ")
 
 
+class YtDlpDetection(unittest.TestCase):
+    def setUp(self):
+        self.old = (learn._probe_ytdlp, dict(learn._yt_state))
+        learn._yt_state.update(ok=False, t=0.0)
+
+    def tearDown(self):
+        learn._probe_ytdlp = self.old[0]
+        learn._yt_state.update(self.old[1])
+
+    def test_installed_while_the_app_is_running_is_noticed(self):
+        answers, calls = [False, True], []
+        learn._probe_ytdlp = lambda: calls.append(1) or answers[len(calls) - 1]
+        self.assertFalse(learn.have_ytdlp())
+        self.assertFalse(learn.have_ytdlp())
+        self.assertEqual(len(calls), 1)                       # a "no" is only re-checked every few seconds
+        learn._yt_state["t"] -= 10                            # a little time passes (the user clicked Install)
+        self.assertTrue(learn.have_ytdlp())
+        self.assertTrue(learn.have_ytdlp())
+        self.assertEqual(len(calls), 2)                       # and a "yes" is remembered
+
+    def test_probe_uses_a_fresh_interpreter_when_the_import_fails_here(self):
+        import subprocess
+        real_run = subprocess.run
+        seen = {}
+
+        def fake_run(cmd, *a, **k):
+            seen["cmd"] = cmd
+            return type("R", (), {"returncode": 0})()
+        learn.importlib.util.find_spec, orig = (lambda name: None), learn.importlib.util.find_spec
+        subprocess.run = fake_run
+        try:
+            self.assertTrue(learn._probe_ytdlp())
+        finally:
+            subprocess.run = real_run
+            learn.importlib.util.find_spec = orig
+        self.assertEqual(seen["cmd"][1:], ["-c", "import yt_dlp"])
+
+
 class LearnServer(ServerTest):
     def setUp(self):
         self.real_llm = web.llm

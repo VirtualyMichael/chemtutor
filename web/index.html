@@ -566,7 +566,7 @@ function renderCourse(){
     <p style="color:var(--mut);margin:0 0 12px">Watch the Crash Course Chemistry videos. ChemTutor reads their captions so it knows exactly what each episode taught,
     then helps you learn it: study notes with timestamps, questions to check you understood, a tutor that answers from the videos, and practice problems that unlock for the topics you've covered.</p>
     <p style="color:var(--mut);font-size:13px;margin:0 0 14px">The captions are saved only on this computer. Nothing is uploaded.</p>
-    ${lc.ytdlp?'':`<div class="lock" style="margin-bottom:12px">To read captions, ChemTutor uses <b>yt-dlp</b>, a free open-source tool. <button class="btn sm" onclick="installYtdlp()">Install it</button></div>`}
+    ${lc.ytdlp?'':`<div class="lock" style="margin-bottom:12px">To read captions, ChemTutor uses <b>yt-dlp</b>, a free open-source tool. <button class="btn sm" onclick="installYtdlp(()=>addSource('${esc(lc.playlist)}'))">Install it and load the course</button></div>`}
     <button class="btn" onclick="addSource('${esc(lc.playlist)}')">Load Crash Course Chemistry (47 videos)</button><div id="job"></div></div>`:'';
   const list=v.length?`<div class="card pad"><div class="meta"><b style="font-size:17px">Crash Course Chemistry</b><span class="pill">${done} of ${v.length} done</span></div>
       <div class="bar pbig"><i style="width:${pct(done,v.length)}%"></i></div>
@@ -586,13 +586,14 @@ function renderCourse(){
       <input id="ptitle" placeholder="Title of the video" style="margin-bottom:8px"><textarea id="ptext" rows="5" placeholder="Paste the transcript here"></textarea>
       <div style="margin-top:8px"><button class="btn ghost sm" onclick="importText()">Import transcript</button></div><div id="job2"></div></details>`}
 
-async function installYtdlp(){
+async function installYtdlp(then){
   if(!confirm('This installs "yt-dlp" (free, open source) into your Python user folder so ChemTutor can read video captions. Continue?'))return;
-  const r=await api('/api/learn/install',{});watchJob(r.job,'job',()=>showLearn())}
+  const r=await api('/api/learn/install',{});
+  watchJob(r.job,$('job')?'job':'job2',()=>then?then():showLearn())}
 async function addSource(url){
   url=(url||'').trim();if(!url)return;
   const r=await api('/api/learn/add',{url});
-  if(r.need_ytdlp){await installYtdlp();return}
+  if(r.need_ytdlp){await installYtdlp(()=>addSource(url));return}
   if(r.error){alert(r.error);return}
   const m=$('job')||$('job2')||$('ln');watchJob(r.job,$('job')?'job':'job2',()=>showLearn())}
 async function importText(){

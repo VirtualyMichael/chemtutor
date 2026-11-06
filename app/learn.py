@@ -465,8 +465,28 @@ def ask(con, question: str, llm, video_id: str | None = None) -> dict:
 
 
 # ------------------------------------------------------------------ fetching (yt-dlp, run as a subprocess; English captions only)
+_yt_state = {"ok": False, "t": 0.0}
+
+
+def _probe_ytdlp() -> bool:
+    """Can a fresh Python import yt_dlp? (A package installed after this process started is only visible to a new process:
+    Python does not pick up a user-packages folder that did not exist at startup.)"""
+    if importlib.util.find_spec("yt_dlp") is not None:
+        return True
+    try:
+        return subprocess.run([sys.executable, "-c", "import yt_dlp"], capture_output=True, timeout=30).returncode == 0
+    except Exception:
+        return False
+
+
 def have_ytdlp() -> bool:
-    return importlib.util.find_spec("yt_dlp") is not None
+    """Cached: a yes is remembered, a no is re-checked at most every few seconds (so installing it mid-session just works)."""
+    if _yt_state["ok"]:
+        return True
+    now = time.time()
+    if now - _yt_state["t"] >= 3:
+        _yt_state.update(ok=_probe_ytdlp(), t=now)
+    return _yt_state["ok"]
 
 
 def _yt(args: list[str], timeout: int = 120) -> subprocess.CompletedProcess:
@@ -475,7 +495,9 @@ def _yt(args: list[str], timeout: int = 120) -> subprocess.CompletedProcess:
 
 def install_ytdlp() -> tuple[bool, str]:
     r = subprocess.run([sys.executable, "-m", "pip", "install", "--user", "--quiet", "yt-dlp"], capture_output=True, text=True, timeout=300)
-    return r.returncode == 0, (r.stderr or r.stdout)[-300:]
+    importlib.invalidate_caches()
+    _yt_state.update(ok=False, t=0.0)          # look again right away
+    return r.returncode == 0 and have_ytdlp(), (r.stderr or r.stdout)[-300:]
 
 
 def list_source(url: str) -> tuple[str, list[dict]]:
