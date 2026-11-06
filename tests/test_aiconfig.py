@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app import aiconfig, library, web  # noqa: E402
 
 
-def fake(models, reply="ok", think_tokens=0, reject_effort=False, seen=None):
+def fake(models, reply="ok", think_tokens=0, reject_effort=False, seen=None, host="127.0.0.1"):
     class H(BaseHTTPRequestHandler):
         def log_message(self, *a):
             pass
@@ -38,9 +38,9 @@ def fake(models, reply="ok", think_tokens=0, reject_effort=False, seen=None):
                 return self._send({"choices": [{"finish_reason": "length", "message": {"content": "", "reasoning_content": "hmm"}}]})
             self._send({"choices": [{"finish_reason": "stop", "message": {"content": reply}}]})
 
-    srv = ThreadingHTTPServer(("127.0.0.1", 0), H)
+    srv = ThreadingHTTPServer((host, 0), H)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
-    return srv, f"http://127.0.0.1:{srv.server_address[1]}/v1"
+    return srv, f"http://{host}:{srv.server_address[1]}/v1"
 
 
 class Pure(unittest.TestCase):
@@ -55,10 +55,11 @@ class Pure(unittest.TestCase):
         self.assertIsNone(aiconfig.best_model([]))
 
     def test_aliases(self):
-        self.assertEqual(aiconfig.resolve_url("lmstudio"), "http://localhost:1234/v1")
-        self.assertEqual(aiconfig.resolve_url("OLLAMA"), "http://localhost:11434/v1")
+        self.assertEqual(aiconfig.resolve_url("lmstudio"), "http://127.0.0.1:1234/v1")
+        self.assertEqual(aiconfig.resolve_url("OLLAMA"), "http://127.0.0.1:11434/v1")
         self.assertEqual(aiconfig.resolve_url("http://x:1/v1"), "http://x:1/v1")
         self.assertEqual(aiconfig.backend_name("http://localhost:1234/v1/"), "LM Studio")
+        self.assertEqual(aiconfig.backend_name("http://100.64.1.2:11434/v1"), "Ollama")
 
     def test_auto_pick_prefers_default_model_then_largest(self):
         a = {"name": "A", "url": "http://a/v1", "up": True, "models": ["gemma-2b"]}
@@ -72,7 +73,8 @@ class Pure(unittest.TestCase):
 class Servers(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.old = (library.HOME, library.DB, aiconfig.BACKENDS, web.LLM_URL, web.LLM_MODEL, web._auto)
+        self.old = (library.HOME, library.DB, aiconfig.BACKENDS, web.LLM_URL, web.LLM_MODEL, web._auto, aiconfig._other_addresses)
+        aiconfig._other_addresses = lambda: []
         library.HOME = Path(self.tmp.name)
         library.DB = library.HOME / "t.sqlite3"
         self.s1, self.u1 = fake(["qwen2.5:7b", "nomic-embed-text:latest"])
@@ -84,7 +86,7 @@ class Servers(unittest.TestCase):
         for s in (self.s1, self.s2):
             s.shutdown()
             s.server_close()
-        library.HOME, library.DB, aiconfig.BACKENDS, web.LLM_URL, web.LLM_MODEL, web._auto = self.old
+        library.HOME, library.DB, aiconfig.BACKENDS, web.LLM_URL, web.LLM_MODEL, web._auto, aiconfig._other_addresses = self.old
         web._llm_cache["t"] = 0.0
         self.tmp.cleanup()
 
@@ -152,6 +154,22 @@ class Servers(unittest.TestCase):
         out = hints.generate(p, 1, lambda *a: "")
         self.assertTrue(out["fallback"])
         self.assertTrue(out["reply"])
+
+    def test_server_that_listens_only_on_another_address_is_found(self):
+        # e.g. LM Studio's "network interface" setting pointed at the Tailscale address instead of localhost
+        srv, alt = fake(["m-8b"], host="127.0.0.2")
+        port = alt.split(":")[2].split("/")[0]
+        try:
+            aiconfig.BACKENDS = [("Ollama", self.u1), ("LM Studio", f"http://127.0.0.1:{port}/v1")]
+            aiconfig._other_addresses = lambda: ["127.0.0.2"]
+            found = aiconfig.detect()
+            self.assertTrue(found[1]["up"])
+            self.assertEqual(found[1]["url"], alt)
+            self.assertEqual(found[1]["models"], ["m-8b"])
+            self.assertEqual(aiconfig.auto_pick(found, "nope")[0], self.u1 if found[0]["up"] and found[0]["models"] else alt)
+        finally:
+            srv.shutdown()
+            srv.server_close()
 
     def test_choice_is_saved_and_restored(self):
         aiconfig.save(self.u2, "lmstudio-community/qwen2.5-14b-instruct")

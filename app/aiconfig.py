@@ -6,11 +6,12 @@ chat model on the first server found. Stdlib only.
 """
 from __future__ import annotations
 import json, re, urllib.request
+from urllib.parse import urlparse, urlunparse
 
 from . import library
 
 DEFAULT_MODEL = "qwen2.5:7b"
-BACKENDS = [("Ollama", "http://localhost:11434/v1"), ("LM Studio", "http://localhost:1234/v1")]
+BACKENDS = [("Ollama", "http://127.0.0.1:11434/v1"), ("LM Studio", "http://127.0.0.1:1234/v1")]  # 127.0.0.1, not "localhost": that can resolve to IPv6 and time out
 ALIASES = {"ollama": BACKENDS[0][1], "lmstudio": BACKENDS[1][1], "lm-studio": BACKENDS[1][1], "lm studio": BACKENDS[1][1]}
 NOT_CHAT = ("embed", "rerank", "whisper", "tts", "clip", "voxtral", "audio", "vision-only")
 AVOID = ("uncensored", "abliterated", "heretic", "coder", "roleplay", "nsfw")  # fine-tunes that make worse tutors
@@ -23,11 +24,11 @@ def resolve_url(value: str) -> str:
 
 
 def backend_name(url: str) -> str:
-    u = (url or "").rstrip("/")
+    u = urlparse(url or "")
     for name, b in BACKENDS:
-        if u == b.rstrip("/"):
+        if u.netloc.replace("localhost", "127.0.0.1") == urlparse(b).netloc:
             return name
-    return "AI server"
+    return {11434: "Ollama", 1234: "LM Studio"}.get(u.port, "AI server")  # same ports on another address of this computer
 
 
 def _file():
@@ -64,14 +65,42 @@ def list_models(url: str, timeout: float = 1.0) -> list[str] | None:
     return [i for i in ids if i and not any(w in i.lower() for w in NOT_CHAT)]
 
 
+def _other_addresses() -> list[str]:
+    """This computer's other addresses (Wi-Fi, Tailscale): LM Studio can be set to listen on just one of them."""
+    try:
+        from . import remote
+        ips = remote.local_addresses()
+        ts = remote.tailscale_info().get("ip")
+        return ips + ([ts] if ts and ts not in ips else [])
+    except Exception:  # noqa: BLE001
+        return []
+
+
 def detect(extra_url: str | None = None) -> list[dict]:
-    """[{name, url, up, models}] for every known server (plus the configured one if it is somewhere else)."""
+    """[{name, url, up, models}] for every known server (plus the configured one if it is somewhere else).
+    If a server does not answer on 127.0.0.1 its port is tried on this computer's other addresses."""
     urls = [u for _, u in BACKENDS]
-    if extra_url and extra_url.rstrip("/") not in [u.rstrip("/") for u in urls]:
-        urls.append(extra_url)
+    others: list[str] | None = None
+    if extra_url:
+        host, port = urlparse(extra_url).hostname or "", urlparse(extra_url).port
+        known_ports = [urlparse(u).port for u in urls]
+        if port in known_ports and host not in ("127.0.0.1", "localhost"):
+            others = _other_addresses()
+        same_machine = host in ("127.0.0.1", "localhost") or host in (others or [])
+        if not (port in known_ports and same_machine):
+            urls.append(extra_url)  # a server somewhere else the user pointed us at
     out = []
     for u in urls:
         m = list_models(u, 0.6)
+        if m is None and u in [b for _, b in BACKENDS]:
+            others = _other_addresses() if others is None else others
+            port = urlparse(u).port
+            for ip in others:
+                alt = urlunparse(urlparse(u)._replace(netloc=f"{ip}:{port}"))
+                m2 = list_models(alt, 0.6)
+                if m2 is not None:
+                    u, m = alt, m2
+                    break
         out.append({"name": backend_name(u), "url": u, "up": m is not None, "models": m or []})
     return out
 

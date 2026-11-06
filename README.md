@@ -146,7 +146,7 @@ zip, so your progress is kept.
 | Symptom | Fix |
 | --- | --- |
 | "Python was not found" | Install Python 3.10+ and tick *Add to PATH*, then run the installer again. |
-| Badge says **AI offline** | Start Ollama, or in LM Studio turn on *Developer > Start server*, then reload the page. Run `python chemtutor.py doctor`. |
+| Badge says **AI offline** | Start Ollama, or in LM Studio turn on *Developer > Start server*, then reload the page. ChemTutor also finds LM Studio when its server is set to listen on your Wi-Fi or Tailscale address instead of localhost. Run `python chemtutor.py doctor`. |
 | Badge says **Choose a model** | The server is running but the model you chose is gone. Click the badge and pick one (or `ollama pull qwen2.5:7b`). |
 | "Port 8765 is in use" | `python chemtutor.py --port 8766` |
 | Learn tab asks to install `yt-dlp` | Click Install, or `python -m pip install --user yt-dlp`. Captions are fetched only from YouTube, from your computer. |

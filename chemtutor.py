@@ -9,7 +9,7 @@
     python chemtutor.py phone             set up the phone app: prints the link to open on your Android phone
     python chemtutor.py phone off         turn phone access off again (phone reset: make old links stop working)
 
-Options: --port 8765  --model qwen2.5:7b  --llm-url http://localhost:11434/v1  --no-browser
+Options: --port 8765  --model qwen2.5:7b  --llm-url http://127.0.0.1:11434/v1  --no-browser
 Ollama and LM Studio are detected automatically; pick a model from the badge in the app, or force one with
 --llm-url ollama|lmstudio|http://host:port/v1 and --model NAME. Any OpenAI-compatible local server works.
 """

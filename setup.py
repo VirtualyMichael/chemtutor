@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 MODEL = os.environ.get("LLM_MODEL", "qwen2.5:7b")
-LLM_URL = os.environ.get("LLM_URL", "http://localhost:11434/v1")
+LLM_URL = os.environ.get("LLM_URL", "http://127.0.0.1:11434/v1")
 ICON, PNG = ROOT / "assets" / "chemtutor.ico", ROOT / "assets" / "chemtutor.png"
 IS_WIN, IS_MAC = sys.platform == "win32", sys.platform == "darwin"
 
