@@ -86,7 +86,16 @@ def check_app() -> bool:
 
 
 def check_ai(ask: Ask, no_model: bool) -> None:
-    step("Local AI tutor (Ollama)")
+    step("Local AI tutor (Ollama or LM Studio)")
+    sys.path.insert(0, str(ROOT))
+    from app import aiconfig
+    ready = [b for b in aiconfig.detect() if b["up"] and b["models"]]
+    if ready:
+        b = ready[0]
+        say(f"OK: {b['name']} is running with {len(b['models'])} model(s). ChemTutor picks one automatically;")
+        say("you can change it any time from the model badge (top right of the app).")
+        return
+    say("(No AI server with models found yet. Ollama or LM Studio both work.)")
     ollama = find_ollama()
     names = llm_models()
     if names is not None and any(n == MODEL for n in names):

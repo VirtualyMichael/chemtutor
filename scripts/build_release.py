@@ -25,7 +25,7 @@ START_HERE = """ChemTutor {v}  -  START HERE
 
 3. Double-click the ChemTutor icon. Your browser opens the app. Close the small black window to stop it.
 
-The AI tutor (hints, explanations) uses Ollama, a free program: https://ollama.com/download
+The AI tutor (hints, explanations) uses Ollama (https://ollama.com/download) or LM Studio (https://lmstudio.ai), both free.
 Everything else works without it. Full instructions: README.md
 
 Not on Windows?  Run:  python3 chemtutor.py

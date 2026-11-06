@@ -1,27 +1,56 @@
 """Chemistry study web app: problems, code-based answer checking, local-LLM tutor, progress.
 
 Stdlib only. Run:  python -m app.web   then open http://127.0.0.1:8765
-LLM: any OpenAI-compatible endpoint (Ollama default; LM Studio: set LLM_URL=http://localhost:1234/v1).
+LLM: Ollama or LM Studio (any OpenAI-compatible endpoint); detected automatically, or choose from the model badge.
 """
 from __future__ import annotations
-import json, math, os, re, sqlite3, sys, threading, urllib.request
+import json, math, os, re, sqlite3, sys, threading, urllib.error, urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 import time
 
-from . import __version__, exams, frq, hints, learn, library, reference, remote, srs
+from . import __version__, aiconfig, exams, frq, hints, learn, library, reference, remote, srs
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEMS_DIR = ROOT / "data" / "problems"
 WEB_DIR = ROOT / "web"
-LLM_URL = os.environ.get("LLM_URL", "http://localhost:11434/v1")
-LLM_MODEL = os.environ.get("LLM_MODEL", "qwen2.5:7b")
+LLM_URL = aiconfig.resolve_url(os.environ.get("LLM_URL", aiconfig.BACKENDS[0][1]))
+LLM_MODEL = os.environ.get("LLM_MODEL", aiconfig.DEFAULT_MODEL)
 PORT = int(os.environ.get("PORT", "8765"))
+_auto = "off"  # "all": detect Ollama and LM Studio; "url": only the configured server; "off": settings are exact (see init_llm)
 
 
 _llm_cache: dict = {"t": 0.0, "v": (False, False, [])}
+
+
+def init_llm() -> None:
+    """Pick the AI server and model at startup (called by the launcher, not by the tests)."""
+    global LLM_URL, LLM_MODEL, _auto
+    url_set, model_set = "LLM_URL" in os.environ, "LLM_MODEL" in os.environ
+    saved = aiconfig.load()
+    if not url_set and saved.get("url") and saved.get("model") and not model_set:
+        LLM_URL, LLM_MODEL = saved["url"], saved["model"]
+    _auto = "off" if model_set else ("url" if url_set else "all")
+    _llm_cache["t"] = 0.0
+    if _auto != "off":
+        auto_select()
+
+
+def auto_select() -> None:
+    """If the configured model is not available, switch to one that is (default model first, else the largest chat model)."""
+    global LLM_URL, LLM_MODEL
+    found = aiconfig.detect(LLM_URL)
+    if _auto == "url":
+        found = [b for b in found if b["url"].rstrip("/") == LLM_URL.rstrip("/")]
+    cur = next((b for b in found if b["url"].rstrip("/") == LLM_URL.rstrip("/")), None)
+    if cur and cur["up"] and aiconfig.has_model(LLM_MODEL, cur["models"]):
+        return
+    pick = aiconfig.auto_pick(found, LLM_MODEL, LLM_URL)
+    if pick:
+        LLM_URL, LLM_MODEL = pick
+        _llm_cache["t"] = 0.0
 
 
 def llm_status(force: bool = False):
@@ -29,13 +58,14 @@ def llm_status(force: bool = False):
     now = time.time()
     if not force and now - _llm_cache["t"] < 5:
         return _llm_cache["v"]
-    try:
-        with urllib.request.urlopen(LLM_URL.rstrip("/") + "/models", timeout=1.0) as r:
-            names = [m.get("id", "") for m in json.load(r).get("data", [])]
-        ok = (True, any(n == LLM_MODEL or n.split(":")[0] == LLM_MODEL.split(":")[0] and ":" not in LLM_MODEL for n in names), names)
-    except Exception:
-        ok = (False, False, [])
+    names = aiconfig.list_models(LLM_URL, 1.0)
+    ok = (False, False, []) if names is None else (True, aiconfig.has_model(LLM_MODEL, names), names)
     _llm_cache.update(t=now, v=ok)
+    if not ok[1] and _auto != "off":
+        before = (LLM_URL, LLM_MODEL)
+        auto_select()
+        if (LLM_URL, LLM_MODEL) != before:
+            return llm_status(True)
     return ok
 
 
@@ -100,14 +130,36 @@ BASE = ("You are a patient chemistry tutor for a self-taught beginner. Be concis
 
 
 def llm(messages: list[dict], max_tokens: int | None = None, temperature: float = 0.3) -> str:
-    payload = {"model": LLM_MODEL, "messages": messages, "temperature": temperature}
-    if max_tokens:
-        payload["max_tokens"] = max_tokens
-    body = json.dumps(payload).encode()
-    req = urllib.request.Request(LLM_URL.rstrip("/") + "/chat/completions", body,
-                                 {"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        return json.load(r)["choices"][0]["message"]["content"]
+    budget = max_tokens
+    # LM Studio: skip the long "thinking" phase of reasoning models. A tutor hint does not need it, and it can
+    # turn a 4 second reply into 2 minutes. Servers/models that do not know the setting ignore it (or we retry without).
+    quick = aiconfig.backend_name(LLM_URL) == "LM Studio"
+    for attempt in (1, 2):
+        payload = {"model": LLM_MODEL, "messages": messages, "temperature": temperature}
+        if budget:
+            payload["max_tokens"] = budget
+        while True:
+            if quick:
+                payload["reasoning_effort"] = "none"
+            req = urllib.request.Request(LLM_URL.rstrip("/") + "/chat/completions", json.dumps(payload).encode(),
+                                         {"Content-Type": "application/json"})
+            try:
+                with urllib.request.urlopen(req, timeout=240) as r:
+                    choice = json.load(r)["choices"][0]
+                break
+            except urllib.error.HTTPError as e:
+                if quick and e.code in (400, 422):
+                    quick = False
+                    payload.pop("reasoning_effort", None)
+                    continue
+                raise
+        text = choice["message"].get("content") or ""
+        # reasoning models (DeepSeek-R1, Qwen3, Gemma...) think first; some servers inline it in <think> tags
+        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S).replace("</think>", "").strip()
+        if text or attempt == 2 or not budget or choice.get("finish_reason") != "length":
+            return text
+        budget = budget * 4 + 1500  # the thinking used up the whole budget: give the answer room and ask again
+    return ""
 
 
 def final_answer(p: dict) -> str:
@@ -245,6 +297,31 @@ class Handler(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", 0))
         return json.loads(self.rfile.read(n) or b"{}")
 
+    def _is_local(self) -> bool:
+        """Browser on this computer (not a paired phone): only it may change which AI server is used."""
+        return (not getattr(self.server, "remote", False)) or remote.is_local_request(self.client_address[0], self.headers)
+
+    def _ai_select(self, body):
+        global LLM_URL, LLM_MODEL, _auto
+        if not self._is_local():
+            return self._json({"error": "Choose the AI model on the computer running ChemTutor."}, 403)
+        if body.get("auto"):
+            aiconfig.forget()
+            _auto = "all"
+            auto_select()
+            return self._json({"url": LLM_URL, "model": LLM_MODEL})
+        url, model = aiconfig.resolve_url(str(body.get("url", ""))), str(body.get("model", "")).strip()
+        known = [b["url"].rstrip("/") for b in aiconfig.detect(LLM_URL)]
+        if url.rstrip("/") not in known or not model:
+            return self._json({"error": "Pick one of the detected servers and a model."}, 400)
+        names = aiconfig.list_models(url, 2.0)
+        if names is None or model not in names:
+            return self._json({"error": "That model is not offered by that server right now."}, 400)
+        LLM_URL, LLM_MODEL, _auto = url, model, "off"
+        aiconfig.save(url, model)
+        _llm_cache["t"] = 0.0
+        return self._json({"url": LLM_URL, "model": LLM_MODEL})
+
     def _gate(self, query_key: str = "") -> bool:
         """Phone access. True means the request was answered (blocked or redirected) and must stop here."""
         if not getattr(self.server, "remote", False):
@@ -331,9 +408,13 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(frq.history(db()))
         if path == "/api/health":  # instant, never touches the AI server (used by the launcher)
             return self._json({"app": "chemtutor", "version": __version__})
+        if path == "/api/ai":
+            found = aiconfig.detect(LLM_URL)
+            return self._json({"url": LLM_URL, "model": LLM_MODEL, "backends": found, "auto": _auto != "off",
+                               "can_change": self._is_local()})
         if path == "/api/config":
             up, have, names = llm_status()
-            return self._json({"model": LLM_MODEL, "llm_url": LLM_URL, "version": __version__,
+            return self._json({"model": LLM_MODEL, "llm_url": LLM_URL, "backend": aiconfig.backend_name(LLM_URL), "version": __version__,
                                "llm_ok": up and have, "llm_reachable": up, "models": names[:20]})
         f = WEB_DIR / ("index.html" if path in ("/", "") else path.lstrip("/"))
         if f.is_file() and WEB_DIR in f.resolve().parents:
@@ -462,6 +543,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._frq_post(con, problems, body)
         if self.path.startswith("/api/learn/"):
             return self._learn_post(con, problems, body)
+        if self.path == "/api/ai":
+            return self._ai_select(body)
         p = problems.get(body.get("id", ""))
         if not p:
             return self._json({"error": "unknown problem"}, 404)

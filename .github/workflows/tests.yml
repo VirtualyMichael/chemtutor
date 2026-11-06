@@ -18,7 +18,7 @@ jobs:
       - name: Compile everything
         run: python -m compileall -q app scripts chemtutor.py setup.py
       - name: Unit and server tests
-        run: python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote -v
+        run: python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote tests.test_aiconfig -v
       - name: Doctor
         run: python chemtutor.py doctor
         env:

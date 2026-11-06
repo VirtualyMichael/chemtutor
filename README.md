@@ -57,26 +57,36 @@ transcript: it can make mistakes, so every item shows a timestamp to check again
 
 ### The AI tutor (optional but recommended)
 
-Hints, explanations, "check my work" and free-response feedback use a model running on your computer through
-[Ollama](https://ollama.com/download) (free). The installer offers to download the default model, `qwen2.5:7b`
-(about 4.7 GB, one time). Or do it yourself:
+Hints, explanations, "check my work", Learn-mode notes and free-response feedback use a model running on your computer.
+**Ollama and LM Studio both work**, and ChemTutor finds whichever is running:
+
+- **Ollama** (free, [download](https://ollama.com/download)): the installer offers the default model, `qwen2.5:7b`
+  (about 4.7 GB, one time), or run `ollama pull qwen2.5:7b`.
+- **LM Studio** ([download](https://lmstudio.ai)): download any chat model in its Discover tab, then open the **Developer**
+  tab and turn on **Start server** (port 1234). You can load bigger and newer models there than most people run in Ollama.
+
+Click the **model badge** (top right of the app) to see every model your servers offer and pick one. If you do not pick,
+ChemTutor chooses a plain chat model of up to about 14B parameters (bigger ones are often too slow at home), and switches
+by itself if the server you were using goes away. Your choice is remembered. A phone paired to your computer can see the
+model but only the computer itself can change it.
+
+Tips: **reasoning models** (those that "think" first) work, but ChemTutor asks LM Studio to skip the thinking because a
+tutor hint does not need it (4 seconds instead of 2 minutes in our test). 7-14B models are a good balance; 30B+ models
+explain better but answer slowly unless you have a strong GPU. Embedding and speech models are ignored.
+
+Without an AI everything else still works: practice, grading, spaced repetition, mock exams, free-response checking
+and the cheat sheet.
+
+Force a server or model from the command line (this overrides the badge):
 
 ```bash
-ollama pull qwen2.5:7b
+python chemtutor.py --llm-url lmstudio --model qwen2.5-7b-instruct
+python chemtutor.py --llm-url ollama --model llama3.1:8b
+python chemtutor.py --llm-url http://localhost:1234/v1      # any OpenAI-compatible server
 ```
 
-Without Ollama everything else still works: practice, grading, spaced repetition, mock exams, free-response checking
-and the cheat sheet. A small badge in the top bar shows whether the AI is ready.
-
-Use a different model or server (for example LM Studio) with flags:
-
-```bash
-python chemtutor.py --model llama3.1:8b
-python chemtutor.py --llm-url http://localhost:1234/v1 --model your-loaded-model
-```
-
-A 7B model is good for explanations but can make arithmetic slips. That is why answers are checked in code and the
-solutions to generated problems are computed rather than asked of the model.
+Even good models can make arithmetic slips. That is why answers are checked in code and the solutions to generated
+problems are computed rather than asked of the model.
 
 ## Other systems / manual start
 
@@ -136,8 +146,8 @@ zip, so your progress is kept.
 | Symptom | Fix |
 | --- | --- |
 | "Python was not found" | Install Python 3.10+ and tick *Add to PATH*, then run the installer again. |
-| Badge says **AI offline** | Start the Ollama app, then reload the page. Run `python chemtutor.py doctor`. |
-| Badge says **model not installed** | `ollama pull qwen2.5:7b` (or pass `--model` for one you have). |
+| Badge says **AI offline** | Start Ollama, or in LM Studio turn on *Developer > Start server*, then reload the page. Run `python chemtutor.py doctor`. |
+| Badge says **Choose a model** | The server is running but the model you chose is gone. Click the badge and pick one (or `ollama pull qwen2.5:7b`). |
 | "Port 8765 is in use" | `python chemtutor.py --port 8766` |
 | Learn tab asks to install `yt-dlp` | Click Install, or `python -m pip install --user yt-dlp`. Captions are fetched only from YouTube, from your computer. |
 | Learn tab says captions failed (HTTP 429) | YouTube rate-limited you. Wait a few minutes and run `python chemtutor.py course add` again; it skips videos it already has. |
@@ -147,7 +157,7 @@ zip, so your progress is kept.
 ## Development
 
 ```bash
-python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote
+python -m unittest tests.test_learn tests.test_server tests.test_frq tests.test_generated tests.test_exams tests.test_hints tests.test_remote tests.test_aiconfig
 python scripts/generate_problems.py     # regenerate data/problems/generated.json (deterministic)
 python scripts/build_frq.py             # regenerate data/frq/ap_frq.json
 python scripts/make_icon.py             # redraw assets/chemtutor.ico

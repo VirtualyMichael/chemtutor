@@ -10,7 +10,8 @@
     python chemtutor.py phone off         turn phone access off again (phone reset: make old links stop working)
 
 Options: --port 8765  --model qwen2.5:7b  --llm-url http://localhost:11434/v1  --no-browser
-Any OpenAI-compatible local server works (Ollama by default; for LM Studio use --llm-url http://localhost:1234/v1).
+Ollama and LM Studio are detected automatically; pick a model from the badge in the app, or force one with
+--llm-url ollama|lmstudio|http://host:port/v1 and --model NAME. Any OpenAI-compatible local server works.
 """
 from __future__ import annotations
 import argparse, json, os, subprocess, sys, threading, time, urllib.request, webbrowser
@@ -47,16 +48,20 @@ def port_busy(port: int) -> bool:
 
 
 def ai_tips(web) -> list[str]:
+    from app import aiconfig
     up, have, names = web.llm_status(force=True)
+    who = aiconfig.backend_name(web.LLM_URL)
     if have:
-        return [f"AI tutor ready: {web.LLM_MODEL}"]
+        return [f"AI tutor ready: {web.LLM_MODEL} on {who}"]
+    if up and names:
+        return [f"{who} is running but '{web.LLM_MODEL}' is not available.",
+                f"  Choose one of your models with the model badge in the app (top right), or use --model. Available: {', '.join(names[:8])}"]
     if up:
-        return [f"The AI server is running but '{web.LLM_MODEL}' is not installed.",
-                f"  Install it once with:  ollama pull {web.LLM_MODEL}",
-                f"  (or choose an installed model with --model; installed: {', '.join(names) or 'none'})"]
-    return [f"AI tutor not detected at {web.LLM_URL}.",
-            f"  Hints, explanations and AI feedback need a local model. Install Ollama from {OLLAMA_URL}",
-            f"  then run:  ollama pull {web.LLM_MODEL}",
+        return [f"{who} is running but has no chat models yet.",
+                "  Ollama: ollama pull " + aiconfig.DEFAULT_MODEL, "  LM Studio: download a model in its Discover tab (e.g. Qwen2.5 7B Instruct)"]
+    return ["No AI server found (looked for Ollama on :11434 and LM Studio on :1234).",
+            f"  Ollama: install from {OLLAMA_URL}, then run:  ollama pull {aiconfig.DEFAULT_MODEL}",
+            "  LM Studio: install from https://lmstudio.ai, download a model, open the Developer tab and turn on 'Start server'.",
             "  Practice problems, mock exams, the cheat sheet and free-response checking work without it."]
 
 
@@ -267,6 +272,8 @@ def main() -> int:
             os.environ[key] = str(val)
     sys.path.insert(0, str(ROOT))
     from app import web
+    if args.command in ("run", "doctor"):
+        web.init_llm()
     return {"run": cmd_run, "doctor": cmd_doctor, "ingest": cmd_ingest, "course": cmd_course, "phone": cmd_phone}[args.command](args, web)
 
 

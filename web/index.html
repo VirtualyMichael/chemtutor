@@ -194,6 +194,10 @@ kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid
 .bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}.bar i{display:block;height:100%;background:var(--ok);border-radius:99px;transition:width .4s}
 .bar.attempted i{background:var(--acc)}
 [hidden]{display:none!important}
+button.badge{border:0;font:inherit;font-size:13px;cursor:pointer;color:var(--mut)}button.badge:hover{background:var(--bd)}
+dialog#aid{border:1px solid var(--bd);border-radius:var(--r);background:var(--surface);color:var(--fg);padding:18px;width:min(460px,92vw);max-height:84vh;overflow:auto}
+dialog#aid::backdrop{background:rgba(0,0,0,.45)}.mut{color:var(--mut)}
+.aib{border:1px solid var(--bd);border-radius:10px;padding:10px 12px;margin-bottom:8px}.aim{display:flex;gap:8px;align-items:center;padding:4px 0;font-size:14px}.aim input{width:auto;min-height:0}
 
 /* phone: tabs move to a bottom bar, bigger tap targets */
 @media(max-width:700px){
@@ -224,7 +228,7 @@ kbd{font:12px ui-monospace,monospace;background:var(--surface2);border:1px solid
   </nav>
   <div class="spacer"></div>
   <button class="sbtn" id="sbtn" onclick="toggleSheet()" title="Formulas, constants, periodic table (press ?)">📋<span class="lbl"> Cheat sheet</span></button>
-  <div class="badge" title="Local model"><span class="dot" id="dot"></span><span id="model">connecting…</span></div>
+  <button class="badge" id="aibtn" onclick="aiDialog()" title="Choose the AI model"><span class="dot" id="dot"></span><span id="model">connecting…</span> <span aria-hidden="true">▾</span></button>
 </header>
 
 <div class="app" id="learn" style="grid-template-columns:1fr">
@@ -296,13 +300,40 @@ function fmt(t){
   return esc(clean(t)).replace(/^#{1,4}\s*(.+)$/gm,'<h4>$1</h4>').replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>')
     .replace(/`([^`\n]+)`/g,'<code>$1</code>')}
 
+/* ---- AI model (Ollama or LM Studio) ---- */
+async function refreshAI(){
+  try{const c=await api('/api/config');const b=$('aibtn');
+    if(c.llm_ok){$('model').textContent=c.model;$('dot').className='dot up';b.title=c.backend+' · '+c.model+' (click to change)'}
+    else if(c.llm_reachable){$('model').textContent='Choose a model';$('dot').className='dot down';b.title=c.backend+' is running but "'+c.model+'" is not available. Click to choose one.'}
+    else{$('model').textContent='AI offline';$('dot').className='dot down';b.title='Start Ollama or LM Studio (see README). Practice, exams and the cheat sheet still work. Click for details.'}}
+  catch{$('model').textContent='server offline';$('dot').className='dot down'}}
+async function aiDialog(){
+  const a=await api('/api/ai');let d=$('aid');if(!d){d=document.createElement('dialog');d.id='aid';document.body.appendChild(d)}
+  const up=a.backends.filter(b=>b.up);
+  const rows=a.backends.map(b=>`<div class="aib"><b>${esc(b.name)}</b> <span class="mut">${b.up?(b.models.length?b.models.length+' model'+(b.models.length>1?'s':''):'running, no models yet'):'not running'}</span>
+    ${b.models.map(m=>`<label class="aim"><input type="radio" name="aim" value="${esc(b.url+'|'+m)}" ${b.url.replace(/\/$/,'')===a.url.replace(/\/$/,'')&&m===a.model?'checked':''}> ${esc(m)}</label>`).join('')}</div>`).join('');
+  d.innerHTML=`<h3 style="margin:0 0 4px">AI model</h3>
+    <p class="mut" style="margin:0 0 10px">ChemTutor works with <b>Ollama</b> and <b>LM Studio</b>. Pick any chat model they offer; bigger models give better explanations and notes.</p>
+    ${rows}
+    ${up.length?'':`<p><b>No AI server found.</b> Start Ollama, or in LM Studio open the <i>Developer</i> tab and turn on <i>Start server</i> (port 1234), then reopen this.</p>`}
+    ${a.can_change?'':'<p class="mut">Change the model on the computer that runs ChemTutor.</p>'}
+    <div id="aimsg" class="mut" style="min-height:1.4em"></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+      <button class="btn ghost sm" onclick="aiSave(true)" ${a.can_change?'':'disabled'}>Automatic</button>
+      <button class="btn ghost sm" onclick="$('aid').close()">Close</button>
+      <button class="btn sm" onclick="aiSave()" ${a.can_change&&up.length?'':'disabled'}>Use selected</button></div>`;
+  d.showModal()}
+async function aiSave(auto){
+  const sel=document.querySelector('#aid input[name=aim]:checked');
+  if(!auto&&!sel){$('aimsg').textContent='Pick a model first.';return}
+  const body=auto?{auto:true}:{url:sel.value.split('|')[0],model:sel.value.split('|').slice(1).join('|')};
+  const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const j=await r.json();
+  if(!r.ok){$('aimsg').textContent=j.error||'Could not change the model.';return}
+  $('aid').close();await refreshAI()}
+
 /* ---- sidebar ---- */
 async function init(){
-  try{const c=await api('/api/config');const b=$('model').closest('.badge');
-    if(c.llm_ok){$('model').textContent=c.model;$('dot').className='dot up';b.title='Local AI model ready'}
-    else if(c.llm_reachable){$('model').textContent=c.model+' not installed';$('dot').className='dot down';b.title='Run: ollama pull '+c.model}
-    else{$('model').textContent='AI offline';$('dot').className='dot down';b.title='Start Ollama (see README). Practice, exams and the cheat sheet still work.'}}
-  catch{$('model').textContent='server offline';$('dot').className='dot down'}
+  await refreshAI();
   problems=await api('/api/problems');status=await api('/api/status');renderList();await refreshReview();
   const a=await api('/api/exam/active');if(a.exam)beginRun(a.exam);else showLearn()}  // resume an exam in progress, else open Learn
 

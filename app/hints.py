@@ -80,7 +80,7 @@ def generate(problem: dict, level: int, llm, tries: int = 3) -> dict:
     msgs, rejected = build(problem, level), []
     for _ in range(tries):
         reply = llm(msgs, 160, 0.2).strip()
-        why = leak_reason(reply, problem, level)
+        why = "it was empty" if not reply else leak_reason(reply, problem, level)
         if not why:
             return {"reply": reply, "fallback": False, "rejected": rejected}
         rejected.append(why)
